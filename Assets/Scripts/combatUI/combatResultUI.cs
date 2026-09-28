@@ -20,6 +20,11 @@ public class CombatResultUI : MonoBehaviour
     [SerializeField] private float floatSpeed = 3f;
     [SerializeField] private float floatAmplitude = 10f;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip victorySound;
+    [SerializeField] private AudioClip defeatSound;
+    [SerializeField] private float volume = 1f;
+
     private RectTransform activeBannerRect;
     private Vector2 originalBannerPos;
     private bool isFloating = false;
@@ -53,6 +58,15 @@ public class CombatResultUI : MonoBehaviour
         // Start defeat banner massive, start victory banner at 0
         activeBannerRect.localScale = isVictory ? Vector3.zero : Vector3.one * 3f;
         originalBannerPos = activeBannerRect.anchoredPosition;
+
+        if (isVictory && victorySound != null)
+        {
+            AudioManager.Instance.PlaySFX(victorySound, volume);
+        }
+        else if (!isVictory && defeatSound != null)
+        {
+            AudioManager.Instance.PlaySFX(defeatSound, volume);
+        }
 
         StartCoroutine(AnimateBannerSequence());
     }

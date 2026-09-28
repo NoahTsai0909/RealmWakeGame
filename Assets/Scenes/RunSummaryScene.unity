@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 292128376}
   - component: {fileID: 292128375}
   - component: {fileID: 292128374}
+  - component: {fileID: 292128377}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -552,6 +553,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292128372}
   m_CullTransparentMesh: 1
+--- !u!114 &292128377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292128372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8451bb0e35f971a4ea14cb7da8e23019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverSound: {fileID: 8300000, guid: 518d658617e74654399a4b7260c8868a, type: 3}
+  clickSound: {fileID: 8300000, guid: fddebce6bd9c5304298de51431e6b2f8, type: 3}
+  volume: 1
 --- !u!1 &468747966
 GameObject:
   m_ObjectHideFlags: 0

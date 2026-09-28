@@ -64,11 +64,12 @@ public class Farmer : UnitInstance
 
     private void OnDestroy()
     {
-        CombatEventBus.OnCombatEvent -= HandleCombatEvent;
+        CombatEventBus.OnCombatEnd -= HandleCombatEnd;
     }
 
     private void HandleCombatEnd()
     {
+        if (this == null) return;
         if (this.isPlayer)
         {
             RunManager.Instance.Stats.CurrentGold += goldReward;

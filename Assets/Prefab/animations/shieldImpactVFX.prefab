@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8442584803888952170}
   - component: {fileID: 8424292735841198413}
-  - component: {fileID: 7857771864727143882}
   - component: {fileID: -5837049419642814892}
+  - component: {fileID: 1682564808377348272}
   m_Layer: 0
   m_Name: shieldImpactVFX
   m_TagString: Untagged
@@ -56,7 +56,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!212 &7857771864727143882
+--- !u!114 &-5837049419642814892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5704024670665266947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef9e651343e0004cbc06df2dffee71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXAutoDestroy
+  lifetime: 1.5
+--- !u!212 &1682564808377348272
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -105,26 +118,13 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1859800191, guid: 8d4d68611faaaf1428e8bbb65d887879, type: 3}
-  m_Color: {r: 1, g: 0.7213456, b: 0.29874206, a: 1}
+  m_Sprite: {fileID: 1869143182725814159, guid: 460795897dc6cc449ab40c67c500cc21, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.3333335, y: 5.3333335}
+  m_Size: {x: 4.2666664, y: 4.2749996}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-5837049419642814892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704024670665266947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ef9e651343e0004cbc06df2dffee71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VFXAutoDestroy
-  lifetime: 1.5

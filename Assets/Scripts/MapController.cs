@@ -8,8 +8,6 @@ using UnityEngine.InputSystem;
 
 public class MapController : MonoBehaviour
 {
-    [SerializeField] private Button prepSceneButton;
-    [SerializeField] private Button mainMenuButton;
 
     [Header("Event Display")]
     [SerializeField] private Transform eventButtonContainer;
@@ -25,6 +23,8 @@ public class MapController : MonoBehaviour
     [SerializeField] private Button closePreviewButton;
     [SerializeField] public GridManager previewGrid;
     [SerializeField] private TacticBarManager enemyTacticBarManager;
+
+    [SerializeField] private AudioClip levelUpSound;
 
     [Header("Transition Overlay")]
     [SerializeField] private Image blackScreenOverlay;
@@ -62,6 +62,7 @@ public class MapController : MonoBehaviour
 
         if (previewOverlay != null) previewOverlay.SetActive(false);
         if (enemyTacticBarManager != null) enemyTacticBarManager.gameObject.SetActive(false);
+        RunManager.Instance.SetAdventureMusic();
     }
 
     void Update()
@@ -230,7 +231,10 @@ public class MapController : MonoBehaviour
         {
             RunManager.Instance.Stats.Experience -= nextLevelEvent.xpRequired;
             RunManager.Instance.Stats.PlayerLevel++;
-
+            if (levelUpSound != null)
+            {
+                AudioManager.Instance.PlayJingle(levelUpSound, 1f);
+            }
             nextLevelEvent.OnSelected();
             return true; 
         }

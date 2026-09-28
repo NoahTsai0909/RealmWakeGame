@@ -2611,8 +2611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f08423dbd29a94429d966feacc1ae46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapController
-  prepSceneButton: {fileID: 0}
-  mainMenuButton: {fileID: 0}
   eventButtonContainer: {fileID: 1104518864}
   eventButtonPrefab: {fileID: 3868932556007029388, guid: c8556ac4b786308449cc338fb4417250, type: 3}
   eventInfoPanel: {fileID: 395568448}
@@ -2622,6 +2620,7 @@ MonoBehaviour:
   closePreviewButton: {fileID: 418060208}
   previewGrid: {fileID: 442680188}
   enemyTacticBarManager: {fileID: 1554166071}
+  levelUpSound: {fileID: 8300000, guid: 1871407d271fca14d960d898efb235e3, type: 3}
   blackScreenOverlay: {fileID: 2056231996}
   hoverOffset: {x: 0, y: 300, z: 0}
   isTransitioning: 0

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Collections;
 using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
@@ -12,9 +13,11 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource jingleSource;
 
     private Dictionary<AudioClip, float> clipLastPlayedTime = new Dictionary<AudioClip, float>();
     private float soundCooldown = 0.05f;
+    private Coroutine currentMusicRoutine;
 
     private void Awake()
     {
@@ -36,6 +39,14 @@ public class AudioManager : MonoBehaviour
         SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 0.75f));
     }
 
+    public void PlayJingle(AudioClip clip, float volumeMultiplier = 1f)
+    {
+        if (clip != null && jingleSource != null)
+        {
+            jingleSource.PlayOneShot(clip, volumeMultiplier);
+        }
+    }
+
     public void PlaySFX(AudioClip clip, float volumeMultiplier = 1f)
     {
         if (clip != null && sfxSource != null)
@@ -51,6 +62,71 @@ public class AudioManager : MonoBehaviour
             }
             clipLastPlayedTime[clip] = currentTime;
             sfxSource.PlayOneShot(clip, volumeMultiplier);
+        }
+    }
+
+    public void PlayMusicWithFade(AudioClip clip, float fadeDuration = 2f)
+    {
+        if (clip == null || musicSource == null) return;
+
+        // Don't restart the routine if the exact same song is already playing
+        if (musicSource.clip == clip && musicSource.isPlaying) return;
+
+        if (currentMusicRoutine != null)
+        {
+            StopCoroutine(currentMusicRoutine);
+        }
+
+        currentMusicRoutine = StartCoroutine(MusicLoopRoutine(clip, fadeDuration));
+    }
+
+    private IEnumerator MusicLoopRoutine(AudioClip clip, float fadeDuration)
+    {
+        if (musicSource.isPlaying && musicSource.volume > 0)
+        {
+            float startVolume = musicSource.volume;
+            float transitionElapsed = 0f;
+
+            while (transitionElapsed < fadeDuration)
+            {
+                transitionElapsed += Time.unscaledDeltaTime;
+                musicSource.volume = Mathf.Lerp(startVolume, 0f, transitionElapsed / fadeDuration);
+                yield return null;
+            }
+            musicSource.Stop();
+        }
+
+        musicSource.loop = false;
+        musicSource.clip = clip;
+
+        float playDuration = clip.length - (fadeDuration * 2);
+        if (playDuration < 0) playDuration = 0.1f;
+
+        while (true)
+        {
+            musicSource.volume = 0f;
+            musicSource.Play();
+
+            float elapsed = 0f;
+            while (elapsed < fadeDuration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                musicSource.volume = Mathf.Lerp(0f, 1f, elapsed / fadeDuration);
+                yield return null;
+            }
+            musicSource.volume = 1f;
+            yield return new WaitForSecondsRealtime(playDuration);
+
+            elapsed = 0f;
+            while (elapsed < fadeDuration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                musicSource.volume = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
+                yield return null;
+            }
+
+            musicSource.volume = 0f;
+            musicSource.Stop();
         }
     }
 

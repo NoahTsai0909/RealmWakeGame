@@ -73,3 +73,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d52efd378c21b144adbca05c8d334ba, type: 2}
   - {fileID: 11400000, guid: 83c8117e7c3bd3d4db765474a21944c4, type: 2}
   - {fileID: 11400000, guid: 9d32c87b3ef26884788cce3610147e71, type: 2}
+  adventureMusic: {fileID: 8300000, guid: 368b801d1090fcc43a0a42b7c176cc32, type: 3}

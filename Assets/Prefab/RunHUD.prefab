@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 616067452445585717}
   - component: {fileID: 3096886720038437854}
   - component: {fileID: 3806996226789166611}
+  - component: {fileID: 6084014083679490407}
   m_Layer: 0
   m_Name: inspectStatsButton
   m_TagString: Untagged
@@ -335,6 +336,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6084014083679490407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940562246158509117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8451bb0e35f971a4ea14cb7da8e23019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverSound: {fileID: 8300000, guid: 518d658617e74654399a4b7260c8868a, type: 3}
+  clickSound: {fileID: 8300000, guid: fddebce6bd9c5304298de51431e6b2f8, type: 3}
+  volume: 1
 --- !u!1 &1548111476027262565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1168,7 @@ GameObject:
   - component: {fileID: 8467757773331753673}
   - component: {fileID: 1099044800417125375}
   - component: {fileID: 2330290843064813133}
+  - component: {fileID: 6024057167873366190}
   m_Layer: 0
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -1260,6 +1277,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6024057167873366190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598802469165152381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8451bb0e35f971a4ea14cb7da8e23019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverSound: {fileID: 8300000, guid: 518d658617e74654399a4b7260c8868a, type: 3}
+  clickSound: {fileID: 8300000, guid: fddebce6bd9c5304298de51431e6b2f8, type: 3}
+  volume: 1
 --- !u!1 &3967726199041098019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +1945,7 @@ GameObject:
   - component: {fileID: 4984985110072256319}
   - component: {fileID: 3936913787270365316}
   - component: {fileID: 3296635326045963460}
+  - component: {fileID: 42461442305294066}
   m_Layer: 0
   m_Name: SquadButton
   m_TagString: Untagged
@@ -2021,6 +2054,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &42461442305294066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7043671555850668675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8451bb0e35f971a4ea14cb7da8e23019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverSound: {fileID: 8300000, guid: 518d658617e74654399a4b7260c8868a, type: 3}
+  clickSound: {fileID: 8300000, guid: fddebce6bd9c5304298de51431e6b2f8, type: 3}
+  volume: 1
 --- !u!1 &7149861154403487406
 GameObject:
   m_ObjectHideFlags: 0

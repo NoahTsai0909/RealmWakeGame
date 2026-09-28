@@ -152,10 +152,11 @@ public class gameManager : MonoBehaviour
 
     private void EndCombat(bool playerWon, bool isDraw)
     {
+        if (!combatActive) return;
+        combatActive = false;
         CombatEventBus.PublishCombatEnd();
         if (playerTacticBarManager != null) playerTacticBarManager.StopCombat();
         if (enemyTacticBarManager != null) enemyTacticBarManager.StopCombat();
-        combatActive = false;
 
         foreach (var unit in playerGrid.GetAllUnits()) if (unit != null) unit.inCombat = false;
         foreach (var unit in enemyGrid.GetAllUnits()) if (unit != null) unit.inCombat = false;
@@ -358,6 +359,8 @@ public class gameManager : MonoBehaviour
                 battleUIManager.RemoveUnitUI(unit);
             }
         }
+        foreach (var unit in playerGrid.GetAllUnits()) if (unit != null) Destroy(unit.gameObject);
+        foreach (var unit in enemyGrid.GetAllUnits()) if (unit != null) Destroy(unit.gameObject);
         playerGrid.ClearAllUnits();
         enemyGrid.ClearAllUnits();
 
@@ -401,6 +404,8 @@ public class gameManager : MonoBehaviour
             foreach (var unit in playerGrid.GetAllUnits()) battleUIManager.RemoveUnitUI(unit);
             foreach (var unit in enemyGrid.GetAllUnits()) battleUIManager.RemoveUnitUI(unit);
         }
+        foreach (var unit in playerGrid.GetAllUnits()) if (unit != null) Destroy(unit.gameObject);
+        foreach (var unit in enemyGrid.GetAllUnits()) if (unit != null) Destroy(unit.gameObject);
         playerGrid.ClearAllUnits();
         enemyGrid.ClearAllUnits();
 
@@ -461,6 +466,10 @@ public class gameManager : MonoBehaviour
         }
 
         benchGrid.gameObject.SetActive(false);
+        foreach (var u in units)
+        {
+            if (u != null) Destroy(u.gameObject);
+        }
         benchGrid.ClearAllUnits();
         benchTransform.position = originalBenchPos;
     }

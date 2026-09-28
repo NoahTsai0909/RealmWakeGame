@@ -20,4 +20,7 @@ public class AdventureDefinitionSO : ScriptableObject
 
     [Tooltip("Combat encounters specific to this adventure.")]
     public List<BaseEventSO> combatEvents = new List<BaseEventSO>();
+
+    [Tooltip("Audio clips specific to this adventure.")]
+    public AudioClip adventureMusic;
 }

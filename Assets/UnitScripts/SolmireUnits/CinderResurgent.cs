@@ -26,6 +26,7 @@ public class CinderResurgent : UnitInstance
         enemies = FindAllEnemies();
         foreach (UnitInstance enemy in enemies)
         {
+            bool isFirstTarget = true;
             if (enemy != null && enemy != this)
             {
                 CombatManager.Instance.ExecuteAction(
@@ -36,9 +37,11 @@ public class CinderResurgent : UnitInstance
                         target = enemy,
                         amount = stats.Burn,
                         reason = "Cinder Resurgent Burn",
-                        isCrit = abilityCrit
+                        isCrit = abilityCrit,
+                        isAoEExtraHit = !isFirstTarget
                     }
                 );
+                isFirstTarget = false;
             }
         }
     }

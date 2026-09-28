@@ -29,6 +29,13 @@ public class DragAndDropManager : MonoBehaviour
     [SerializeField] private GameObject consumeVFXPrefab; 
     [SerializeField] private GameObject receiveBuffVFXPrefab;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip consumeVFXSound;
+    [SerializeField] private AudioClip dragUnitSound;
+    [SerializeField] private AudioClip dropUnitSound;
+    [SerializeField] private AudioClip sellSound;
+    [SerializeField] private float volume = 1f;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -155,6 +162,10 @@ public class DragAndDropManager : MonoBehaviour
 
         tactic.isDragging = true;
 
+        if (dragUnitSound != null)
+        {
+            AudioManager.Instance.PlaySFX(dragUnitSound, volume);
+        }
         SetTacticDragVisuals(tactic, true);
     }
 
@@ -167,6 +178,11 @@ public class DragAndDropManager : MonoBehaviour
         SyncTacticPlacements();
 
         SetTacticDragVisuals(draggedTactic, false);
+        
+        if (dropUnitSound != null)
+        {
+            AudioManager.Instance.PlaySFX(dropUnitSound, volume);
+        }
 
         draggedTactic = null;
         draggedTacticPlacement = null;
@@ -217,6 +233,10 @@ public class DragAndDropManager : MonoBehaviour
         sourceGrid.RemoveUnit(sourcePos.x, sourcePos.y, destroyVisual: false);
         SetUnitDragVisuals(unit, true);
 
+        if (dragUnitSound != null)
+        {
+            AudioManager.Instance.PlaySFX(dragUnitSound, volume);
+        }
         if (battleGrid != null) battleGrid.ShowGridVisuals();
         if (benchGrid != null) benchGrid.ShowGridVisuals();
     }
@@ -250,6 +270,11 @@ public class DragAndDropManager : MonoBehaviour
                     if (consumeVFXPrefab != null)
                     {
                         Instantiate(consumeVFXPrefab, draggedUnit.transform.position, Quaternion.identity);
+                    }
+
+                    if (consumeVFXSound != null)
+                    {
+                        AudioManager.Instance.PlaySFX(consumeVFXSound, volume);
                     }
 
                     if (receiveBuffVFXPrefab != null)
@@ -346,6 +371,11 @@ public class DragAndDropManager : MonoBehaviour
         draggedPlacement = null;
         sourceGrid = null;
 
+        if (dropUnitSound != null)
+        {
+            AudioManager.Instance.PlaySFX(dropUnitSound, volume);
+        }
+
         if (provisionManager != null) provisionManager.CalculateCurrentProvision();
         if (battleGrid != null) battleGrid.RefreshAllAuras();
         if (benchGrid != null) benchGrid.RefreshAllAuras();
@@ -359,6 +389,10 @@ public class DragAndDropManager : MonoBehaviour
 
     void RevertDrag()
     {
+        if (dropUnitSound != null)
+        {
+            AudioManager.Instance.PlaySFX(dropUnitSound, volume);
+        }
         sourceGrid.PlaceUnit(draggedPlacement, sourcePos.x, sourcePos.y, draggedUnit);
         draggedPlacement.row = sourcePos.x;
         draggedPlacement.col = sourcePos.y;
@@ -427,6 +461,11 @@ public class DragAndDropManager : MonoBehaviour
         if (battleGrid != null) battleGrid.RefreshAllAuras();
         if (benchGrid != null) benchGrid.RefreshAllAuras();
         if (playerTacticBar != null) playerTacticBar.RefreshAllTacticAuras();
+
+        if (sellSound != null)
+        {
+            AudioManager.Instance.PlaySFX(sellSound, volume);
+        }
     }
 
     void RemoveFromRunManager(UnitInstance unit, UnitPlacement placement)

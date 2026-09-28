@@ -30,7 +30,6 @@ public class Belcher : UnitInstance
 
     protected override void HandleCombatEvent(CombatEventType type, UnitInstance source, UnitInstance target, int amount)
     {
-        if (!inCombat || currentSuffix == null) return;
         if (type != CombatEventType.AbilityUsed) return;
         if (source.isPlayer != this.isPlayer) return;
         if (source.col != this.col) return;

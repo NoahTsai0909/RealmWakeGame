@@ -1,0 +1,620 @@
+fileFormatVersion: 2
+guid: 0e492b921156b8a4ab20ff030c2c866a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -63126232534346189
+    second: burnImpact 1_0
+  - first:
+      213: 6542954269910837815
+    second: burnImpact 1_1
+  - first:
+      213: -7834624765200183743
+    second: burnImpact 1_2
+  - first:
+      213: 5722593521245780455
+    second: burnImpact 1_3
+  - first:
+      213: 9114749031601919616
+    second: burnImpact 1_4
+  - first:
+      213: -7567614586083146688
+    second: burnImpact 1_5
+  - first:
+      213: 6762256292931197557
+    second: burnImpact 1_6
+  - first:
+      213: 8863299989444769843
+    second: burnImpact 1_7
+  - first:
+      213: -1961303287989179993
+    second: burnImpact 1_8
+  - first:
+      213: 3579923291250351205
+    second: burnImpact 1_9
+  - first:
+      213: 4401077849708431933
+    second: burnImpact 1_10
+  - first:
+      213: -5517296473353879249
+    second: burnImpact 1_11
+  - first:
+      213: 3806046666664006568
+    second: burnImpact 1_12
+  - first:
+      213: -1966263008969358002
+    second: burnImpact 1_13
+  - first:
+      213: -5657874168493993029
+    second: burnImpact 1_14
+  - first:
+      213: 2931617103956164802
+    second: burnImpact 1_15
+  - first:
+      213: 4143945026359021307
+    second: burnImpact 1_16
+  - first:
+      213: -8744473595974891377
+    second: burnImpact 1_17
+  - first:
+      213: 7209860619025346488
+    second: burnImpact 1_18
+  - first:
+      213: -4777821135724791678
+    second: burnImpact 1_19
+  - first:
+      213: 1499266938521451570
+    second: burnImpact 1_20
+  - first:
+      213: 1036476202167916468
+    second: burnImpact 1_21
+  - first:
+      213: 3381884792513879402
+    second: burnImpact 1_22
+  - first:
+      213: 574115730056249788
+    second: burnImpact 1_23
+  - first:
+      213: -8548349975432501006
+    second: burnImpact 1_24
+  - first:
+      213: 1812005747685920720
+    second: burnImpact 1_25
+  - first:
+      213: -6538516884701964969
+    second: burnImpact 1_26
+  - first:
+      213: -5012840822369011735
+    second: burnImpact 1_27
+  - first:
+      213: -6684357601116303861
+    second: burnImpact 1_28
+  - first:
+      213: 627697316128693083
+    second: burnImpact 1_29
+  - first:
+      213: -8335361837851822128
+    second: burnImpact 1_30
+  - first:
+      213: -5868701779090869827
+    second: burnImpact 1_31
+  - first:
+      213: 7983949072164240436
+    second: burnImpact 1_32
+  - first:
+      213: -4883812541136187510
+    second: burnImpact 1_33
+  - first:
+      213: -8213013206167142782
+    second: burnImpact 1_34
+  - first:
+      213: 1577336657698095344
+    second: burnImpact 1_35
+  - first:
+      213: -4931094798369992149
+    second: burnImpact 1_36
+  - first:
+      213: -636116706378378174
+    second: burnImpact 1_37
+  - first:
+      213: -5530867551744706099
+    second: burnImpact 1_38
+  - first:
+      213: 3345533026071257145
+    second: burnImpact 1_39
+  - first:
+      213: -8040488736773296371
+    second: burnImpact 1_40
+  - first:
+      213: 25394383748072321
+    second: burnImpact 1_41
+  - first:
+      213: -602659791501087718
+    second: burnImpact 1_42
+  - first:
+      213: 813842562098768811
+    second: burnImpact 1_43
+  - first:
+      213: -6983940964102505762
+    second: burnImpact 1_44
+  - first:
+      213: 5622609009107676708
+    second: burnImpact 1_45
+  - first:
+      213: -6447535798101198776
+    second: burnImpact 1_46
+  - first:
+      213: 492470840685469523
+    second: burnImpact 1_47
+  - first:
+      213: -5894042726482049713
+    second: burnImpact 1_48
+  - first:
+      213: -4688556907266875669
+    second: burnImpact 1_49
+  - first:
+      213: 4818556817125356952
+    second: burnImpact 1_50
+  - first:
+      213: 6154176279084819444
+    second: burnImpact 1_51
+  - first:
+      213: -6375912528306872593
+    second: burnImpact 1_52
+  - first:
+      213: -8911654840405279142
+    second: burnImpact 1_53
+  - first:
+      213: 2282836443967138226
+    second: burnImpact 1_54
+  - first:
+      213: 7490078404711219122
+    second: burnImpact 1_55
+  - first:
+      213: 2052749339133058434
+    second: burnImpact 1_56
+  - first:
+      213: 1198502386809903348
+    second: burnImpact 1_57
+  - first:
+      213: 5666269579104055763
+    second: burnImpact 1_58
+  - first:
+      213: -6218876904379092364
+    second: burnImpact 1_59
+  - first:
+      213: -7556018546148047920
+    second: burnImpact 1_60
+  - first:
+      213: -8107985896231980236
+    second: burnImpact 1_61
+  - first:
+      213: 791134275290404630
+    second: burnImpact 1_62
+  - first:
+      213: -6921101881668697391
+    second: burnImpact 1_63
+  - first:
+      213: -2253043606234793968
+    second: burnImpact 1_64
+  - first:
+      213: 736937792574786801
+    second: burnImpact 1_65
+  - first:
+      213: -8549087916454430306
+    second: burnImpact 1_66
+  - first:
+      213: 2839439509561923171
+    second: burnImpact 1_67
+  - first:
+      213: -5284478907629261756
+    second: burnImpact 1_68
+  - first:
+      213: -4073020289291780366
+    second: burnImpact 1_69
+  - first:
+      213: 4898239779509031081
+    second: burnImpact 1_70
+  - first:
+      213: -8314117027848799354
+    second: burnImpact 1_71
+  - first:
+      213: -6320618241151033155
+    second: burnImpact 1_72
+  - first:
+      213: -3361621076916832077
+    second: burnImpact 1_73
+  - first:
+      213: -6737712993698280236
+    second: burnImpact 1_74
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: burnImpact 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33618c5a60bbf1ff0800000000000000
+      internalID: -63126232534346189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73a29af0e3e3dca50800000000000000
+      internalID: 6542954269910837815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ec3c12942d54390800000000000000
+      internalID: -7834624765200183743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e97ecbec7cba6f40800000000000000
+      internalID: 5722593521245780455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086d775c3f71e7e70800000000000000
+      internalID: 9114749031601919616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 044037ff0ae6af690800000000000000
+      internalID: -7567614586083146688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a505c354c58dd50800000000000000
+      internalID: 6762256292931197557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33834907164c00b70800000000000000
+      internalID: 8863299989444769843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a9699e0d0d08c4e0800000000000000
+      internalID: -1961303287989179993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56cdf1224417ea130800000000000000
+      internalID: 3579923291250351205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3a06b48cf4c31d30800000000000000
+      internalID: 4401077849708431933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burnImpact 1_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f210a31e610ae63b0800000000000000
+      internalID: -5517296473353879249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 950899d89f61fb0469a3b2c75a9df6c0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":12.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      burnImpact 1_0: -63126232534346189
+      burnImpact 1_1: 6542954269910837815
+      burnImpact 1_10: 4401077849708431933
+      burnImpact 1_11: -5517296473353879249
+      burnImpact 1_2: -7834624765200183743
+      burnImpact 1_3: 5722593521245780455
+      burnImpact 1_4: 9114749031601919616
+      burnImpact 1_5: -7567614586083146688
+      burnImpact 1_6: 6762256292931197557
+      burnImpact 1_7: 8863299989444769843
+      burnImpact 1_8: -1961303287989179993
+      burnImpact 1_9: 3579923291250351205
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

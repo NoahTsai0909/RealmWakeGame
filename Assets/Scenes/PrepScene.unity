@@ -844,6 +844,11 @@ MonoBehaviour:
   playerTacticBar: {fileID: 1520353060}
   consumeVFXPrefab: {fileID: 9221908851226632053, guid: de88eb363efe2aa48abf97118fd0cfaf, type: 3}
   receiveBuffVFXPrefab: {fileID: 4836896629481172907, guid: df82f1ea7f1a82543935202daf2d129f, type: 3}
+  consumeVFXSound: {fileID: 8300000, guid: 96175b987b4d27842b4677fa82ddc454, type: 3}
+  dragUnitSound: {fileID: 8300000, guid: f043056bc4effc94183ed75e63d03b6e, type: 3}
+  dropUnitSound: {fileID: 8300000, guid: cdff22a85786ac943a4c8a22e1a633c6, type: 3}
+  sellSound: {fileID: 8300000, guid: e0655750bf3e03a40936ce2c3d658101, type: 3}
+  volume: 1
 --- !u!4 &1444282850
 Transform:
   m_ObjectHideFlags: 0

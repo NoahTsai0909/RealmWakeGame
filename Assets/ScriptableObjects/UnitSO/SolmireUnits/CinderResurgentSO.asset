@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinition
   unitName: Cinder Resurgent
   maxHP: 330
+  mainStat: 1
   attack: 35
   heal: 0
   shield: 0
@@ -38,7 +39,7 @@ MonoBehaviour:
   cost: 0
   region: 0
   rarity: 0
-  startingRarity: 3
+  startingRarity: 2
   provisionCost: 3
   isMelee: 0
   isEventExclusive: 0

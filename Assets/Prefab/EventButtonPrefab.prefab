@@ -146,6 +146,9 @@ MonoBehaviour:
   pulseSpeed: 3
   idleGlowMin: 0.3
   idleGlowMax: 0.6
+  hoverSound: {fileID: 8300000, guid: 518d658617e74654399a4b7260c8868a, type: 3}
+  clickSound: {fileID: 8300000, guid: 9bdea0d72c1987945a02fd19831d2309, type: 3}
+  volume: 1
 --- !u!1 &3903580709700856513
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PortalArtifactUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class PortalArtifactUI : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerExitHandler
 {
     [Header("UI References")]
     [SerializeField] private Image eventIcon;
@@ -23,6 +23,11 @@ public class PortalArtifactUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField] private float pulseSpeed = 3f;
     [SerializeField] private float idleGlowMin = 0.3f;
     [SerializeField] private float idleGlowMax = 0.6f;
+
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip hoverSound;
+    [SerializeField] private AudioClip clickSound;
+    [SerializeField] private float volume = 1f;
 
     private BaseEventSO currentEvent;
     private Vector3 originalArtifactPos;
@@ -114,10 +119,22 @@ public class PortalArtifactUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (hoverSound != null)
+        {
+            AudioManager.Instance.PlaySFX(hoverSound, volume * 0.5f);
+        }
         isHovered = true;
         if (MapController.Instance == null) return;
         if (currentEvent == null) return;
         MapController.Instance.ShowEventInfo(currentEvent, transform.position);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (clickSound != null)
+        {
+            AudioManager.Instance.PlaySFX(clickSound, volume);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)

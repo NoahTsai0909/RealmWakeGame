@@ -22,6 +22,11 @@ public class ShopSceneController : MonoBehaviour
     [SerializeField] public GridManager benchGrid;
     [SerializeField] private TacticBarManager playerTacticBarManager;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip errorSound;
+    [SerializeField] private AudioClip coinSound;
+    [SerializeField] private float volume = 1f;
+
     private ShopEventSO shopEvent;
     private ShopState shopState;
 
@@ -103,6 +108,10 @@ public class ShopSceneController : MonoBehaviour
         {
             if (RunManager.Instance.Stats.CurrentGold < currentRefreshCost)
             {
+                if (errorSound != null)
+                {
+                    AudioManager.Instance.PlaySFX(errorSound, volume);
+                }
                 UniversalPopupManager.ShowPopup($"Not enough [GOLD]");
                 return;
             }
@@ -202,12 +211,19 @@ public class ShopSceneController : MonoBehaviour
         {
             if (RunManager.Instance.Stats.CurrentGold < unitCost)
             {
+                if (errorSound != null)
+                {
+                    AudioManager.Instance.PlaySFX(errorSound, volume);
+                }
                 UniversalPopupManager.ShowPopup($"Not enough [GOLD]");
                 return;
             }
             SaveCurrentBoardsToRunManager();
             RunManager.Instance.Stats.CurrentGold -= unitCost;
-
+            if (coinSound != null)
+            {
+                AudioManager.Instance.PlaySFX(coinSound, volume);
+            }
             PlayerUnitManager.Instance.TryAcquireUnit(unitData.definition, unitData.rarity, unitData.prefix, unitData.suffix);
 
             shopState.purchasedUnits.Add(unitData.definition);
@@ -238,8 +254,6 @@ public class ShopSceneController : MonoBehaviour
             spawnedCards.Add(card);
             return;
         }
-
-        // --- NEW: Spawn the invisible Dummy Tactic! ---
         TacticInstance dummyTactic = Instantiate(tacticData.definition.tacticPrefab, hiddenUnitAnchor);
         dummyTactic.InitializeFromSaveData(tacticData);
         dummyTactic.gameObject.SetActive(false);
@@ -247,21 +261,25 @@ public class ShopSceneController : MonoBehaviour
 
         int tacticCost = GetTacticPurchasePrice(tacticData);
 
-        // Pass the dummyTactic instead of the definition
         card.InitializeTactic(dummyTactic, tacticCost, () =>
         {
             if (RunManager.Instance.Stats.CurrentGold < tacticCost)
             {
+                if (errorSound != null)
+                {
+                    AudioManager.Instance.PlaySFX(errorSound, volume);
+                }
                 UniversalPopupManager.ShowPopup($"Not enough [GOLD]");
                 return;
             }
             SaveCurrentBoardsToRunManager();
             RunManager.Instance.Stats.CurrentGold -= tacticCost;
-
+            if (coinSound != null)
+            {
+                AudioManager.Instance.PlaySFX(coinSound, volume);
+            }
             PlayerTacticManager.Instance.TryAcquireTactic(tacticData.definition, tacticData.rarity);
             shopState.purchasedTactics.Add(tacticData.definition);
-
-            // Clean up the dummy!
             spawnedDummyTactics.Remove(dummyTactic);
             Destroy(dummyTactic.gameObject);
 
@@ -349,8 +367,6 @@ public class ShopSceneController : MonoBehaviour
             UnitInstance unit = Instantiate(placement.unitData.definition.unitPrefab);
             unit.InitializeFromSaveData(placement.unitData);
             unit.myPlacement = placement;
-
-            // Spawn them, but tell them NOT to start combat (isPlayer = true, startCombat = false)
             unit.EnterCombat(battleGrid, placement.row, placement.col, true, false);
         }
     }

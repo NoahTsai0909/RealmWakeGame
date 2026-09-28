@@ -43,7 +43,6 @@ public class CombatSFXManager : MonoBehaviour
 
         if (clipToPlay != null)
         {
-            Debug.Log($"<color=cyan>Attempting to play SFX: {clipToPlay.name}</color>");
             AudioManager.Instance.PlaySFX(clipToPlay);
         }
     }

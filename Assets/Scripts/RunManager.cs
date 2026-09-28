@@ -494,6 +494,30 @@ public class RunManager : MonoBehaviour
         SaveLoadManager.SaveRun();
     }
 
+    public void SetAdventureMusic()
+    {
+        if (string.IsNullOrEmpty(activeAdventureName))
+        {
+            Debug.LogWarning("No active adventure name set. Cannot set music.");
+            return;
+        }
+        AdventureDefinitionSO adventure = allAdventures.FirstOrDefault(a => a.adventureName == activeAdventureName);
+        if (adventure == null)
+        {
+            Debug.LogWarning($"Could not find Adventure '{activeAdventureName}' to set music.");
+            return;
+        }
+        if (adventure.adventureMusic != null)
+        {
+            AudioManager.Instance.PlayMusicWithFade(adventure.adventureMusic);
+            Debug.Log($"Playing music for adventure: {activeAdventureName}");
+        }
+        else
+        {
+            Debug.LogWarning($"Adventure '{activeAdventureName}' does not have an assigned music clip.");
+        }
+    }
+
     public void ResetRun()
     {
 

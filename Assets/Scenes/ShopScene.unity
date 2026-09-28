@@ -480,6 +480,11 @@ MonoBehaviour:
   playerTacticBar: {fileID: 1215609382}
   consumeVFXPrefab: {fileID: 9221908851226632053, guid: de88eb363efe2aa48abf97118fd0cfaf, type: 3}
   receiveBuffVFXPrefab: {fileID: 4836896629481172907, guid: df82f1ea7f1a82543935202daf2d129f, type: 3}
+  consumeVFXSound: {fileID: 8300000, guid: 96175b987b4d27842b4677fa82ddc454, type: 3}
+  dragUnitSound: {fileID: 8300000, guid: f043056bc4effc94183ed75e63d03b6e, type: 3}
+  dropUnitSound: {fileID: 8300000, guid: cdff22a85786ac943a4c8a22e1a633c6, type: 3}
+  sellSound: {fileID: 8300000, guid: e0655750bf3e03a40936ce2c3d658101, type: 3}
+  volume: 1
 --- !u!4 &107809448
 Transform:
   m_ObjectHideFlags: 0
@@ -783,6 +788,7 @@ GameObject:
   - component: {fileID: 1169049608}
   - component: {fileID: 1169049607}
   - component: {fileID: 1169049606}
+  - component: {fileID: 1169049609}
   m_Layer: 5
   m_Name: RefreshButton
   m_TagString: Untagged
@@ -892,6 +898,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169049604}
   m_CullTransparentMesh: 1
+--- !u!114 &1169049609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169049604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8451bb0e35f971a4ea14cb7da8e23019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverSound: {fileID: 8300000, guid: 518d658617e74654399a4b7260c8868a, type: 3}
+  clickSound: {fileID: 8300000, guid: 3d046ced234a2bc42b437ed8f8ff5d07, type: 3}
+  volume: 1
 --- !u!1 &1170924858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,6 +1215,9 @@ MonoBehaviour:
   battleGrid: {fileID: 103435402}
   benchGrid: {fileID: 99046872}
   playerTacticBarManager: {fileID: 1215609382}
+  errorSound: {fileID: 8300000, guid: 724f43d36bede30469c01dd6e242fcc4, type: 3}
+  coinSound: {fileID: 8300000, guid: b0ab4ea5f18558446b21a27d43ef262c, type: 3}
+  volume: 1
 --- !u!4 &1222859315
 Transform:
   m_ObjectHideFlags: 0
@@ -1821,6 +1845,7 @@ GameObject:
   - component: {fileID: 1932924986}
   - component: {fileID: 1932924985}
   - component: {fileID: 1932924984}
+  - component: {fileID: 1932924987}
   m_Layer: 5
   m_Name: EventReturnButton
   m_TagString: Untagged
@@ -1930,6 +1955,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932924982}
   m_CullTransparentMesh: 1
+--- !u!114 &1932924987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932924982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8451bb0e35f971a4ea14cb7da8e23019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverSound: {fileID: 8300000, guid: 518d658617e74654399a4b7260c8868a, type: 3}
+  clickSound: {fileID: 8300000, guid: fddebce6bd9c5304298de51431e6b2f8, type: 3}
+  volume: 1
 --- !u!1 &1958903100
 GameObject:
   m_ObjectHideFlags: 0

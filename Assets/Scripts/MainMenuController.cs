@@ -18,6 +18,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button filterButton;
     [SerializeField] private Button searchButton;
     [SerializeField] private Button closeCompendiumButton;
+    [SerializeField] private AudioClip mainMenuMusic;
     
     private bool isFilterSidebarOpen = false;
     void Start()
@@ -33,6 +34,8 @@ public class MainMenuController : MonoBehaviour
 
     private void RefreshMenuState()
     {
+        Time.timeScale = 1f;
+        AudioManager.Instance?.PlayMusicWithFade(mainMenuMusic);
         if (SaveLoadManager.HasSaveFile())
         {
             playButton.GetComponentInChildren<TextMeshProUGUI>().text = "Continue";

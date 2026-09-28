@@ -750,7 +750,7 @@ MonoBehaviour:
   attackImpactPrefab: {fileID: 5915805118745668908, guid: 0456b27261cbb284a98dfebaa302543f, type: 3}
   shieldImpactPrefab: {fileID: 5704024670665266947, guid: d8ab3a0599d9850469f8ed9c0dfdc1de, type: 3}
   burnImpactPrefab: {fileID: 8778281742901235260, guid: d26da328717e433479d5fad936291c17, type: 3}
-  poisonImpactPrefab: {fileID: 8778281742901235260, guid: d26da328717e433479d5fad936291c17, type: 3}
+  poisonImpactPrefab: {fileID: 7161510909246422744, guid: b15dfc9d1ee268942aa06a5d8fadb2b0, type: 3}
   meleeSlashPrefab: {fileID: 6767337181534009556, guid: f7f90c68a75180b4f8e1fe08de22f7aa, type: 3}
   slowImpactPrefab: {fileID: 8371208024007339633, guid: d4c637286001fc547a0476d8eb510072, type: 3}
   hasteImpactPrefab: {fileID: 6328882538875790131, guid: 4af30b7836a21464d924f16684e30858, type: 3}
@@ -2859,6 +2859,11 @@ MonoBehaviour:
   playerTacticBar: {fileID: 740612965}
   consumeVFXPrefab: {fileID: 9221908851226632053, guid: de88eb363efe2aa48abf97118fd0cfaf, type: 3}
   receiveBuffVFXPrefab: {fileID: 4836896629481172907, guid: df82f1ea7f1a82543935202daf2d129f, type: 3}
+  consumeVFXSound: {fileID: 8300000, guid: 96175b987b4d27842b4677fa82ddc454, type: 3}
+  dragUnitSound: {fileID: 8300000, guid: f043056bc4effc94183ed75e63d03b6e, type: 3}
+  dropUnitSound: {fileID: 8300000, guid: cdff22a85786ac943a4c8a22e1a633c6, type: 3}
+  sellSound: {fileID: 8300000, guid: e0655750bf3e03a40936ce2c3d658101, type: 3}
+  volume: 1
 --- !u!4 &1391267512
 Transform:
   m_ObjectHideFlags: 0
@@ -2886,6 +2891,7 @@ GameObject:
   - component: {fileID: 1392866948}
   - component: {fileID: 1392866947}
   - component: {fileID: 1392866946}
+  - component: {fileID: 1392866949}
   m_Layer: 5
   m_Name: StartCombatButton
   m_TagString: Untagged
@@ -2995,6 +3001,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392866944}
   m_CullTransparentMesh: 1
+--- !u!114 &1392866949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392866944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8451bb0e35f971a4ea14cb7da8e23019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverSound: {fileID: 8300000, guid: 518d658617e74654399a4b7260c8868a, type: 3}
+  clickSound: {fileID: 8300000, guid: 8b590b41d0b2e954fb2bde70621134f9, type: 3}
+  volume: 1
 --- !u!1 &1535534064
 GameObject:
   m_ObjectHideFlags: 0
@@ -9879,6 +9900,9 @@ MonoBehaviour:
   lingerDuration: 1
   floatSpeed: 2
   floatAmplitude: 15
+  victorySound: {fileID: 8300000, guid: fd74889baebbabd4eae539cce658f0f8, type: 3}
+  defeatSound: {fileID: 8300000, guid: 5487c34c13fc76040a84dcdaed697d8d, type: 3}
+  volume: 2
 --- !u!222 &2109803853
 CanvasRenderer:
   m_ObjectHideFlags: 0
