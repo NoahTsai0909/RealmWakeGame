@@ -31,8 +31,15 @@ public class Longshot : UnitInstance
             isCrit = abilityCrit
             }
         );
-        this.TemporaryStatModify(ModifiableStats.CritChance, critModifier);
-        
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = this,
+            target = this,
+            buffStat = ModifiableStats.CritChance,
+            amount = critModifier
+        });
+
     }
     public override string GetActiveDescription()
     {

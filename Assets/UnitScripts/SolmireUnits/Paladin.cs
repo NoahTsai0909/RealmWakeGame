@@ -32,7 +32,14 @@ public class Paladin : UnitInstance
     {
         if ((action.type == CombatActionType.Heal) && (action.target.isPlayer == this.isPlayer))
         {
-            TemporaryStatModify(ModifiableStats.Attack, attackModifier);
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = this,
+                buffStat = ModifiableStats.Attack,
+                amount = attackModifier
+            });
         }
     }
 

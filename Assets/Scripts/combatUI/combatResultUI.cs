@@ -58,14 +58,13 @@ public class CombatResultUI : MonoBehaviour
         // Start defeat banner massive, start victory banner at 0
         activeBannerRect.localScale = isVictory ? Vector3.zero : Vector3.one * 3f;
         originalBannerPos = activeBannerRect.anchoredPosition;
-
         if (isVictory && victorySound != null)
         {
-            AudioManager.Instance.PlaySFX(victorySound, volume);
+            AudioManager.Instance.PlayJingle(victorySound, volume);
         }
         else if (!isVictory && defeatSound != null)
         {
-            AudioManager.Instance.PlaySFX(defeatSound, volume);
+            AudioManager.Instance.PlayJingle(defeatSound, volume);
         }
 
         StartCoroutine(AnimateBannerSequence());

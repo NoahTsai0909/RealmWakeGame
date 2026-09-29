@@ -33,7 +33,14 @@ public class SolemnPriest : UnitInstance
                     isCrit = abilityCrit
                 }
             );
-            target.TemporaryStatModify(ModifiableStats.MaxHP, maxhealthBuff);
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = target,
+                buffStat = ModifiableStats.MaxHP,
+                amount = maxhealthBuff
+            });
 
         }
         else

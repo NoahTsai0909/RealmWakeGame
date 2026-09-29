@@ -34,7 +34,14 @@ public class HillGiant :UnitInstance
                 }
             );
         }
-        this.TemporaryStatModify(ModifiableStats.Attack, GetMaxHP() * maxHealthBuffPercent / 100);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = this,
+            target = this,
+            buffStat = ModifiableStats.Attack,
+            amount = (GetMaxHP() * maxHealthBuffPercent / 100)
+        });
     }
 
     public override string GetActiveDescription()

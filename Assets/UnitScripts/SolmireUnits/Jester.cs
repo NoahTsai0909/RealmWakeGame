@@ -25,7 +25,14 @@ public class Jester : UnitInstance
     {
         if (FindSideAllies().Count == 0)
         {
-            this.TemporaryStatModify(ModifiableStats.Multicast, 1);
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = this,
+                buffStat = ModifiableStats.Multicast,
+                amount = 1
+            });
         }
     }
 

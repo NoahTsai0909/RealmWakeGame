@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class MomentousDive : TacticInstance
 {
@@ -42,7 +43,14 @@ public class MomentousDive : TacticInstance
         if (action.source == null) return;
         if (action.type != CombatActionType.ApplyHaste || action.target.isPlayer != this.isPlayer) return;
         if (allyGrid == null) return;
-        action.target.TemporaryStatModify(ModifiableStats.CritChance, buffValue);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = null,
+            target = action.target,
+            buffStat = ModifiableStats.CritChance,
+            amount = buffValue
+        });
     }
 
 

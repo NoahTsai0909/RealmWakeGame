@@ -10,10 +10,10 @@ public class Scout : UnitInstance
     {
         critBuff = CurrentRarity switch
         {
-            Rarity.Uncommon => 7,
-            Rarity.Rare => 15,
+            Rarity.Uncommon => 10,
+            Rarity.Rare => 20,
             Rarity.Epic => 30,
-            _ => 7
+            _ => 10
         };
     }
 
@@ -24,8 +24,14 @@ public class Scout : UnitInstance
 
         foreach (UnitInstance target in targets)
         {
-
-            target.TemporaryStatModify(ModifiableStats.CritChance, critBuff);
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = target,
+                buffStat = ModifiableStats.CritChance,
+                amount = critBuff
+            });
         }
 
     }

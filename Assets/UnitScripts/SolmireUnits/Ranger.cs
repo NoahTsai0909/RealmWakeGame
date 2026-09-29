@@ -47,7 +47,14 @@ public class Ranger : UnitInstance
 
     public override void CombatStartEffect()
     {
-        this.TemporaryStatModify(ModifiableStats.CritChance, critBuff);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = this,
+            target = this,
+            buffStat = ModifiableStats.CritChance,
+            amount = critBuff
+        });
     }
 
     public override string GetActiveDescription()

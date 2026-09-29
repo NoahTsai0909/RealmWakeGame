@@ -42,8 +42,22 @@ public class DragonMatriarch : UnitInstance
         }
         if (action.type == CombatActionType.ApplyHaste && action.target.isPlayer == this.isPlayer)
         {
-            this.TemporaryStatModify(ModifiableStats.Attack, attackBuff);
-            this.TemporaryStatModify(ModifiableStats.Burn, burnBuff);
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = this,
+                buffStat = ModifiableStats.Attack,
+                amount = attackBuff
+            });
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = this,
+                buffStat = ModifiableStats.Burn,
+                amount = burnBuff
+            });
         }
     }
 

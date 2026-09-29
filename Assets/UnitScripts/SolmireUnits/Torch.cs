@@ -56,6 +56,7 @@ public class Torch : UnitInstance
             if (target != null)
             {
                 target.TemporaryStatModify(ModifiableStats.Burn, burnBuff);
+
             }
         }
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class FocusFire : TacticInstance
 {
@@ -43,7 +44,14 @@ public class FocusFire : TacticInstance
         if (action.source == null) return;
         if (action.type != CombatActionType.ApplyBurn || action.source.isPlayer != this.isPlayer) return;
         if (allyGrid == null) return;
-        action.source.TemporaryStatModify(ModifiableStats.CritChance, buffValue);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = null,
+            target = action.source,
+            buffStat = ModifiableStats.CritChance,
+            amount = buffValue
+        });
     }
 
 

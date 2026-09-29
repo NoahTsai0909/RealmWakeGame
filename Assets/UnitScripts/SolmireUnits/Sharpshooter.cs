@@ -53,7 +53,14 @@ public class Sharpshooter : UnitInstance
         if (action.source.isPlayer != this.isPlayer) return;
         if (action.isCrit != true) return;
         if (action.isAoEExtraHit) return;
-        this.TemporaryStatModify(ModifiableStats.Attack, attackBuff);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = this,
+            target = this,
+            buffStat = ModifiableStats.Attack,
+            amount = attackBuff
+        });
     }
 
 

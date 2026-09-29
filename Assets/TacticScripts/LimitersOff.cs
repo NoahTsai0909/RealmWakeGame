@@ -53,7 +53,14 @@ public class LimitersOff : TacticInstance
             {
                 if (target != null)
                 {
-                    target.TemporaryStatModify(ModifiableStats.Attack, buffValue);
+                    CombatManager.Instance.ExecuteAction(new CombatAction
+                    {
+                        type = CombatActionType.Buff,
+                        source = null,
+                        target = target,
+                        buffStat = ModifiableStats.Attack,
+                        amount = buffValue
+                    });
                 }
             }
         }

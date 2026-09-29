@@ -45,7 +45,14 @@ public class AmplifiedRestoration : TacticInstance
         if (action.source == null) return;
         if (action.target.isPlayer != this.isPlayer) return;
         if (allyGrid == null) return;
-        action.target.TemporaryStatModify(ModifiableStats.MaxHP, buffValue);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = null,
+            target = action.target,
+            buffStat = ModifiableStats.MaxHP,
+            amount = buffValue
+        });
     }
 
 

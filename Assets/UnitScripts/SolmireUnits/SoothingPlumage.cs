@@ -32,7 +32,14 @@ public class SoothingPlumage : UnitInstance
     private void HandleActionResolved(CombatAction action)
     {
         if (action.type != CombatActionType.Heal || action.target.isPlayer != this.isPlayer) return;
-        TemporaryStatModify(ModifiableStats.Heal, buffValue);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = this,
+            target = this,
+            buffStat = ModifiableStats.Heal,
+            amount = buffValue
+        });
     }
 
     protected override void UseAbility()

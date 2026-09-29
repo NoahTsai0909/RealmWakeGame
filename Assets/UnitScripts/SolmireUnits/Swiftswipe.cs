@@ -33,8 +33,14 @@ public class Swiftswipe : UnitInstance
                 }
             );
         }
-
-        TemporaryStatModify(ModifiableStats.Attack, attackModifier);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = this,
+            target = this,
+            buffStat = ModifiableStats.Attack,
+            amount = attackModifier
+        });
     }
 
     public override string GetActiveDescription()

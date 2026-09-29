@@ -55,7 +55,14 @@ public class EssenceOfLife : TacticInstance
             {
                 int randomIndex = UnityEngine.Random.Range(0, shieldAllies.Count);
                 UnitInstance target = shieldAllies[randomIndex];
-                target.TemporaryStatModify(ModifiableStats.Shield, buffValue);
+                CombatManager.Instance.ExecuteAction(new CombatAction
+                {
+                    type = CombatActionType.Buff,
+                    source = null,
+                    target = target,
+                    buffStat = ModifiableStats.Shield,
+                    amount = buffValue
+                });
             }
         }
         else if (action.type == CombatActionType.Shield)
@@ -66,7 +73,14 @@ public class EssenceOfLife : TacticInstance
             {
                 int randomIndex = UnityEngine.Random.Range(0, healAllies.Count);
                 UnitInstance target = healAllies[randomIndex];
-                target.TemporaryStatModify(ModifiableStats.Heal, buffValue);
+                CombatManager.Instance.ExecuteAction(new CombatAction
+                {
+                    type = CombatActionType.Buff,
+                    source = null,
+                    target = target,
+                    buffStat = ModifiableStats.Heal,
+                    amount = buffValue
+                });
             }
         }
     }

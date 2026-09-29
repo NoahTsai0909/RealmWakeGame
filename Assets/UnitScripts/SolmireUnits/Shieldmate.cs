@@ -31,7 +31,14 @@ public class Shieldmate : UnitInstance
     {
         if ((action.type == CombatActionType.Shield) && (action.target == this))
         {
-            TemporaryStatModify(ModifiableStats.Shield, shieldBuff);
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = this,
+                buffStat = ModifiableStats.Shield,
+                amount = shieldBuff
+            });
         }
     }
 

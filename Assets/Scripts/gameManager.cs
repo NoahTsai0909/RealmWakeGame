@@ -43,6 +43,9 @@ public class gameManager : MonoBehaviour
     [Header("Disaster System")]
     [SerializeField] private DisasterManager disasterManager;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip combatMusic;
+
     private bool combatActive = true;
     public bool isCombatActive() => combatActive;
 
@@ -98,6 +101,7 @@ public class gameManager : MonoBehaviour
                 RunHUDManager.Instance.EnableInspectStats(unitStatsWindowObject);
             }
         }
+        AudioManager.Instance.StopMusicWithFade(1.5f);
     }
 
     private void OnDestroy()
@@ -164,7 +168,7 @@ public class gameManager : MonoBehaviour
         TransferCombatStatsToRunManager();
         if (disasterManager != null) disasterManager.StopDisaster();
         Time.timeScale = 0.5f;
-
+        AudioManager.Instance.StopMusicWithFade(0.5f);
         //Give incremental gold only
         var combatEvent = RunManager.Instance.selectedEvent as CombatEventSO;
         if (combatEvent != null)
@@ -193,7 +197,6 @@ public class gameManager : MonoBehaviour
 
         if (combatResultUI != null) combatResultUI.ShowResult(playerWon);
         yield return new WaitForSeconds(1.4f);
-
         if (lootSummaryUI != null)
         {
             lootSummaryUI.gameObject.SetActive(true);
@@ -386,7 +389,10 @@ public class gameManager : MonoBehaviour
             UniversalPopupManager.ShowPopup($"Provision exceeded provision cap!\nProvision cap: {RunManager.Instance.Stats.ProvisionCap}");
             return;
         }
-
+        if (combatMusic != null)
+        {
+            AudioManager.Instance.PlayMusicWithFade(combatMusic);
+        }
         if (startCombatButton != null) startCombatButton.gameObject.SetActive(false);
         if (provisionManager != null) provisionManager.HideProvisionText();
         if (dragManager != null) dragManager.enabled = false;

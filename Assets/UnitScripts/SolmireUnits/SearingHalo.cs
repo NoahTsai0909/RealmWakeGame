@@ -48,7 +48,14 @@ public class SearingHalo : UnitInstance
             }
         );
 
-        this.TemporaryStatModify(ModifiableStats.Burn, burnBuff);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = this,
+            target = this,
+            buffStat = ModifiableStats.Burn,
+            amount = burnBuff
+        });
     }
 
     protected override void UseAbility()

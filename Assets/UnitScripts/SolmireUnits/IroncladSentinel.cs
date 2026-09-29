@@ -35,12 +35,27 @@ public class IroncladSentinel : UnitInstance
             if (isShielded && this.GetCurrentShield() <= 0)
             {
                 isShielded = false;
-                this.TemporaryStatModify(ModifiableStats.CritChance, -critBuff);
+                CombatManager.Instance.ExecuteAction(new CombatAction
+                {
+                    type = CombatActionType.Buff,
+                    source = this,
+                    target = this,
+                    buffStat = ModifiableStats.CritChance,
+                    amount = -critBuff
+                });
+
             }
             else if (!isShielded && this.GetCurrentShield() > 0)
             {
                 isShielded = true;
-                this.TemporaryStatModify(ModifiableStats.CritChance, critBuff);
+                CombatManager.Instance.ExecuteAction(new CombatAction
+                {
+                    type = CombatActionType.Buff,
+                    source = this,
+                    target = this,
+                    buffStat = ModifiableStats.CritChance,
+                    amount = critBuff
+                });
             }
         }
     }

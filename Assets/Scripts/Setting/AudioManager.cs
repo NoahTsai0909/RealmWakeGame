@@ -130,6 +130,35 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopMusicWithFade(float fadeDuration = 2f)
+    {
+        if (musicSource == null || !musicSource.isPlaying) return;
+
+        if (currentMusicRoutine != null)
+        {
+            StopCoroutine(currentMusicRoutine);
+        }
+
+        currentMusicRoutine = StartCoroutine(FadeOutAndStopRoutine(fadeDuration));
+    }
+
+    private System.Collections.IEnumerator FadeOutAndStopRoutine(float fadeDuration)
+    {
+        float startVolume = musicSource.volume;
+        float elapsed = 0f;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            musicSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / fadeDuration);
+            yield return null;
+        }
+
+        musicSource.volume = 0f;
+        musicSource.Stop();
+        musicSource.clip = null;
+    }
+
     public void PlayMusic(AudioClip clip)
     {
         if (clip == null || musicSource == null) return;

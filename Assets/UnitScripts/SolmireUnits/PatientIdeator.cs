@@ -3,7 +3,7 @@ using UnityEngine;
 public class PatientIdeator : UnitInstance
 {
     private int maxHealthBuff = 5;
-    private int mutationTriggerThreshold = 3;
+    private int mutationTriggerThreshold = 6;
     private int mutationTriggerCount = 0;
 
     protected override void UpdateRarityModifiers()
@@ -33,7 +33,14 @@ public class PatientIdeator : UnitInstance
         if (action.source == null) return;
         if ((action.type == CombatActionType.Heal) && (action.target.isPlayer == this.isPlayer))
         {
-            action.target.TemporaryStatModify(ModifiableStats.MaxHP, maxHealthBuff);
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = action.target,
+                buffStat = ModifiableStats.MaxHP,
+                amount = maxHealthBuff
+            });
         }
         if (currentSuffix != null)
         {

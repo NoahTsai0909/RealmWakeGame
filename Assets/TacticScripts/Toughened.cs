@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Toughened : TacticInstance
 {
@@ -43,7 +44,14 @@ public class Toughened : TacticInstance
         if (action.source == null) return;
         if (action.type != CombatActionType.Shield || action.source.isPlayer != this.isPlayer) return;
         if (allyGrid == null) return;
-        action.source.TemporaryStatModify(ModifiableStats.CritChance, buffValue);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = null,
+            target = action.source,
+            buffStat = ModifiableStats.CritChance,
+            amount = buffValue
+        });
     }
 
 

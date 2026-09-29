@@ -52,7 +52,14 @@ public class SearingShields : TacticInstance
         {
             if (target != null)
             {
-                target.TemporaryStatModify(ModifiableStats.Burn, buffValue);
+                CombatManager.Instance.ExecuteAction(new CombatAction
+                {
+                    type = CombatActionType.Buff,
+                    source = null,
+                    target = target,
+                    buffStat = ModifiableStats.Burn,
+                    amount = buffValue
+                });
             }
         }
     }

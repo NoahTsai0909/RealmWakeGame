@@ -22,7 +22,14 @@ public class Warhorn : UnitInstance
         List<UnitInstance> targets = FindAllAllies();
         foreach (UnitInstance target in targets)
         {
-            target.TemporaryStatModify(ModifiableStats.Attack, attackBuff);
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = target,
+                buffStat = ModifiableStats.Attack,
+                amount = attackBuff
+            });
         }
         base.UseAbility();
     }

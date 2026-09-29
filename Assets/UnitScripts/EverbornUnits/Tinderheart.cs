@@ -21,7 +21,14 @@ public class Tinderheart : UnitInstance
         List<UnitInstance> targets = FindAllAllies();
         foreach (UnitInstance target in targets)
         {
-            target.TemporaryStatModify(ModifiableStats.Burn, burnBuff);
+            CombatManager.Instance.ExecuteAction(new CombatAction
+            {
+                type = CombatActionType.Buff,
+                source = this,
+                target = target,
+                buffStat = ModifiableStats.Burn,
+                amount = burnBuff
+            });
         }
     }
 

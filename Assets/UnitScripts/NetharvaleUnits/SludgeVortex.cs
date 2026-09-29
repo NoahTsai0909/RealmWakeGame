@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class SludgeVortex : UnitInstance
 {
@@ -26,7 +27,14 @@ public class SludgeVortex : UnitInstance
         if (action.target.isPlayer == this.isPlayer) return;
         if (action.type != CombatActionType.ApplySlow) return;
         if (action.isAoEExtraHit) return;
-        this.TemporaryStatModify(ModifiableStats.Attack, attackBuff);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = this,
+            target = this,
+            buffStat = ModifiableStats.Attack,
+            amount = attackBuff
+        });
     }
 
 

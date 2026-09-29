@@ -56,7 +56,14 @@ public class Strongarm : UnitInstance
         if (source.row != row) return;
         if (source.col != expectedCol && source != this) return;
 
-        source.TemporaryStatModify(ModifiableStats.Attack, attackBuff);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = this,
+            target = source,
+            buffStat = ModifiableStats.Attack,
+            amount = attackBuff
+        });
     }
 
     public override string GetActiveDescription()

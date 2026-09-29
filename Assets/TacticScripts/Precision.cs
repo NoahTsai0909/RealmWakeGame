@@ -43,7 +43,15 @@ public class Precision : TacticInstance
         if (action.source == null) return;
         if (action.type != CombatActionType.Damage || action.source.isPlayer != this.isPlayer) return;
         if (allyGrid == null) return;
-        action.source.TemporaryStatModify(ModifiableStats.CritChance, buffValue);
+        CombatManager.Instance.ExecuteAction(new CombatAction
+        {
+            type = CombatActionType.Buff,
+            source = null,
+            target = action.source,
+            buffStat = ModifiableStats.CritChance,
+            amount = buffValue
+        });
+
     }
 
 
