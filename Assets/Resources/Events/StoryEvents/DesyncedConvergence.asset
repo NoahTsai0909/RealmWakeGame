@@ -17,11 +17,12 @@ MonoBehaviour:
   eventIcon: {fileID: 21300000, guid: ef55c91682e07784b84d953429afcf3a, type: 3}
   eventBackgroundImage: {fileID: 21300000, guid: 9bf677eb2d018a84c9ff2577efc7bce9, type: 3}
   portalGlowColor: {r: 0.5031446, g: 0, b: 0.49166262, a: 1}
-  minDayRequired: 9
+  minDayRequired: 1
   maxDayRequired: 12
-  selectionWeight: 4
+  selectionWeight: 10
   maxAppearancesPerRun: 1
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: Something within your units has fallen out of sync with reality.
       For a brief moment, what they are and what they could become overlap.

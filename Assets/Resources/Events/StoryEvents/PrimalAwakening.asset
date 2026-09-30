@@ -19,9 +19,10 @@ MonoBehaviour:
   portalGlowColor: {r: 1, g: 1, b: 1, a: 1}
   minDayRequired: 6
   maxDayRequired: 12
-  selectionWeight: 1
+  selectionWeight: 0.5
   maxAppearancesPerRun: 0
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: An ancient force stirs within you. One by one, your allies awaken
       to the primal power of Everborn.

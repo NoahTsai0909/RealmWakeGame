@@ -1067,17 +1067,7 @@ MonoBehaviour:
   playerTeamPlacements: []
   playerBenchPlacements: []
   playerTactics: []
-  defaultUnits:
-  - unitData:
-      definition: {fileID: 11400000, guid: 47c4676d2b5bed146ad157c566a48eee, type: 2}
-      rarity: 0
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 0
-    col: 0
+  defaultUnits: []
   benchSize: 5
   regularEventsCompleted: 0
   isBattlePhase: 0

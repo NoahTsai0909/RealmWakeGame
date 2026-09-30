@@ -20,8 +20,9 @@ MonoBehaviour:
   minDayRequired: 9
   maxDayRequired: 12
   selectionWeight: 1
-  maxAppearancesPerRun: 0
+  maxAppearancesPerRun: 1
   targetScene: 6
+  experienceReward: 1
   totalUnitsGenerated: 6
   totalTacticsGenerated: 0
   unitsPerPage: 3

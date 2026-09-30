@@ -230,7 +230,7 @@ public class EventSceneController : MonoBehaviour
         CompleteEvent();
     }
 
-    private void SpawnUnitOnButton(UnitSaveData unitData, Button parentButton)
+    private void SpawnUnitOnButton(UnitSaveData unitData, Button parentButton, bool useMask = false)
     {
         Transform anchor = parentButton.transform.Find("UnitAnchor");
         if (anchor == null) return;
@@ -251,7 +251,13 @@ public class EventSceneController : MonoBehaviour
             preview.Visuals.SetBaseScale(preview.transform.localScale);
             preview.Visuals.SyncSortingOrder(100);
         }
-
+        SpriteRenderer[] srs = preview.GetComponentsInChildren<SpriteRenderer>(true);
+        foreach (var sr in srs)
+        {
+            sr.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            sr.sortingOrder = 205;
+            sr.maskInteraction = useMask ? SpriteMaskInteraction.VisibleInsideMask : SpriteMaskInteraction.None;
+        }
         spawnedPreviews.Add(preview);
     }
 
@@ -329,10 +335,7 @@ public class EventSceneController : MonoBehaviour
             if (btnText != null)
                 btnText.text = $"Select {placement.unitData.definition.unitName} (Tier {placement.unitData.rarity})";
 
-            SpawnUnitOnButton(placement.unitData, newButton);
-
-            SpriteRenderer sr = newButton.GetComponentInChildren<SpriteRenderer>();
-            if (sr != null) sr.sortingOrder = 205;
+            SpawnUnitOnButton(placement.unitData, newButton, true);
 
             newButton.onClick.AddListener(() =>
             { 
