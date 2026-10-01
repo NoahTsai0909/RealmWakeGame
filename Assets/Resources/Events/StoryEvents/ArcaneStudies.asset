@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: You feel the presence of a powerful mage drawing near..
     choices:

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
+  m_Name: FieldKitchen
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
+  encounterName: 
+  enemyUnits:
+  - unitData:
+      definition: {fileID: 11400000, guid: 487a69148b82df540a6732a01ab09c8e, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: 487a69148b82df540a6732a01ab09c8e, type: 2}
+      rarity: 0
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 487a69148b82df540a6732a01ab09c8e, type: 2}
+      rarity: 0
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 487a69148b82df540a6732a01ab09c8e, type: 2}
+      rarity: 0
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 1
+  enemyTactics:
+  - tacticData:
+      definition: {fileID: 11400000, guid: 54f73aafc07faee478e43a617add23a1, type: 2}
+      rarity: 0
+    orderIndex: 0
+  randomMutationCount: 0

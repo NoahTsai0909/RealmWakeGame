@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: 'You defeat a band of rift smuggler and manage to break the lock
       on their prized contraband: a sealed containment pod. Will you enlist whatever

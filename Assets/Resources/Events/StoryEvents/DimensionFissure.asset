@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 5
   maxAppearancesPerRun: 0
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: The boundaries between the four realms have begun to collapse, their
       energies bleeding into one another. Amid the chaos, you discover a strange

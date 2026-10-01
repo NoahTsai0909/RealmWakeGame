@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 2
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: The crown hums with refined energy, reshaping its bearer into something
       stronger.

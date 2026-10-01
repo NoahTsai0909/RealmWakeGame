@@ -3,9 +3,11 @@ using System.Security;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+
 public class IronmoonRuin : UnitInstance
 {
     private int absorbedShield;
+    private int enemyCount = 3;
     protected override void UseAbility()
     {
         base.UseAbility();
@@ -32,7 +34,7 @@ public class IronmoonRuin : UnitInstance
                 }
             );
 
-        List<UnitInstance> enemies = FindAllEnemies();
+        List<UnitInstance> enemies = FindNearestEnemies(enemyCount);
         foreach(UnitInstance target in enemies)
         {
             CombatManager.Instance.ExecuteAction(
@@ -51,6 +53,6 @@ public class IronmoonRuin : UnitInstance
 
     public override string GetActiveDescription()
     {
-        return ($"Absorb all ally [c_shield]shields[/c]. [c_attack]Attack[/c] all enemies for the absorbed amount.");
+        return ($"Absorb all ally [c_shield]shields[/c]. [c_attack]Attack[/c] up to {enemyCount} nearest enemies for the absorbed amount.");
     }
 }

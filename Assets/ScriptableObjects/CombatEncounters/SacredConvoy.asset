@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
+  m_Name: SacredConvoy
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
+  encounterName: 
+  enemyUnits:
+  - unitData:
+      definition: {fileID: 11400000, guid: 7f7d0119318b38c438ad7b81568d94d4, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: 7f7d0119318b38c438ad7b81568d94d4, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: 15dbfe31ea8a83444b47cb017981d9ec, type: 2}
+      rarity: 2
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: 4991c681c15f0e443ac1bde94296d548, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 8f005606f4a1e4847a4aa1978ce45a79, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 8f005606f4a1e4847a4aa1978ce45a79, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 8f005606f4a1e4847a4aa1978ce45a79, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 0
+  enemyTactics:
+  - tacticData:
+      definition: {fileID: 11400000, guid: d0ec42d7dfca59c4a9a04b3980e61741, type: 2}
+      rarity: 1
+    orderIndex: 0
+  randomMutationCount: 0

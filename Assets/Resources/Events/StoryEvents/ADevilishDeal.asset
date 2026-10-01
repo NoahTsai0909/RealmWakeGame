@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: A tempting offer lies before you. Each wager promises greater riches,
       but so too does the chance of losing it all.

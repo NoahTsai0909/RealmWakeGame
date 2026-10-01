@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
   m_Name: VillageGuard
   m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
-  encounterName: Village Guard
+  encounterName: 
   enemyUnits:
   - unitData:
       definition: {fileID: 11400000, guid: eb600ffba2f1c5d40834f309bc3d5900, type: 2}
       rarity: 0
-      provisionCost: 1
+      provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
       prefix: {fileID: 0}
@@ -27,12 +27,22 @@ MonoBehaviour:
   - unitData:
       definition: {fileID: 11400000, guid: 47c4676d2b5bed146ad157c566a48eee, type: 2}
       rarity: 0
-      provisionCost: 1
+      provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
       prefix: {fileID: 0}
       suffix: {fileID: 0}
     row: 1
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: 29209e887de29c54386580dab652807f, type: 2}
+      rarity: 0
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
     col: 2
   enemyTactics:
   - tacticData:

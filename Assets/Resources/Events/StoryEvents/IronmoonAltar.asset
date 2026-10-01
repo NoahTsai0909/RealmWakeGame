@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 10
   maxAppearancesPerRun: 1
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: Looming in absolute stillness, a gargantuan dark blue cocoon laced
       with yellow gold bears a frozen, eerie smile of jagged white teeth. It awaits

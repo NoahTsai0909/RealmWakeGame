@@ -17,12 +17,12 @@ MonoBehaviour:
   eventIcon: {fileID: 21300000, guid: d5cf842fbb84bd84e820c234b6845627, type: 3}
   eventBackgroundImage: {fileID: 0}
   portalGlowColor: {r: 1, g: 1, b: 1, a: 1}
-  minDayRequired: 2
-  maxDayRequired: 2
+  minDayRequired: 5
+  maxDayRequired: 5
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 2
   experienceReward: 2
-  encounter: {fileID: 11400000, guid: 351bdef2bce433b41856f84ac1105b9c, type: 2}
+  encounter: {fileID: 11400000, guid: 789fa9eaab4f9a84f8861b12f0a7fcc2, type: 2}
   isDifficult: 0
   goldReward: 5

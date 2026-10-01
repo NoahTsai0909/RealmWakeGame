@@ -16,9 +16,9 @@ MonoBehaviour:
   description: 
   eventIcon: {fileID: 21300000, guid: c72e405dc9c9470449624177b1f92a74, type: 3}
   eventBackgroundImage: {fileID: 0}
-  portalGlowColor: {r: 0.042917524, g: 0.24892062, b: 0.44025147, a: 1}
+  portalGlowColor: {r: 1, g: 1, b: 1, a: 1}
   minDayRequired: 11
-  maxDayRequired: 12
+  maxDayRequired: 11
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 2

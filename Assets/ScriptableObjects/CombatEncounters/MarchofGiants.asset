@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
+  m_Name: MarchofGiants
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
+  encounterName: 
+  enemyUnits:
+  - unitData:
+      definition: {fileID: 11400000, guid: 12b3a3030c868b446943d77ccc7c563f, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: 12b3a3030c868b446943d77ccc7c563f, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: 1c0698f5c01762c429057db044ec6ddf, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 1c0698f5c01762c429057db044ec6ddf, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 005d0d6378e9c634da8db0e118e691b3, type: 2}
+      rarity: 2
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: 005d0d6378e9c634da8db0e118e691b3, type: 2}
+      rarity: 2
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 005d0d6378e9c634da8db0e118e691b3, type: 2}
+      rarity: 2
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: f6ea37928cb879447a35c784737a0d23, type: 2}
+      rarity: 2
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: 8f005606f4a1e4847a4aa1978ce45a79, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 2
+  enemyTactics:
+  - tacticData:
+      definition: {fileID: 11400000, guid: b71b3b84a9f676648bdaaa75ba937b70, type: 2}
+      rarity: 2
+    orderIndex: 1
+  - tacticData:
+      definition: {fileID: 0}
+      rarity: 0
+    orderIndex: 0
+  randomMutationCount: 0

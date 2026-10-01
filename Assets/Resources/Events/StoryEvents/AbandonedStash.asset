@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: " Someone fled in a hurry, leaving behind a stash too heavy\u2014or
       too dangerous\u2014to carry."

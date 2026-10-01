@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
+  m_Name: AssaultFormation
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
+  encounterName: 
+  enemyUnits:
+  - unitData:
+      definition: {fileID: 11400000, guid: c5990d831f2e7ed4bbaa6932d4e9f65f, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: c5990d831f2e7ed4bbaa6932d4e9f65f, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: 6685ff8b4910e2d4680e00f630facce4, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 6685ff8b4910e2d4680e00f630facce4, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: defba5472dfab994683d340274c29d67, type: 2}
+      rarity: 0
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: defba5472dfab994683d340274c29d67, type: 2}
+      rarity: 0
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 2
+  enemyTactics: []
+  randomMutationCount: 0

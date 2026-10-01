@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: Beneath the oldest tree, crystalline roots cradle a shimmering elixir.
       One sip fills your heart with the forest's eternal vigor.

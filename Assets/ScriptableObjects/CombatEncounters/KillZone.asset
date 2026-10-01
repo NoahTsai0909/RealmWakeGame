@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
   m_Name: KillZone
   m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
-  encounterName: Kill Zone
+  encounterName: 
   enemyUnits:
   - unitData:
       definition: {fileID: 11400000, guid: ee091adf83bd1af41ae99a6d43bdfcac, type: 2}
@@ -36,7 +36,7 @@ MonoBehaviour:
     col: 0
   - unitData:
       definition: {fileID: 11400000, guid: baa5edd3153c4c64898806ac0c0ed1d6, type: 2}
-      rarity: 2
+      rarity: 1
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
     col: 1
   - unitData:
       definition: {fileID: 11400000, guid: baa5edd3153c4c64898806ac0c0ed1d6, type: 2}
-      rarity: 2
+      rarity: 1
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
     col: 1
   - unitData:
       definition: {fileID: 11400000, guid: b50fd84334f7e58418512acd3d6decee, type: 2}
-      rarity: 2
+      rarity: 1
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
     col: 2
   - unitData:
       definition: {fileID: 11400000, guid: b50fd84334f7e58418512acd3d6decee, type: 2}
-      rarity: 2
+      rarity: 1
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -87,10 +87,10 @@ MonoBehaviour:
   enemyTactics:
   - tacticData:
       definition: {fileID: 11400000, guid: 5630dbc7684d0ab4bb4a98e932ac7977, type: 2}
-      rarity: 2
+      rarity: 1
     orderIndex: 0
   - tacticData:
-      definition: {fileID: 11400000, guid: c6c2699343df98f4682840bcd8d58c42, type: 2}
+      definition: {fileID: 11400000, guid: cf81f0f210e8c2144a64c7564a452c19, type: 2}
       rarity: 1
     orderIndex: 1
-  randomMutationCount: 2
+  randomMutationCount: 0

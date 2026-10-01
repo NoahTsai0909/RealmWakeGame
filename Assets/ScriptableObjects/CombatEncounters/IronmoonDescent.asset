@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
   m_Name: IronmoonDescent
   m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
-  encounterName: Ironmoon Descent
+  encounterName: 
   enemyUnits:
   - unitData:
       definition: {fileID: 11400000, guid: e1861f78880b9ca42a34ea6f72787037, type: 2}
-      rarity: 2
+      rarity: 3
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -26,7 +26,17 @@ MonoBehaviour:
     col: 0
   - unitData:
       definition: {fileID: 11400000, guid: e1861f78880b9ca42a34ea6f72787037, type: 2}
-      rarity: 2
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: e1861f78880b9ca42a34ea6f72787037, type: 2}
+      rarity: 3
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -35,8 +45,38 @@ MonoBehaviour:
     row: 2
     col: 0
   - unitData:
+      definition: {fileID: 11400000, guid: e1861f78880b9ca42a34ea6f72787037, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: e1861f78880b9ca42a34ea6f72787037, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: e1861f78880b9ca42a34ea6f72787037, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 2
+  - unitData:
       definition: {fileID: 11400000, guid: 7aeef11f5cf4336418da9431cffe8ac2, type: 2}
-      rarity: 2
+      rarity: 3
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -46,7 +86,7 @@ MonoBehaviour:
     col: 1
   - unitData:
       definition: {fileID: 11400000, guid: 49cb8e9c6229f0043bd092ae47f8fc5c, type: 2}
-      rarity: 2
+      rarity: 3
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -56,7 +96,7 @@ MonoBehaviour:
     col: 1
   - unitData:
       definition: {fileID: 11400000, guid: 8f05139ba924af04e9e43e1160b4c0e1, type: 2}
-      rarity: 2
+      rarity: 3
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -66,15 +106,7 @@ MonoBehaviour:
     col: 2
   enemyTactics:
   - tacticData:
-      definition: {fileID: 11400000, guid: 35a2b1e7cfcc5bf4a8121e167d7b3522, type: 2}
-      rarity: 1
-    orderIndex: 0
-  - tacticData:
-      definition: {fileID: 11400000, guid: a241affdece3afa47b7bb1bf9dca5af7, type: 2}
-      rarity: 2
-    orderIndex: 1
-  - tacticData:
       definition: {fileID: 11400000, guid: 074584a99fe39854a9bb8744ae579f12, type: 2}
       rarity: 3
-    orderIndex: 2
-  randomMutationCount: 2
+    orderIndex: 0
+  randomMutationCount: 0

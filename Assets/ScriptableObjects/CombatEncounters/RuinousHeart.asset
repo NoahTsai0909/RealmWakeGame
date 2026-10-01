@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
+  m_Name: RuinousHeart
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
+  encounterName: 
+  enemyUnits:
+  - unitData:
+      definition: {fileID: 11400000, guid: faf589a64d7ee2942aa80d964bfbc177, type: 2}
+      rarity: 4
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: d14caa429789fed4b8b3c34f7926493c, type: 2}
+      rarity: 4
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: d14caa429789fed4b8b3c34f7926493c, type: 2}
+      rarity: 4
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: d14caa429789fed4b8b3c34f7926493c, type: 2}
+      rarity: 4
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: ede491ac2b1f24a4a810a17aa31a3897, type: 2}
+      rarity: 4
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 4df1d70b6563df7478c9bd858186ad12, type: 2}
+      rarity: 4
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: ae2c03543cf492e41956ecd8eb754dec, type: 2}
+      rarity: 4
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 2
+  enemyTactics:
+  - tacticData:
+      definition: {fileID: 11400000, guid: d83e0a96054442d4297b35a57f030642, type: 2}
+      rarity: 3
+    orderIndex: 0
+  randomMutationCount: 0

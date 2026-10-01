@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IronmoonTrinitySO
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinition
   unitName: Ironmoon Trinity
-  maxHP: 140
+  maxHP: 300
   mainStat: 5
   attack: 0
   heal: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
   cost: 0
   region: 4
   rarity: 0
-  startingRarity: 2
+  startingRarity: 4
   provisionCost: 3
   isMelee: 0
   isEventExclusive: 1

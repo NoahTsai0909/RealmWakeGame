@@ -22,10 +22,13 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 6
+  experienceReward: 1
   totalUnitsGenerated: 6
   totalTacticsGenerated: 0
   unitsPerPage: 3
   refreshCost: 2
+  infiniteRerolls: 0
+  refreshCostIncrease: 1
   discount: 0
   forceMutation: 0
   allowedTags: 0

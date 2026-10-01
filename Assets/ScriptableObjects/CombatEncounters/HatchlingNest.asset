@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
   m_Name: HatchlingNest
   m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
-  encounterName: Hatchling Nest
+  encounterName: 
   enemyUnits:
   - unitData:
       definition: {fileID: 11400000, guid: 5467cd0d052e12d46a69750eb406f9a0, type: 2}

@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
+  m_Name: WildGrowth
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
+  encounterName: 
+  enemyUnits:
+  - unitData:
+      definition: {fileID: 11400000, guid: a696c4d986292e84385f2226a8406760, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: a696c4d986292e84385f2226a8406760, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: a696c4d986292e84385f2226a8406760, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 1
+  - unitData:
+      definition: {fileID: 11400000, guid: 6435ef4f87c06cd478998c73bcdf6d2b, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: 6435ef4f87c06cd478998c73bcdf6d2b, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: fdacd95638806794eb68fb3b19794bd8, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: d437a718a55dcf24f9849222b79bc7f7, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: d437a718a55dcf24f9849222b79bc7f7, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: 5f1b78a5fffe29a418f8723f751630c9, type: 2}
+      rarity: 3
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 1
+    col: 1
+  enemyTactics:
+  - tacticData:
+      definition: {fileID: 11400000, guid: 5435ab3c270f78542b0f273944eb930a, type: 2}
+      rarity: 3
+    orderIndex: 0
+  - tacticData:
+      definition: {fileID: 11400000, guid: 4d49c7e8a5b450948bb670b6d44d25e8, type: 2}
+      rarity: 2
+    orderIndex: 0
+  - tacticData:
+      definition: {fileID: 11400000, guid: 35a2b1e7cfcc5bf4a8121e167d7b3522, type: 2}
+      rarity: 3
+    orderIndex: 0
+  randomMutationCount: 0

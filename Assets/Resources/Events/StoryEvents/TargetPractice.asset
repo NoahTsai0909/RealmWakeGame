@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: Arrows fly and spells flare as your allies hone their aim against
       moving targets. This will prove to be useful in the coming challenges.

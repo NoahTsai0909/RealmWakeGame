@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 1
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: Perfected power flows through the crown, unlocking the full potential
       of its bearer.

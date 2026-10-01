@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 5
+  experienceReward: 1
   pages:
   - promptText: A desperate village pleads for your aid. A band of ruthless marauders
       has descended upon their homes, leaving fear and ruin in their wake. Lucky

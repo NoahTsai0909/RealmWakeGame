@@ -12,38 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57601b2f037543c458f452a8ef88aa8a, type: 3}
   m_Name: DragonsBrood
   m_EditorClassIdentifier: Assembly-CSharp::EncounterDefinition
-  encounterName: Dragon's Brood
+  encounterName: 
   enemyUnits:
-  - unitData:
-      definition: {fileID: 11400000, guid: 5467cd0d052e12d46a69750eb406f9a0, type: 2}
-      rarity: 2
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 0
-    col: 1
-  - unitData:
-      definition: {fileID: 11400000, guid: 5467cd0d052e12d46a69750eb406f9a0, type: 2}
-      rarity: 2
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 0
-    col: 2
-  - unitData:
-      definition: {fileID: 11400000, guid: 5467cd0d052e12d46a69750eb406f9a0, type: 2}
-      rarity: 2
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 1
-    col: 0
   - unitData:
       definition: {fileID: 11400000, guid: 187d6b279d3aa6443a7e680baeea904b, type: 2}
       rarity: 2
@@ -62,8 +32,38 @@ MonoBehaviour:
       valueModifier: 0
       prefix: {fileID: 0}
       suffix: {fileID: 0}
+    row: 0
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: 5467cd0d052e12d46a69750eb406f9a0, type: 2}
+      rarity: 2
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
     row: 1
-    col: 2
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: 5467cd0d052e12d46a69750eb406f9a0, type: 2}
+      rarity: 2
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 2
+    col: 0
+  - unitData:
+      definition: {fileID: 11400000, guid: 5467cd0d052e12d46a69750eb406f9a0, type: 2}
+      rarity: 2
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 1
   - unitData:
       definition: {fileID: 11400000, guid: 5467cd0d052e12d46a69750eb406f9a0, type: 2}
       rarity: 2
@@ -82,15 +82,35 @@ MonoBehaviour:
       valueModifier: 0
       prefix: {fileID: 0}
       suffix: {fileID: 0}
+    row: 1
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: ebd5473c46fa350458a88592a0837802, type: 2}
+      rarity: 2
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
+    row: 0
+    col: 2
+  - unitData:
+      definition: {fileID: 11400000, guid: ebd5473c46fa350458a88592a0837802, type: 2}
+      rarity: 1
+      provisionCost: 0
+      provisionModifier: 0
+      valueModifier: 0
+      prefix: {fileID: 0}
+      suffix: {fileID: 0}
     row: 2
     col: 2
   enemyTactics:
   - tacticData:
-      definition: {fileID: 11400000, guid: 8c8b1ef2b946bf646b78107c85fada53, type: 2}
-      rarity: 1
-    orderIndex: 0
-  - tacticData:
       definition: {fileID: 11400000, guid: e4a50db2aab163748991c8a8f23c5e9d, type: 2}
       rarity: 2
+    orderIndex: 0
+  - tacticData:
+      definition: {fileID: 11400000, guid: b10ef5b4905e4e14a83953d72c66a88d, type: 2}
+      rarity: 2
     orderIndex: 1
-  randomMutationCount: 2
+  randomMutationCount: 0

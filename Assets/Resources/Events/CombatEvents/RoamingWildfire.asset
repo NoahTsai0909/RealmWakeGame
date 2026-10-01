@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8920a2a2659eb4f45baf49db4d32ce91, type: 3}
+  m_Name: RoamingWildfire
+  m_EditorClassIdentifier: Assembly-CSharp::CombatEventSO
+  eventName: Roaming Wildfire
+  description: 
+  eventIcon: {fileID: 21300000, guid: c72e405dc9c9470449624177b1f92a74, type: 3}
+  eventBackgroundImage: {fileID: 0}
+  portalGlowColor: {r: 1, g: 1, b: 1, a: 1}
+  minDayRequired: 7
+  maxDayRequired: 7
+  selectionWeight: 1
+  maxAppearancesPerRun: 0
+  targetScene: 2
+  experienceReward: 3
+  encounter: {fileID: 11400000, guid: 149b2bbbd66f69a4bae60597f89e7d75, type: 2}
+  isDifficult: 1
+  goldReward: 6
