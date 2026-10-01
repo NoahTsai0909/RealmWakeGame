@@ -160,7 +160,7 @@ public class EventSceneController : MonoBehaviour
                     if (choice.rollRandomRarity)
                     {
                         int day = RunManager.Instance.Stats.CurrentDay;
-                        DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day);
+                        DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day, RunManager.Instance.TOTAL_DAYS);
                         finalRarity = RarityDistributionTable.RollRarity(dist);
                     }
                     else
@@ -184,7 +184,7 @@ public class EventSceneController : MonoBehaviour
                     if (choice.rollRandomRarity)
                     {
                         int day = RunManager.Instance.Stats.CurrentDay;
-                        DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day);
+                        DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day, RunManager.Instance.TOTAL_DAYS);
                         finalRarity = RarityDistributionTable.RollRarity(dist);
                     }
                     else

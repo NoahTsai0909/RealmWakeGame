@@ -17,7 +17,7 @@ public class GainSpecificUnitOutcomeSO : EventOutcomeSO
         else if (fallbackUnit != null)
         {
             int day = RunManager.Instance.Stats.CurrentDay;
-            DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day);
+            DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day, RunManager.Instance.TOTAL_DAYS);
             Rarity rolledRarity = RarityDistributionTable.RollRarity(dist);
             PlayerUnitManager.Instance.TryAcquireUnit(fallbackUnit, rolledRarity);
         }

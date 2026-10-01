@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a16e02b8c37b3f43ac55682dba29a26, type: 3}
+  m_Name: MucusSO
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDefinition
+  unitName: Mucus
+  maxHP: 70
+  mainStat: 7
+  attack: 0
+  heal: 0
+  shield: 0
+  burn: 0
+  poison: 7
+  slow: 1
+  haste: 0
+  critChance: 0
+  cooldown: 6
+  isPassive: 0
+  isEnergy: 0
+  maxEnergy: 0
+  multicast: 1
+  overrideCooldownScaling: 0
+  cooldownByRarity:
+  - 0
+  - 0
+  - 0
+  - 0
+  unitSprite: {fileID: 21300000, guid: 1decbe578c5ead44cbe31900a77ee68a, type: 3}
+  defaultProjectile: []
+  cost: 0
+  region: 1
+  rarity: 0
+  startingRarity: 1
+  provisionCost: 2
+  isMelee: 0
+  isEventExclusive: 0
+  unitPrefab: {fileID: 2387796060565699961, guid: ef0041593436e1643b0704a788803e70, type: 3}
+  spawnDefinition: {fileID: 0}
+  tagFlags: 8384

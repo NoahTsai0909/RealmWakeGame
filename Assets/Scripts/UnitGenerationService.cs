@@ -14,7 +14,7 @@ public static class UnitGenerationService
         bool bypassExclusive = false, Region? excludedRegion = null)
     {
         int day = RunManager.Instance.Stats.CurrentDay;
-        DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day);
+        DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day, RunManager.Instance.TOTAL_DAYS);
         Rarity rolledRarity = RarityDistributionTable.RollRarity(dist);
         UnitDefinition def = UnitDatabase.Instance.GetRandomUnit(rolledRarity, region, requiredTags, 0, -1, bypassExclusive, excludedRegion);
 
@@ -98,7 +98,7 @@ public static class UnitGenerationService
 
                 //Get the epic probability for the current day
                 int currentDay = RunManager.Instance.Stats.CurrentDay;
-                DayRarityEntry currentDist = RunManager.Instance.rarityDistributionTable.GetForDay(currentDay);
+                DayRarityEntry currentDist = RunManager.Instance.rarityDistributionTable.GetForDay(currentDay, RunManager.Instance.TOTAL_DAYS);
 
                 //Roll a 0-99. If it's less than the epic chance, get a mutation
                 if (forceMutation || Random.Range(0, 100) < currentDist.epic)

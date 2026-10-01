@@ -1,8 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
-using static CombatEventBus;
 
-public class Paladin : UnitInstance 
+public class Cauterizer : UnitInstance
 {
     private int attackModifier = 10;
 
@@ -30,7 +28,7 @@ public class Paladin : UnitInstance
 
     protected override void HandleCombatAction(CombatAction action)
     {
-        if ((action.type == CombatActionType.Heal) && (action.target.isPlayer == this.isPlayer))
+        if ((action.type == CombatActionType.ApplyBurn) && (action.target.isPlayer != this.isPlayer))
         {
             CombatManager.Instance.ExecuteAction(new CombatAction
             {
@@ -57,7 +55,7 @@ public class Paladin : UnitInstance
                     source = this,
                     target = target,
                     amount = stats.Attack,
-                    reason = "Paladin Attack",
+                    reason = "Cauterizer Attack",
                     isCrit = abilityCrit
                 }
             );
@@ -71,6 +69,6 @@ public class Paladin : UnitInstance
 
     public override string GetPassiveDescription()
     {
-        return ($"When an ally is [c_heal]healed[/c], this gains +[c_attack]{attackModifier}[/c] [ATK].");
+        return ($"When an enemy is applied [c_burn]burn[/c], this gains [c_attack]{attackModifier}[/c] [ATK].");
     }
 }

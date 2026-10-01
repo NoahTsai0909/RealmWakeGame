@@ -466,7 +466,7 @@ public class RunManager : MonoBehaviour
             return Rarity.Common; // fallback
         }
 
-        var dist = rarityDistributionTable.GetForDay(day);
+        var dist = rarityDistributionTable.GetForDay(day, RunManager.Instance.TOTAL_DAYS);
         if (dist == null)
         {
             return Rarity.Common;

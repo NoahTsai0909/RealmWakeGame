@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a16e02b8c37b3f43ac55682dba29a26, type: 3}
+  m_Name: StonewardSO
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDefinition
+  unitName: Stone Ward
+  maxHP: 400
+  mainStat: 5
+  attack: 0
+  heal: 0
+  shield: 40
+  burn: 0
+  poison: 0
+  slow: 0
+  haste: 0
+  critChance: 0
+  cooldown: 8
+  isPassive: 0
+  isEnergy: 0
+  maxEnergy: 0
+  multicast: 1
+  overrideCooldownScaling: 0
+  cooldownByRarity:
+  - 0
+  - 0
+  - 0
+  - 0
+  unitSprite: {fileID: 21300000, guid: 04bafc615e7eb8a408e0beb8b39c3956, type: 3}
+  defaultProjectile: []
+  cost: 0
+  region: 4
+  rarity: 0
+  startingRarity: 4
+  provisionCost: 2
+  isMelee: 0
+  isEventExclusive: 1
+  unitPrefab: {fileID: 3583053053854982527, guid: aa05302e5e1a59f4d9d3aa1855421329, type: 3}
+  spawnDefinition: {fileID: 0}
+  tagFlags: 258

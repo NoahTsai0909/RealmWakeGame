@@ -7,7 +7,7 @@ public static class TacticGenerationService
     public static RunManager.TacticSaveData GenerateTactic(Region? region = null, bool byPassExclusivity = false)
     {
         int day = RunManager.Instance.Stats.CurrentDay;
-        DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day);
+        DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day, RunManager.Instance.TOTAL_DAYS);
         Rarity rolledRarity = RarityDistributionTable.RollRarity(dist);
 
         // 1. Get a tactic from the database
@@ -41,7 +41,7 @@ public static class TacticGenerationService
             HashSet<TacticDefinition> rolledThisShop = new HashSet<TacticDefinition>();
 
             int day = RunManager.Instance.Stats.CurrentDay;
-            DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day);
+            DayRarityEntry dist = RunManager.Instance.rarityDistributionTable.GetForDay(day, RunManager.Instance.TOTAL_DAYS);
 
             for (int i = 0; i < count; i++)
             {

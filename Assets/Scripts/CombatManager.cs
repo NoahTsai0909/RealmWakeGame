@@ -20,6 +20,7 @@ public enum CombatActionType
     Advance,
     Kill,
     Summon,
+    LifestealHeal,
 }
 
 public class CombatAction
@@ -101,7 +102,7 @@ public class CombatManager : MonoBehaviour
                 {
                     ExecuteAction(new CombatAction
                     {
-                        type = CombatActionType.Heal,
+                        type = CombatActionType.LifestealHeal,
                         source = action.source,
                         target = action.source,
                         amount = actualHealthLost,
@@ -148,6 +149,9 @@ public class CombatManager : MonoBehaviour
                 break;
             case CombatActionType.Summon:
                 ResolveSummon(action);
+                break;
+            case CombatActionType.LifestealHeal:
+                action.target.HealDamage(action.amount);
                 break;
         }
 
