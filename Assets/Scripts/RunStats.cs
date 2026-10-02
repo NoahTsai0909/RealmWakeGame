@@ -10,11 +10,6 @@ public class RunStats
         get => _currentGold;
         set
         {
-            int difference = value - _currentGold;
-            if (difference != 0) // Only log if it actually changes
-            {
-                Debug.Log($"<color=yellow>[Gold Tracker] Gold changed by {difference}. New Total: {value}</color>\nTriggered by:\n{StackTraceUtility.ExtractStackTrace()}");
-            }
             _currentGold = value;
             RunStatsEventBus.GoldChanged(_currentGold);
         }

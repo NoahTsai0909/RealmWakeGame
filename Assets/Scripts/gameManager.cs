@@ -102,6 +102,50 @@ public class gameManager : MonoBehaviour
             }
         }
         AudioManager.Instance.StopMusicWithFade(1.5f);
+        if (TutorialManager.Instance != null)
+        {
+            List<TutorialStep> combatSequence = new List<TutorialStep>
+            {
+                new TutorialStep {
+                    key = "CombatIntro",
+                    title = "Combat Preparations",
+                    description = "Position your units before starting battle. The fight ends when one side has no units left on the battlefield.",
+                    highlightTarget = null
+                },
+                new TutorialStep {
+                    key = "CombatBench",
+                    title = "Bench",
+                    description = "Your bench holds up to 5 reserve units. They stay out of battle until you drag and drop them onto your team grid, swapping them with deployed units during combat.",
+                    highlightTarget = benchGrid.transform
+                },
+                new TutorialStep {
+                    key = "CombatPlayerGrid",
+                    title = "Player Team",
+                    description = "Deploy up to 9 units on this grid. Their positions determine which allies and enemies their abilities can reach.",
+                    highlightTarget = playerGrid.transform
+                },
+                new TutorialStep {
+                    key = "CombatEnemyGrid",
+                    title = "Enemy Team",
+                    description = "This grid holds up to 9 enemy units. Inspect their abilities and positions to help plan your formation.",
+                    highlightTarget = enemyGrid.transform
+                },
+                new TutorialStep {
+                    key = "CombatTacticsBar",
+                    title = "Tactics Bar",
+                    description = "Both teams can have tactics that influence battle through passive effects or active abilities.",
+                    highlightTarget = playerTacticBarManager.transform
+                },
+                new TutorialStep {
+                    key = "CombatStartButton",
+                    title = "Ready for Battle",
+                    description = "When you’re happy with your formation, click here to start battle!",
+                    highlightTarget = startCombatButton.transform
+                }
+            };
+
+            TutorialManager.Instance.StartTutorialSequence(combatSequence);
+        }   
     }
 
     private void OnDestroy()

@@ -11,6 +11,7 @@ public class RunHUDManager : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private TMP_Text dayText;
     [SerializeField] private TMP_Text playerHealthText;
+    [SerializeField] private TMP_Text playerLevelText;
     [SerializeField] private TMP_Text playerXPText;
     [SerializeField] private Image playerXPFill;
     [SerializeField] private TMP_Text provisionCapText;
@@ -135,6 +136,7 @@ public class RunHUDManager : MonoBehaviour
             UpdateHealth(RunManager.Instance.Stats.PlayerHealth);
             UpdateDay(RunManager.Instance.Stats.CurrentDay);
             UpdateLevel(RunManager.Instance.Stats.PlayerLevel);
+            UpdateXP(RunManager.Instance.Stats.Experience);
             UpdateReputation(RunManager.Instance.Stats.Experience);
             UpdateProvisionCap(RunManager.Instance.Stats.ProvisionCap);
         }
@@ -162,7 +164,15 @@ public class RunHUDManager : MonoBehaviour
     private void UpdateLevel(int level)
     {
         if (playerXPText != null)
-            playerXPText.SetText(TextIconUtility.ParseDescription("[c_level]" + level.ToString() + "[/c]"));
+            playerLevelText.SetText(TextIconUtility.ParseDescription("[c_level]" + level.ToString() + "[/c]"));
+    }
+
+    private void UpdateXP(int xp)
+    {
+        if (playerXPFill != null)
+        {
+            playerXPText.SetText(TextIconUtility.ParseDescription("[c_experience]" + xp.ToString() + " / " + maxReputation.ToString() + "[/c]"));
+        }
     }
 
     private void UpdateReputation(int reputation)
@@ -261,6 +271,7 @@ public class RunHUDManager : MonoBehaviour
             UpdateHealth(RunManager.Instance.Stats.PlayerHealth);
             UpdateDay(RunManager.Instance.Stats.CurrentDay);
             UpdateLevel(RunManager.Instance.Stats.PlayerLevel);
+            UpdateXP(RunManager.Instance.Stats.Experience);
             UpdateReputation(RunManager.Instance.Stats.Experience);
             UpdateProvisionCap(RunManager.Instance.Stats.ProvisionCap);
         }

@@ -39,6 +39,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private TMP_Dropdown combatSpeedDropdown;
     [SerializeField] private Toggle screenShakeToggle;
     [SerializeField] private Toggle damageNumbersToggle;
+    [SerializeField] private Button resetTutorialButton;
 
     private void Awake()
     {
@@ -153,6 +154,10 @@ public class SettingsManager : MonoBehaviour
             {
                 damageNumbersToggle.isOn = PlayerPrefs.GetInt("DamageNumbers", 1) == 1;
                 damageNumbersToggle.onValueChanged.AddListener(GameplayManager.Instance.SetDamageNumbers);
+            }
+            if (resetTutorialButton != null)
+            {
+                resetTutorialButton.onClick.AddListener(TutorialManager.Instance.ResetAllTutorials);
             }
         }
     }

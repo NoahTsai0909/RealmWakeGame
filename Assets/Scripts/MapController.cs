@@ -63,13 +63,38 @@ public class MapController : MonoBehaviour
         if (previewOverlay != null) previewOverlay.SetActive(false);
         if (enemyTacticBarManager != null) enemyTacticBarManager.gameObject.SetActive(false);
         RunManager.Instance.SetAdventureMusic();
+        if (TutorialManager.Instance != null)
+        {
+            List<TutorialStep> combatSequence = new List<TutorialStep>
+            {
+                new TutorialStep {
+                    key = "MapSceneIntro",
+                    title = "Your Adventure Begins",
+                    description = "The Realmwake shattered the boundaries between four worlds, colliding them into one. Venture into this newly formed world to uncover the disaster’s secrets. Rival expeditions from all four regions pursue their own ambitions—even those from your homeland may stand in your way.\r\n\r\nGather a formidable squad, survive 12 days, and defeat the adventure’s final boss on Day 12.",
+                    highlightTarget = null
+                },
+                new TutorialStep {
+                    key = "MapSceneRunHUD",
+                    title = "Status Information",
+                    description = "Key information about the current status of your run is located in the bar up top.",
+                    highlightTarget = RunHUDManager.Instance.transform.GetChild(0)
+                },
+                new TutorialStep {
+                    key = "MapSceneEventSelection",
+                    title = "Choose Your Next Event",
+                    description = "Each phase presents 3 events. Choose one to venture into.\r\n\r\nHover over an event to read its description and view its base rewards. Events come in three types: Shop, Story, and Combat.",
+                    highlightTarget = null
+                }
+            };
+
+            TutorialManager.Instance.StartTutorialSequence(combatSequence);
+        }
     }
 
     void Update()
     {
         if (Keyboard.current == null || Mouse.current == null) return;
 
-        // 1. If currently pinned, listen for unpin triggers
         if (isPinned)
         {
             if (Keyboard.current.tKey.wasPressedThisFrame ||
@@ -79,7 +104,6 @@ public class MapController : MonoBehaviour
             {
                 isPinned = false;
 
-                // Turn raycasts back off so it doesn't cause glitches when it unpins!
                 CanvasGroup cg = eventInfoPanel.GetComponent<CanvasGroup>();
                 if (cg != null) cg.blocksRaycasts = false;
 
@@ -89,7 +113,6 @@ public class MapController : MonoBehaviour
             return;
         }
 
-        // 2. regular pinning for the main panel
         if (eventInfoPanel.activeSelf && Keyboard.current.tKey.wasPressedThisFrame)
         {
             isPinned = true;
