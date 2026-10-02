@@ -540,8 +540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -315.8, y: -11}
-  m_SizeDelta: {x: 750, y: 60}
+  m_AnchoredPosition: {x: -315, y: -11}
+  m_SizeDelta: {x: 700, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36269052584017784
 MonoBehaviour:
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 75215358131375474}
   - component: {fileID: 804790152221253443}
   m_Layer: 0
-  m_Name: playerProvisionCapcontainer
+  m_Name: playerProvisionCapContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -949,7 +949,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 140, y: 60}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6609417987719284912
 CanvasRenderer:
@@ -1006,12 +1006,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 24
+  m_fontSizeMin: 12
+  m_fontSizeMax: 18
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -2221,7 +2221,7 @@ GameObject:
   - component: {fileID: 543926599299091007}
   - component: {fileID: 2255296063875151467}
   m_Layer: 0
-  m_Name: playerGoldCapcontainer
+  m_Name: playerGoldContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

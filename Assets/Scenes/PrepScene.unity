@@ -241,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrepSceneManager
   battleGrid: {fileID: 1829933803}
   benchGrid: {fileID: 1460119201}
+  benchGridBackground: {fileID: 520782013}
   provisionManager: {fileID: 1519739154}
   playerTacticBarManager: {fileID: 1520353060}
 --- !u!4 &508103237

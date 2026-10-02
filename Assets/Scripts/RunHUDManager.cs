@@ -66,6 +66,7 @@ public class RunHUDManager : MonoBehaviour
             }
         }
         squadButton.onClick.AddListener(() => {
+            if (Time.timeScale == 0f) return;
             string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
             if (currentScene == "PrepScene")
             {

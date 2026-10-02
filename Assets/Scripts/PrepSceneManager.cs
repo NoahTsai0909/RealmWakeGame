@@ -8,6 +8,7 @@ public class PrepSceneManager : MonoBehaviour
 {
     public GridManager battleGrid;
     public GridManager benchGrid;
+    public GameObject benchGridBackground;
     [SerializeField] private ProvisionManager provisionManager;
     [Header("Tactics")]
     [SerializeField] private TacticBarManager playerTacticBarManager;
@@ -16,11 +17,6 @@ public class PrepSceneManager : MonoBehaviour
 
     void Start()
     {
-        /*if (RunHUDManager.Instance != null)
-        {
-            RunHUDManager.Instance.SlideOutAndHide(0.5f);
-        }*/
-
         if (RunManager.Instance != null)
         {
             RunManager.Instance.SanitizeBench();
@@ -32,6 +28,46 @@ public class PrepSceneManager : MonoBehaviour
         LoadBenchGridFromRunManager();
         LoadTacticBarFromRunManager();
         playerTacticBarManager.RefreshAllTacticAuras();
+
+        if (TutorialManager.Instance != null)
+        {
+            Transform hudCanvas = RunHUDManager.Instance.transform;
+            List<TutorialStep> combatSequence = new List<TutorialStep>
+            {
+                new TutorialStep {
+                    key = "PrepSceneIntro",
+                    title = "Your Squad",
+                    description = "Every unit and tactic you currently possess will be displayed here. You may position them as you please!",
+                    highlightTarget = null
+                },
+                new TutorialStep {
+                    key = "PrepSceneGrid",
+                    title = "Player Team",
+                    description = "Deploy up to 9 units on this grid. Their positions determine which allies and enemies their abilities can reach.",
+                    highlightTarget = battleGrid.transform
+                },
+                new TutorialStep {
+                    key = "PrepSceneMaxProvision",
+                    title = "Max Provision",
+                    description = "Each unit has a provision cost. Your deployed units’ combined costs cannot exceed your max provision. Increase this limit to field more units or those with higher provision costs!",
+                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerProvisionCapContainer")
+                },
+                new TutorialStep {
+                    key = "PrepSceneBench",
+                    title = "Bench",
+                    description = "Your bench holds up to 5 reserve units. They stay out of battle until you drag and drop them onto your team grid, swapping them with deployed units during combat.",
+                    highlightTarget = benchGridBackground.transform
+                },
+                new TutorialStep {
+                    key = "PrepSceneTacticsBar",
+                    title = "Tactics Bar",
+                    description = "You may collect tactics that influence battle through passive effects or active abilities.",
+                    highlightTarget = playerTacticBarManager.transform
+                }
+            };
+
+            TutorialManager.Instance.StartTutorialSequence(combatSequence);
+        }
     }
 
     public void ReturnToMapScene()

@@ -1,10 +1,11 @@
+using System.Collections.Generic;
+using TMPro;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static SceneLoader;
-using TMPro;
-using System.Collections.Generic;
-using UnityEngine.InputSystem;
 
 public class MapController : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class MapController : MonoBehaviour
         RunManager.Instance.SetAdventureMusic();
         if (TutorialManager.Instance != null)
         {
+            Transform hudCanvas = RunHUDManager.Instance.transform;
             List<TutorialStep> combatSequence = new List<TutorialStep>
             {
                 new TutorialStep {
@@ -77,7 +79,37 @@ public class MapController : MonoBehaviour
                     key = "MapSceneRunHUD",
                     title = "Status Information",
                     description = "Key information about the current status of your run is located in the bar up top.",
-                    highlightTarget = RunHUDManager.Instance.transform.GetChild(0)
+                    highlightTarget = hudCanvas.Find("TopBar")
+                },
+                new TutorialStep {
+                    key = "RunHUDPlayerHealth",
+                    title = "Player Health",
+                    description = "You lose [c_playerhealth]health[/c] when you’re defeated in combat. If your health reaches zero, you’ll be forced to retire from the current adventure!",
+                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerHealthContainer")
+                },
+                new TutorialStep {
+                    key = "RunHUDPlayerLevel",
+                    title = "Player Level & Experience",
+                    description = "Gain [c_experience]experience[/c] to fill your experience bar and [c_level]level up[/c]. Each level up lets you choose a reward to strengthen your squad or support your adventure!",
+                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerLevelContainer")
+                },
+                new TutorialStep {
+                    key = "RunHUDMaxProvision",
+                    title = "Max Provision",
+                    description = "Each unit has a provision cost. Your deployed units’ combined costs cannot exceed your max provision. Increase this limit to field more units or those with higher provision costs!",
+                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerProvisionCapContainer")
+                },
+                new TutorialStep {
+                    key = "RunHUDPlayerGold",
+                    title = "Gold",
+                    description = "Spend [GOLD] to recruit units in Shop events. Spend wisely to build a squad that can withstand the battles ahead!",
+                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerGoldContainer")
+                },
+                new TutorialStep {
+                    key = "RunHUDSquadButton",
+                    title = "Your Squad",
+                    description = "Click here to view your owned units and rearrange your squad’s formation.",
+                    highlightTarget = hudCanvas.Find("TopBar/rightSideButtons/SquadButton")
                 },
                 new TutorialStep {
                     key = "MapSceneEventSelection",

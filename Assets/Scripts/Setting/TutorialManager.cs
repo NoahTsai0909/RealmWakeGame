@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 [System.Serializable]
 public struct TutorialStep
@@ -33,6 +34,7 @@ public class TutorialManager : MonoBehaviour
     private bool dynamicallyAddedCanvas = false;
     private bool originalOverrideSorting = false;
     private int originalSortingOrder = 0;
+    private Tween arrowTween;
 
     private void Awake()
     {
@@ -131,6 +133,7 @@ public class TutorialManager : MonoBehaviour
 
             Vector2 targetScreenPos;
             bool isUpperHalf;
+            arrowTween?.Kill();
 
             if (currentTarget is RectTransform rectTransform)
             {
@@ -183,12 +186,16 @@ public class TutorialManager : MonoBehaviour
             if (isUpperHalf)
             {
                 pointerArrow.anchoredPosition = localArrowPos + new Vector2(0, -offsetMagnitude);
-                pointerArrow.localEulerAngles = new Vector3(0, 0, 180f); 
+                pointerArrow.localEulerAngles = new Vector3(0, 0, 180f);
+                arrowTween = pointerArrow.DOAnchorPosY(pointerArrow.anchoredPosition.y - 15f, 0.5f)
+                    .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine).SetUpdate(true);
             }
             else
             {
                 pointerArrow.anchoredPosition = localArrowPos + new Vector2(0, offsetMagnitude);
-                pointerArrow.localEulerAngles = Vector3.zero; 
+                pointerArrow.localEulerAngles = Vector3.zero;
+                arrowTween = pointerArrow.DOAnchorPosY(pointerArrow.anchoredPosition.y + 15f, 0.5f)
+                    .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine).SetUpdate(true);
             }
         }
         else
@@ -206,8 +213,13 @@ public class TutorialManager : MonoBehaviour
         {
             if (dynamicallyAddedCanvas)
             {
-                Destroy(currentTarget.GetComponent<GraphicRaycaster>());
-                Destroy(existingCanvas);
+                GraphicRaycaster gr = currentTarget.GetComponent<GraphicRaycaster>();
+                if (gr != null) DestroyImmediate(gr);
+                DestroyImmediate(existingCanvas);
+                if (currentTarget.parent != null && currentTarget.parent is RectTransform rectParent)
+                {
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(rectParent);
+                }
             }
             else
             {
@@ -225,6 +237,7 @@ public class TutorialManager : MonoBehaviour
 
     private void EndSequence()
     {
+        arrowTween?.Kill();
         CleanupSpotlight();
         currentTarget = null;
         tutorialPanel.SetActive(false);
