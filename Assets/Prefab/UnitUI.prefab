@@ -1572,6 +1572,7 @@ MonoBehaviour:
   isPermanentUI: 0
   edgePadding: {x: 50, y: 50}
   isPreviewMode: 0
+  instructionalImage: {fileID: 21300000, guid: 420525c26049dcf43a4898061cb47540, type: 3}
   hideInPreviewMode:
   - {fileID: 9097386111517221011}
   - {fileID: 4718830252415447116}

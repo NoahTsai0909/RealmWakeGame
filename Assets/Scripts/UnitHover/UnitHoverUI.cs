@@ -1,7 +1,8 @@
-using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class UnitHoverUI : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class UnitHoverUI : MonoBehaviour
     [Header("Preview State")]
     public bool isPreviewMode = false;
     private UnitHoverUI activePreviewUI;
+    [SerializeField] private Sprite instructionalImage;
     [Tooltip("Drag the Inspect Notice and your new Preview Button here so they vanish on the cloned UI")]
     [SerializeField] private GameObject[] hideInPreviewMode;
     public bool placedOnRightSide = true;
@@ -102,6 +104,20 @@ public class UnitHoverUI : MonoBehaviour
 
     public void Show(UnitInstance unit, RectTransform uiAnchor = null)
     {
+        if (TutorialManager.Instance != null)
+        {
+            List<TutorialStep> combatSequence = new List<TutorialStep>
+                            {
+                                new TutorialStep {
+                                    key = "UnitHoverUI",
+                                    title = "Unit Information",
+                                    description = "Hover over a unit to view its stats and abilities.\n\nPress T to pin the panel, then hover over keywords to learn what they mean.",
+                                    highlightTarget = null,
+                                    instructionalGraphic = instructionalImage != null ? instructionalImage : null
+                                }
+                            };
+            TutorialManager.Instance.StartTutorialSequence(combatSequence);
+        }
         uiAnchorOverride = uiAnchor;
         if (unit == null || unit.Definition == null)
             return;

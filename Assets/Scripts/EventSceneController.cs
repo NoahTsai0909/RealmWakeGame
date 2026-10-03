@@ -50,6 +50,21 @@ public class EventSceneController : MonoBehaviour
             eventBackgroundRenderer.sprite = currentEvent.eventBackgroundImage;
 
         LoadEventChoices();
+
+        if (TutorialManager.Instance != null)
+        {
+            List<TutorialStep> combatSequence = new List<TutorialStep>
+            {
+                new TutorialStep {
+                    key = "EventSceneIntro",
+                    title = "Story Event",
+                    description = "Encounter situations with a variety of possible outcomes. Your choices may bring rewards, risks, or unexpected consequences—consider your options carefully!",
+                    highlightTarget = null
+                }
+            };
+
+            TutorialManager.Instance.StartTutorialSequence(combatSequence);
+        }
     }
 
     private void LoadEventChoices()

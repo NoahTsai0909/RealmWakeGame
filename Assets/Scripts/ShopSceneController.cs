@@ -21,6 +21,7 @@ public class ShopSceneController : MonoBehaviour
     [SerializeField] public GridManager battleGrid;
     [SerializeField] public GridManager benchGrid;
     [SerializeField] private TacticBarManager playerTacticBarManager;
+    [SerializeField] private SellZone sellZone;
 
     [Header("Audio Settings")]
     [SerializeField] private AudioClip errorSound;
@@ -85,6 +86,58 @@ public class ShopSceneController : MonoBehaviour
             playerTacticBarManager.RefreshAllTacticAuras();
         }
         if (battleGrid != null) battleGrid.RefreshAllAuras();
+
+        if (TutorialManager.Instance != null)
+        {
+            Transform hudCanvas = RunHUDManager.Instance.transform;
+            List<TutorialStep> combatSequence = new List<TutorialStep>
+            {
+                new TutorialStep {
+                    key = "ShopSceneIntro",
+                    title = "Shop Events",
+                    description = "Spend [GOLD] to recruit units and acquire tactics. Browse the shop’s offers and review what you already own to find additions that strengthen your squad!",
+                    highlightTarget = null
+                },
+                new TutorialStep {
+                    key = "ShopSceneOffers",
+                    title = "Shop Offers",
+                    description = "Hover over a unit or tactic to inspect its abilities. Use the purchase button beneath an offer to buy it for the displayed [GOLD] cost.",
+                    highlightTarget = shopUIAnchor.transform
+                },
+                new TutorialStep {
+                    key = "ShopSceneTeamBench",
+                    title = "Your Team & Bench",
+                    description = "These rows show your currently owned units, including your reserves on the bench. Review your squad before deciding who to recruit!",
+                    highlightTarget = battleGrid.transform
+                },
+                new TutorialStep {
+                    key = "ShopSceneTacticBar",
+                    title = "Your Tactics",
+                    description = "This bar shows the tactics you currently own. Hover over a tactic to review its effects.",
+                    highlightTarget = playerTacticBarManager.transform
+                },
+                new TutorialStep {
+                    key = "ShopSceneRefresh",
+                    title = "Refresh",
+                    description = "Spend the displayed amount of gold to replace the current offers with a new selection. Save enough gold to purchase anything you find!",
+                    highlightTarget = refreshButton.transform
+                },
+                new TutorialStep {
+                    key = "ShopSceneSell",
+                    title = "Sell Units",
+                    description = "Drag an unwanted unit into this area to sell it for gold. Selling units can help fund new recruits. Tactics cannot be sold!",
+                    highlightTarget = sellZone.transform
+                },
+                new TutorialStep {
+                    key = "ShopSceneProceed",
+                    title = "Proceed",
+                    description = "When you’re finished shopping, click here to leave the shop and continue your adventure.",
+                    highlightTarget = continueButton.transform
+                }
+            };
+
+            TutorialManager.Instance.StartTutorialSequence(combatSequence);
+        }
     }
 
     void SetupRefreshButton()

@@ -12,6 +12,7 @@ public struct TutorialStep
     public string title;
     [TextArea(2, 5)] public string description;
     public Transform highlightTarget;
+    public Sprite instructionalGraphic;
 }
 
 public class TutorialManager : MonoBehaviour
@@ -23,6 +24,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Button continueButton;
+    [SerializeField] private Image instructionalImageDisplay;
 
     [Header("Visual Pointers")]
     [SerializeField] private RectTransform pointerArrow;
@@ -55,10 +57,7 @@ public class TutorialManager : MonoBehaviour
             if (bgImage != null) bgImage.sprite = null;
         }
 
-        if (continueButton != null)
-        {
-            continueButton.onClick.AddListener(OnContinueClicked);
-        }
+        if (continueButton != null) continueButton.onClick.AddListener(OnContinueClicked);
     }
 
     public void TryShowTutorial(string tutorialKey, string title, string description, Transform highlightTarget = null)
@@ -106,8 +105,7 @@ public class TutorialManager : MonoBehaviour
     private IEnumerator StartSequenceRoutine()
     {
         yield return new WaitForEndOfFrame();
-
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
         ShowNextStep();
     }
 
@@ -127,80 +125,162 @@ public class TutorialManager : MonoBehaviour
         descriptionText.SetText(TextIconUtility.ParseDescription(currentStep.description));
         currentTarget = currentStep.highlightTarget;
 
-        if (currentTarget != null && pointerArrow != null)
+        arrowTween?.Kill();
+        if (currentStep.instructionalGraphic != null)
         {
-            pointerArrow.gameObject.SetActive(true);
+            if (pointerArrow != null) pointerArrow.gameObject.SetActive(false);
 
-            Vector2 targetScreenPos;
-            bool isUpperHalf;
-            arrowTween?.Kill();
-
-            if (currentTarget is RectTransform rectTransform)
+            if (instructionalImageDisplay != null)
             {
-                Canvas rootCanvas = rectTransform.GetComponentInParent<Canvas>();
-                Camera cam = (rootCanvas != null && rootCanvas.renderMode != RenderMode.ScreenSpaceOverlay) ? rootCanvas.worldCamera : null;
-                if (cam == null && rootCanvas != null && rootCanvas.renderMode != RenderMode.ScreenSpaceOverlay) cam = Camera.main;
-
-                Vector3[] corners = new Vector3[4];
-                rectTransform.GetWorldCorners(corners);
-
-                Vector2 centerScreen = RectTransformUtility.WorldToScreenPoint(cam, (corners[0] + corners[2]) / 2f);
-                isUpperHalf = centerScreen.y > Screen.height / 2f;
-
-                if (isUpperHalf)
-                {
-                    targetScreenPos = RectTransformUtility.WorldToScreenPoint(cam, (corners[0] + corners[3]) / 2f);
-                }
-                else
-                {
-                    targetScreenPos = RectTransformUtility.WorldToScreenPoint(cam, (corners[1] + corners[2]) / 2f);
-                }
-
-                existingCanvas = currentTarget.GetComponent<Canvas>();
-                if (existingCanvas == null)
-                {
-                    existingCanvas = currentTarget.gameObject.AddComponent<Canvas>();
-                    currentTarget.gameObject.AddComponent<GraphicRaycaster>();
-                    dynamicallyAddedCanvas = true;
-                }
-                else
-                {
-                    dynamicallyAddedCanvas = false;
-                }
-
-                originalOverrideSorting = existingCanvas.overrideSorting;
-                originalSortingOrder = existingCanvas.sortingOrder;
-                existingCanvas.overrideSorting = true;
-                existingCanvas.sortingOrder = 30005;
+                instructionalImageDisplay.sprite = currentStep.instructionalGraphic;
+                instructionalImageDisplay.gameObject.SetActive(true);
             }
-            else
-            {
-                targetScreenPos = Camera.main.WorldToScreenPoint(currentTarget.position);
-                isUpperHalf = targetScreenPos.y > Screen.height / 2f;
-            }
-            RectTransform panelRect = tutorialPanel.GetComponent<RectTransform>();
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(panelRect, targetScreenPos, null, out Vector2 localArrowPos);
 
-            float offsetMagnitude = (currentTarget is RectTransform) ? 75f : 150f;
+            if (titleText != null && descriptionText != null)
+            {
+                RectTransform titleRect = titleText.rectTransform;
+                RectTransform descRect = descriptionText.rectTransform;
 
-            if (isUpperHalf)
-            {
-                pointerArrow.anchoredPosition = localArrowPos + new Vector2(0, -offsetMagnitude);
-                pointerArrow.localEulerAngles = new Vector3(0, 0, 180f);
-                arrowTween = pointerArrow.DOAnchorPosY(pointerArrow.anchoredPosition.y - 15f, 0.5f)
-                    .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine).SetUpdate(true);
-            }
-            else
-            {
-                pointerArrow.anchoredPosition = localArrowPos + new Vector2(0, offsetMagnitude);
-                pointerArrow.localEulerAngles = Vector3.zero;
-                arrowTween = pointerArrow.DOAnchorPosY(pointerArrow.anchoredPosition.y + 15f, 0.5f)
-                    .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine).SetUpdate(true);
+                titleRect.anchorMin = new Vector2(0, 1); titleRect.anchorMax = new Vector2(1, 1);
+                descRect.anchorMin = new Vector2(0, 0); descRect.anchorMax = new Vector2(1, 0);
+
+                titleRect.pivot = new Vector2(0.5f, 1f);
+                titleRect.anchoredPosition = new Vector2(0, -50f);
+
+                descRect.pivot = new Vector2(0.5f, 0f);
+                descRect.anchoredPosition = new Vector2(0, 50f);
             }
         }
         else
         {
-            if (pointerArrow != null) pointerArrow.gameObject.SetActive(false);
+            if (instructionalImageDisplay != null) instructionalImageDisplay.gameObject.SetActive(false);
+
+            if (currentTarget != null && pointerArrow != null)
+            {
+                pointerArrow.gameObject.SetActive(true);
+
+                Vector2 targetScreenPos;
+                bool isUpperHalf;
+
+                Canvas.ForceUpdateCanvases();
+                RectTransform panelRect = tutorialPanel.GetComponent<RectTransform>();
+
+                if (currentTarget is RectTransform rectTransform)
+                {
+                    Canvas rootCanvas = rectTransform.GetComponentInParent<Canvas>();
+                    Camera cam = (rootCanvas != null && rootCanvas.renderMode != RenderMode.ScreenSpaceOverlay) ? rootCanvas.worldCamera : null;
+                    if (cam == null && rootCanvas != null && rootCanvas.renderMode != RenderMode.ScreenSpaceOverlay) cam = Camera.main;
+
+                    Vector3[] corners = new Vector3[4];
+                    rectTransform.GetWorldCorners(corners);
+
+                    Vector3 centerWorld = (corners[0] + corners[2]) / 2f;
+                    Vector2 centerScreen = (cam == null) ? new Vector2(centerWorld.x, centerWorld.y) : RectTransformUtility.WorldToScreenPoint(cam, centerWorld);
+
+                    RectTransformUtility.ScreenPointToLocalPointInRectangle(panelRect, centerScreen, null, out Vector2 localCenter);
+                    isUpperHalf = localCenter.y > 0f;
+
+                    if (isUpperHalf)
+                    {
+                        Vector3 bottomEdge = (corners[0] + corners[3]) / 2f;
+                        targetScreenPos = (cam == null) ? new Vector2(bottomEdge.x, bottomEdge.y) : RectTransformUtility.WorldToScreenPoint(cam, bottomEdge);
+                    }
+                    else
+                    {
+                        Vector3 topEdge = (corners[1] + corners[2]) / 2f;
+                        targetScreenPos = (cam == null) ? new Vector2(topEdge.x, topEdge.y) : RectTransformUtility.WorldToScreenPoint(cam, topEdge);
+                    }
+
+                    existingCanvas = currentTarget.GetComponent<Canvas>();
+                    if (existingCanvas == null)
+                    {
+                        existingCanvas = currentTarget.gameObject.AddComponent<Canvas>();
+                        currentTarget.gameObject.AddComponent<GraphicRaycaster>();
+                        dynamicallyAddedCanvas = true;
+                    }
+                    else
+                    {
+                        dynamicallyAddedCanvas = false;
+                    }
+
+                    originalOverrideSorting = existingCanvas.overrideSorting;
+                    originalSortingOrder = existingCanvas.sortingOrder;
+                    existingCanvas.overrideSorting = true;
+                    existingCanvas.sortingOrder = 30005;
+                }
+                else
+                {
+                    targetScreenPos = Camera.main.WorldToScreenPoint(currentTarget.position);
+                    RectTransformUtility.ScreenPointToLocalPointInRectangle(panelRect, targetScreenPos, null, out Vector2 localCenter);
+                    isUpperHalf = localCenter.y > 0f;
+                }
+
+                if (titleText != null && descriptionText != null)
+                {
+                    RectTransform titleRect = titleText.rectTransform;
+                    RectTransform descRect = descriptionText.rectTransform;
+
+                    if (isUpperHalf)
+                    {
+                        titleRect.anchorMin = new Vector2(0, 0); titleRect.anchorMax = new Vector2(1, 0);
+                        descRect.anchorMin = new Vector2(0, 0); descRect.anchorMax = new Vector2(1, 0);
+
+                        titleRect.pivot = new Vector2(0.5f, 0f);
+                        titleRect.anchoredPosition = new Vector2(0, 300f);
+
+                        descRect.pivot = new Vector2(0.5f, 1f);
+                        descRect.anchoredPosition = new Vector2(0, 260f);
+                    }
+                    else
+                    {
+                        titleRect.anchorMin = new Vector2(0, 1); titleRect.anchorMax = new Vector2(1, 1);
+                        descRect.anchorMin = new Vector2(0, 1); descRect.anchorMax = new Vector2(1, 1);
+
+                        titleRect.pivot = new Vector2(0.5f, 0f);
+                        titleRect.anchoredPosition = new Vector2(0, -100f);
+
+                        descRect.pivot = new Vector2(0.5f, 1f);
+                        descRect.anchoredPosition = new Vector2(0, -140f);
+                    }
+                }
+
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(panelRect, targetScreenPos, null, out Vector2 localArrowPos);
+                float offsetMagnitude = (currentTarget is RectTransform) ? 75f : 150f;
+
+                if (isUpperHalf)
+                {
+                    pointerArrow.anchoredPosition = localArrowPos + new Vector2(0, -offsetMagnitude);
+                    pointerArrow.localEulerAngles = new Vector3(0, 0, 180f);
+                    arrowTween = pointerArrow.DOAnchorPosY(pointerArrow.anchoredPosition.y - 15f, 0.5f)
+                        .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine).SetUpdate(true);
+                }
+                else
+                {
+                    pointerArrow.anchoredPosition = localArrowPos + new Vector2(0, offsetMagnitude);
+                    pointerArrow.localEulerAngles = Vector3.zero;
+                    arrowTween = pointerArrow.DOAnchorPosY(pointerArrow.anchoredPosition.y + 15f, 0.5f)
+                        .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine).SetUpdate(true);
+                }
+            }
+            else
+            {
+                if (pointerArrow != null) pointerArrow.gameObject.SetActive(false);
+
+                if (titleText != null && descriptionText != null)
+                {
+                    RectTransform titleRect = titleText.rectTransform;
+                    RectTransform descRect = descriptionText.rectTransform;
+
+                    titleRect.anchorMin = new Vector2(0, 0.5f); titleRect.anchorMax = new Vector2(1, 0.5f);
+                    descRect.anchorMin = new Vector2(0, 0.5f); descRect.anchorMax = new Vector2(1, 0.5f);
+
+                    titleRect.pivot = new Vector2(0.5f, 0f);
+                    titleRect.anchoredPosition = new Vector2(0, 20f);
+
+                    descRect.pivot = new Vector2(0.5f, 1f);
+                    descRect.anchoredPosition = new Vector2(0, -20f);
+                }
+            }
         }
 
         PlayerPrefs.SetInt("Tutorial_" + currentStep.key, 1);
@@ -216,6 +296,7 @@ public class TutorialManager : MonoBehaviour
                 GraphicRaycaster gr = currentTarget.GetComponent<GraphicRaycaster>();
                 if (gr != null) DestroyImmediate(gr);
                 DestroyImmediate(existingCanvas);
+
                 if (currentTarget.parent != null && currentTarget.parent is RectTransform rectParent)
                 {
                     LayoutRebuilder.ForceRebuildLayoutImmediate(rectParent);

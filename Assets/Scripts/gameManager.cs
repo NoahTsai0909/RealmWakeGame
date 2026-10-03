@@ -228,6 +228,20 @@ public class gameManager : MonoBehaviour
             else
             {
                 RunManager.Instance.Stats.PlayerHealth -= RunManager.Instance.Stats.CurrentDay;
+                if (TutorialManager.Instance != null)
+                {
+                    Transform hudCanvas = RunHUDManager.Instance.transform;
+                    List<TutorialStep> combatSequence = new List<TutorialStep>
+                    {
+                        new TutorialStep {
+                            key = "RunHUDPlayerHealth",
+                            title = "Player Health",
+                            description = "You lose [c_playerhealth]health[/c] equal to the current [c_day]day[/c] when you’re defeated in combat. If your health reaches zero, you’ll be forced to retire from the current adventure!",
+                            highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerHealthContainer")
+                        }
+                    };
+                    TutorialManager.Instance.StartTutorialSequence(combatSequence);
+                }
             }
         }
 
@@ -431,6 +445,20 @@ public class gameManager : MonoBehaviour
         if (provisionManager != null && !provisionManager.IsProvisionValid())
         {
             UniversalPopupManager.ShowPopup($"Provision exceeded provision cap!\nProvision cap: {RunManager.Instance.Stats.ProvisionCap}");
+            if (TutorialManager.Instance != null)
+            {
+                Transform hudCanvas = RunHUDManager.Instance.transform;
+                List<TutorialStep> combatSequence = new List<TutorialStep>
+                            {
+                                new TutorialStep {
+                                    key = "RunHUDMaxProvision",
+                                    title = "Max Provision",
+                                    description = "Each unit has a [PROVISION] cost. Your deployed units’ combined costs cannot exceed your [MAXPROVISION]. Increase this limit to field more units or those with higher [PROVISION] costs!",
+                                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerProvisionCapContainer")
+                                }
+                            };
+                TutorialManager.Instance.StartTutorialSequence(combatSequence);
+            }
             return;
         }
         if (combatMusic != null)

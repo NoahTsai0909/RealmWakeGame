@@ -82,24 +82,6 @@ public class MapController : MonoBehaviour
                     highlightTarget = hudCanvas.Find("TopBar")
                 },
                 new TutorialStep {
-                    key = "RunHUDPlayerHealth",
-                    title = "Player Health",
-                    description = "You lose [c_playerhealth]health[/c] when you’re defeated in combat. If your health reaches zero, you’ll be forced to retire from the current adventure!",
-                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerHealthContainer")
-                },
-                new TutorialStep {
-                    key = "RunHUDPlayerLevel",
-                    title = "Player Level & Experience",
-                    description = "Gain [c_experience]experience[/c] to fill your experience bar and [c_level]level up[/c]. Each level up lets you choose a reward to strengthen your squad or support your adventure!",
-                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerLevelContainer")
-                },
-                new TutorialStep {
-                    key = "RunHUDMaxProvision",
-                    title = "Max Provision",
-                    description = "Each unit has a provision cost. Your deployed units’ combined costs cannot exceed your max provision. Increase this limit to field more units or those with higher provision costs!",
-                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerProvisionCapContainer")
-                },
-                new TutorialStep {
                     key = "RunHUDPlayerGold",
                     title = "Gold",
                     description = "Spend [GOLD] to recruit units in Shop events. Spend wisely to build a squad that can withstand the battles ahead!",
@@ -263,8 +245,19 @@ public class MapController : MonoBehaviour
             RunManager.Instance.Stats.PlayerHealth = 1;
 
             RunManager.Instance.lastChanceEvent.OnSelected();
-
-            return true;
+            if (TutorialManager.Instance != null)
+            {
+                List<TutorialStep> combatSequence = new List<TutorialStep>
+            {
+                new TutorialStep {
+                    key = "LastChanceEvent",
+                    title = "Last Chance",
+                    description = "The first time your health reaches zero or below, you are pulled back from the brink of defeat! Your health is restored to 1, and you may choose a boon to help you survive.\n\nThis rescue is available only once per run and cannot save you from defeat in the final boss battle.",
+                    highlightTarget = null
+                }
+            };
+                return true;
+            }
         }
 
         return false;
@@ -291,6 +284,21 @@ public class MapController : MonoBehaviour
                 AudioManager.Instance.PlayJingle(levelUpSound, 1f);
             }
             nextLevelEvent.OnSelected();
+            if (TutorialManager.Instance != null)
+            {
+                Transform hudCanvas = RunHUDManager.Instance.transform;
+                List<TutorialStep> combatSequence = new List<TutorialStep>
+            {
+                new TutorialStep {
+                    key = "RunHUDPlayerLevel",
+                    title = "Player Level & Experience",
+                    description = "Gain [c_experience]experience[/c] to fill your experience bar and [c_level]level up[/c]. Each level up lets you choose a reward to strengthen your squad or support your adventure!",
+                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerLevelContainer")
+                }
+            };
+
+                TutorialManager.Instance.StartTutorialSequence(combatSequence);
+            }
             return true; 
         }
 

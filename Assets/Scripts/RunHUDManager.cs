@@ -86,6 +86,7 @@ public class RunHUDManager : MonoBehaviour
             }
         });
         settingsButton.onClick.AddListener(() => {
+            if (Time.timeScale == 0f) return;
             if (SettingsManager.Instance != null)
             {
                 SettingsManager.Instance.OpenSettings();

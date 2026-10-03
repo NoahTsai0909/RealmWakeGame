@@ -74,7 +74,21 @@ public class PrepSceneManager : MonoBehaviour
     {
         if (!provisionManager.IsProvisionValid())
         {
-            UniversalPopupManager.ShowPopup($"[MAXPROVISION] Exceeded!");
+            UniversalPopupManager.ShowPopup($"Provision exceeded provision cap!\nProvision cap: {RunManager.Instance.Stats.ProvisionCap}");
+            if (TutorialManager.Instance != null)
+            {
+                Transform hudCanvas = RunHUDManager.Instance.transform;
+                List<TutorialStep> combatSequence = new List<TutorialStep>
+                            {
+                                new TutorialStep {
+                                    key = "RunHUDMaxProvision",
+                                    title = "Max Provision",
+                                    description = "Each unit has a [PROVISION] cost. Your deployed units’ combined costs cannot exceed your [MAXPROVISION]. Increase this limit to field more units or those with higher [PROVISION] costs!",
+                                    highlightTarget = hudCanvas.Find("TopBar/playerBasicStats/playerProvisionCapContainer")
+                                }
+                            };
+                TutorialManager.Instance.StartTutorialSequence(combatSequence);
+            }
             return;
         }
         SaveCurrentTeamToRunManager();

@@ -1215,6 +1215,7 @@ MonoBehaviour:
   battleGrid: {fileID: 103435402}
   benchGrid: {fileID: 99046872}
   playerTacticBarManager: {fileID: 1215609382}
+  sellZone: {fileID: 1918027928}
   errorSound: {fileID: 8300000, guid: 724f43d36bede30469c01dd6e242fcc4, type: 3}
   coinSound: {fileID: 8300000, guid: b0ab4ea5f18558446b21a27d43ef262c, type: 3}
   volume: 1
