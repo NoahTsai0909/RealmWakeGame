@@ -41,6 +41,9 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Toggle damageNumbersToggle;
     [SerializeField] private Button resetTutorialButton;
 
+    [SerializeField] private Button analyticsToggleButton;
+    [SerializeField] private TextMeshProUGUI analyticsToggleText;
+
     private void Awake()
     {
         if (Instance == null)
@@ -160,6 +163,17 @@ public class SettingsManager : MonoBehaviour
                 resetTutorialButton.onClick.AddListener(TutorialManager.Instance.ResetAllTutorials);
             }
         }
+
+        if (analyticsToggleButton != null)
+        {
+            analyticsToggleButton.onClick.AddListener(() => {
+                if (AnalyticsManager.Instance != null)
+                {
+                    AnalyticsManager.Instance.ToggleAnalyticsConsent();
+                    RefreshAnalyticsButtonText();
+                }
+            });
+        }
     }
 
     private void Update()
@@ -229,8 +243,7 @@ public class SettingsManager : MonoBehaviour
     private void GoToMainMenu()
     {
         CloseSettings();
-
-        // Ensure we clean up any floating UI/Popups from the run
+        Time.timeScale = 1f;
         if (RunHUDManager.Instance != null) RunHUDManager.Instance.SlideOutAndHide(0f);
 
         SceneLoader.Instance.LoadScene(SceneLoader.GameScene.MainMenuScene);
@@ -240,12 +253,30 @@ public class SettingsManager : MonoBehaviour
     {
         CloseSettings();
 
+        Time.timeScale = 1f;
+
         if (RunManager.Instance != null)
         {
             RunManager.Instance.Stats.PlayerHealth = 0;
-            SaveLoadManager.DeleteSave(); // Nuke the save file
+            SaveLoadManager.DeleteSave();
         }
 
         SceneLoader.Instance.LoadScene(SceneLoader.GameScene.RunSummaryScene);
     }
+
+    private void RefreshAnalyticsButtonText()
+    {
+        if (analyticsToggleText != null && AnalyticsManager.Instance != null)
+        {
+            if (AnalyticsManager.Instance.IsConsentGranted())
+            {
+                analyticsToggleText.text = "Disable Analytics Tracking";
+            }
+            else
+            {
+                analyticsToggleText.text = "Enable Analytics Tracking";
+            }
+        }
+    }
+
 }

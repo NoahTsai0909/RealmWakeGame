@@ -27,4 +27,5 @@ public enum UnitTagFlags
     Wraith = 1 << 22,
     Death = 1 << 23,
     Summon = 1 << 24,
+    ShieldRef = 1 << 25,
 }

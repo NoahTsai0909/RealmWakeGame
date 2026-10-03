@@ -12,6 +12,6 @@ public class GoldConditionSO : ChoiceConditionSO
 
     public override string GetRequirementText()
     {
-        return $"Requires {requiredGold} Gold";
+        return $"Requires {requiredGold} [GOLD]";
     }
 }

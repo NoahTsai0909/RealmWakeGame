@@ -18,6 +18,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button filterButton;
     [SerializeField] private Button searchButton;
     [SerializeField] private Button closeCompendiumButton;
+    [SerializeField] private Button discordLinkButton;
     [SerializeField] private AudioClip mainMenuMusic;
     
     private bool isFilterSidebarOpen = false;
@@ -28,6 +29,7 @@ public class MainMenuController : MonoBehaviour
         compendiumButton.onClick.AddListener(() => ShowCompendium());
         settingsButton.onClick.AddListener(() => {if (SettingsManager.Instance != null){SettingsManager.Instance.OpenSettings();}});
         filterButton.onClick.AddListener(() => ToggleFilterSideBar());
+        discordLinkButton.onClick.AddListener(() => Application.OpenURL("https://discord.gg/jean7D3rY"));
         quitButton.onClick.AddListener(() => QuitGame());
         RunHUDManager.Instance?.Hide();
     }

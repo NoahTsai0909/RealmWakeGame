@@ -27,7 +27,7 @@ MonoBehaviour:
   - promptText: " Someone fled in a hurry, leaving behind a stash too heavy\u2014or
       too dangerous\u2014to carry."
     choices:
-    - buttonText: Gain 5 gold.
+    - buttonText: Gain 5 [GOLD].
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0

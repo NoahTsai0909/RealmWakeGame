@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class ImageTooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
     [Tooltip("The exact ID from your TooltipDatabaseSO (e.g., 'preview')")]
-    [SerializeField] private string keywordID = "preview";
+    [SerializeField] public string keywordID = "preview";
 
     public void OnPointerEnter(PointerEventData eventData)
     {

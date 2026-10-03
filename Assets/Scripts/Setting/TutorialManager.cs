@@ -60,11 +60,11 @@ public class TutorialManager : MonoBehaviour
         if (continueButton != null) continueButton.onClick.AddListener(OnContinueClicked);
     }
 
-    public void TryShowTutorial(string tutorialKey, string title, string description, Transform highlightTarget = null)
+    public void TryShowTutorial(string tutorialKey, string title, string description, Transform highlightTarget = null, Sprite graphic = null)
     {
         StartTutorialSequence(new List<TutorialStep>
         {
-            new TutorialStep { key = tutorialKey, title = title, description = description, highlightTarget = highlightTarget }
+            new TutorialStep { key = tutorialKey, title = title, description = description, highlightTarget = highlightTarget, instructionalGraphic = graphic }
         });
     }
 
@@ -126,29 +126,36 @@ public class TutorialManager : MonoBehaviour
         currentTarget = currentStep.highlightTarget;
 
         arrowTween?.Kill();
-        if (currentStep.instructionalGraphic != null)
+
+        if(currentStep.instructionalGraphic != null)
         {
             if (pointerArrow != null) pointerArrow.gameObject.SetActive(false);
 
             if (instructionalImageDisplay != null)
             {
                 instructionalImageDisplay.sprite = currentStep.instructionalGraphic;
+
+                instructionalImageDisplay.preserveAspect = true;
                 instructionalImageDisplay.gameObject.SetActive(true);
+
+                RectTransform imgRect = instructionalImageDisplay.rectTransform;
+                imgRect.anchorMin = Vector2.zero;
+                imgRect.anchorMax = Vector2.one;
+                imgRect.offsetMin = new Vector2(50f, 300f);
+                imgRect.offsetMax = new Vector2(-50f, -100f);
             }
 
             if (titleText != null && descriptionText != null)
             {
                 RectTransform titleRect = titleText.rectTransform;
                 RectTransform descRect = descriptionText.rectTransform;
-
                 titleRect.anchorMin = new Vector2(0, 1); titleRect.anchorMax = new Vector2(1, 1);
-                descRect.anchorMin = new Vector2(0, 0); descRect.anchorMax = new Vector2(1, 0);
-
                 titleRect.pivot = new Vector2(0.5f, 1f);
                 titleRect.anchoredPosition = new Vector2(0, -50f);
+                descRect.anchorMin = new Vector2(0, 0); descRect.anchorMax = new Vector2(1, 0);
+                descRect.pivot = new Vector2(0.5f, 1f);
 
-                descRect.pivot = new Vector2(0.5f, 0f);
-                descRect.anchoredPosition = new Vector2(0, 50f);
+                descRect.anchoredPosition = new Vector2(0, 260f);
             }
         }
         else
@@ -327,6 +334,11 @@ public class TutorialManager : MonoBehaviour
 
     public void ResetAllTutorials()
     {
+        //int analyticsConsent = PlayerPrefs.GetInt("Analytics_Consent_Given", 0);
         PlayerPrefs.DeleteAll();
+        //PlayerPrefs.SetInt("Analytics_Consent_Given", analyticsConsent);
+
+        PlayerPrefs.Save();
+        Debug.Log("Tutorials reset. Analytics consent preserved.");
     }
 }

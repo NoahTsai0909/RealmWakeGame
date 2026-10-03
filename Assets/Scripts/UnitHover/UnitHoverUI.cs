@@ -16,6 +16,13 @@ public class UnitHoverUI : MonoBehaviour
     [SerializeField] private Sprite backgroundUncommon;
     [SerializeField] private Sprite backgroundRare;
     [SerializeField] private Sprite backgroundEpic;
+    [SerializeField] private Sprite backgroundMythic;
+
+    [SerializeField] private Sprite rarityGemCommon;
+    [SerializeField] private Sprite rarityGemUncommon;
+    [SerializeField] private Sprite rarityGemRare;
+    [SerializeField] private Sprite rarityGemEpic;
+    [SerializeField] private Sprite rarityGemMythic;
 
     [SerializeField] private TextMeshProUGUI statText;
     [SerializeField] private GameObject multicastContainer;
@@ -24,6 +31,7 @@ public class UnitHoverUI : MonoBehaviour
     [SerializeField] private HealthBarUI healthBar;
     [SerializeField] private CooldownBarUI cooldownBar;
     [SerializeField] private Image backgroundImage;
+    [SerializeField] private Image rarityGemImage;
 
     [Header("Ability UI")]
     [SerializeField] private GameObject activeAbilityBox;
@@ -343,7 +351,25 @@ public class UnitHoverUI : MonoBehaviour
             case Rarity.Uncommon: backgroundImage.sprite = backgroundUncommon; break;
             case Rarity.Rare: backgroundImage.sprite = backgroundRare; break;
             case Rarity.Epic: backgroundImage.sprite = backgroundEpic; break;
-            case Rarity.Mythic: backgroundImage.sprite = backgroundEpic; break; 
+            case Rarity.Mythic: backgroundImage.sprite = backgroundMythic; break;
+        }
+
+        switch (rarity)
+        {
+            case Rarity.Common: rarityGemImage.sprite = rarityGemCommon; break;
+            case Rarity.Uncommon: rarityGemImage.sprite = rarityGemUncommon; break;
+            case Rarity.Rare: rarityGemImage.sprite = rarityGemRare; break;
+            case Rarity.Epic: rarityGemImage.sprite = rarityGemEpic; break;
+            case Rarity.Mythic: rarityGemImage.sprite = rarityGemMythic; break;
+        }
+        if (rarityGemImage != null)
+        {
+            ImageTooltipTrigger gemTrigger = rarityGemImage.GetComponent<ImageTooltipTrigger>();
+            if (gemTrigger == null)
+            {
+                gemTrigger = rarityGemImage.gameObject.AddComponent<ImageTooltipTrigger>();
+            }
+            gemTrigger.keywordID = rarity.ToString().ToLower();
         }
     }
 

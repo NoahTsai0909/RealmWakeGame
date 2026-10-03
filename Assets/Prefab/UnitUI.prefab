@@ -96,6 +96,116 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
+--- !u!1 &68663276752777872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8596137951683711226}
+  - component: {fileID: 2681616172520789943}
+  - component: {fileID: 5765735377386176637}
+  - component: {fileID: 5538308315647078107}
+  - component: {fileID: 4785106028878401229}
+  m_Layer: 5
+  m_Name: rarityGemSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8596137951683711226
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68663276752777872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6336476091120993559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2681616172520789943
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68663276752777872}
+  m_CullTransparentMesh: 1
+--- !u!114 &5765735377386176637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68663276752777872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d8384d848c84bee49a3ca49addfad4a8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5538308315647078107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68663276752777872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &4785106028878401229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68663276752777872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a13afe44a45b94995cd75db3291981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageTooltipTrigger
+  keywordID: common
 --- !u!1 &236748822110563444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1617,7 @@ RectTransform:
   - {fileID: 893684616931836163}
   - {fileID: 2571776567173390511}
   - {fileID: 4876164971939888072}
+  - {fileID: 8596137951683711226}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1554,12 +1665,19 @@ MonoBehaviour:
   backgroundUncommon: {fileID: 21300000, guid: c5bc788eb2f64ff44ba89da07f221309, type: 3}
   backgroundRare: {fileID: 21300000, guid: 10f89fc5d46df5e4880c283e2a2b44ef, type: 3}
   backgroundEpic: {fileID: 21300000, guid: 9e9565af4e7eed444986faa2405bf0a2, type: 3}
+  backgroundMythic: {fileID: 21300000, guid: 8b3939dad63a99042949b67e1b783bb6, type: 3}
+  rarityGemCommon: {fileID: 21300000, guid: d8384d848c84bee49a3ca49addfad4a8, type: 3}
+  rarityGemUncommon: {fileID: 21300000, guid: 06b93a2b57ac75c469914d659caa1942, type: 3}
+  rarityGemRare: {fileID: 21300000, guid: c9e5889ee6661394d94841c9a823a5bf, type: 3}
+  rarityGemEpic: {fileID: 21300000, guid: c7738512b22da604eac35bd8bdaf0ab0, type: 3}
+  rarityGemMythic: {fileID: 21300000, guid: 7c4272faa8d56a64591ad6936894e0dc, type: 3}
   statText: {fileID: 1995164364838331158}
   multicastContainer: {fileID: 236748822110563444}
   multicastText: {fileID: 6494659338465882628}
   healthBar: {fileID: 63862473542757564}
   cooldownBar: {fileID: 2480207148537531778}
   backgroundImage: {fileID: 385140056582641414}
+  rarityGemImage: {fileID: 5765735377386176637}
   activeAbilityBox: {fileID: 4683633217154468657}
   activeAbilityText: {fileID: 4961929053439696594}
   passiveAbilityBox: {fileID: 2075968532755662142}
@@ -3114,7 +3232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a13afe44a45b94995cd75db3291981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ImageTooltipTrigger
-  keywordID: preview
+  keywordID: previewRarity
 --- !u!114 &3905435675145952583
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -117,3 +117,6 @@ MonoBehaviour:
     title: Consume
     description: 'Drag and drop a consumable unit on top of another unit to consume
       it for its specified effect. '
+  - id: previewRarity
+    title: Preview Rarity
+    description: 'Get a preview of the next rarity of this unit! '

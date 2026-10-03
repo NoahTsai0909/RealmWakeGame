@@ -27,7 +27,7 @@ MonoBehaviour:
   - promptText: A tempting offer lies before you. Each wager promises greater riches,
       but so too does the chance of losing it all.
     choices:
-    - buttonText: 'Pay 3 gold to play the game. (90% chance to win). '
+    - buttonText: 'Pay 3 [GOLD] to play the game. (90% chance to win). '
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
       outcomes:
       - {fileID: 11400000, guid: 88780d38adf6d344ca8c9fe07d9697ad, type: 2}
       condition: {fileID: 0}
-    - buttonText: Leave with winnings (1 experience + 6 gold).
+    - buttonText: Leave with winnings (1 [EXPERIENCE] + 6 [GOLD]).
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
       outcomes:
       - {fileID: 11400000, guid: 1946b3890653f4643b2ac014419e09b2, type: 2}
       condition: {fileID: 0}
-    - buttonText: Leave with winnings (1 experience + 12 gold).
+    - buttonText: Leave with winnings (1 [EXPERIENCE] + 12 [GOLD]).
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0
