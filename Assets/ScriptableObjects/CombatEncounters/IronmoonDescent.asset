@@ -55,26 +55,6 @@ MonoBehaviour:
     row: 0
     col: 1
   - unitData:
-      definition: {fileID: 11400000, guid: e1861f78880b9ca42a34ea6f72787037, type: 2}
-      rarity: 3
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 0
-    col: 2
-  - unitData:
-      definition: {fileID: 11400000, guid: e1861f78880b9ca42a34ea6f72787037, type: 2}
-      rarity: 3
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 2
-    col: 2
-  - unitData:
       definition: {fileID: 11400000, guid: 7aeef11f5cf4336418da9431cffe8ac2, type: 2}
       rarity: 3
       provisionCost: 0

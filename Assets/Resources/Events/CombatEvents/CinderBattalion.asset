@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8920a2a2659eb4f45baf49db4d32ce91, type: 3}
   m_Name: CinderBattalion
   m_EditorClassIdentifier: Assembly-CSharp::CombatEventSO
-  eventName: Hatchling Nest
+  eventName: Cinder Battalion
   description: 
   eventIcon: {fileID: 21300000, guid: c72e405dc9c9470449624177b1f92a74, type: 3}
   eventBackgroundImage: {fileID: 0}

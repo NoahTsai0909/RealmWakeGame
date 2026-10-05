@@ -15,10 +15,13 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject compendiumPanel;
     [SerializeField] private GameObject LeftSideBar;
     [SerializeField] private GameObject FilterSideBar;
+    [SerializeField] private GameObject creditsPanel;
     [SerializeField] private Button filterButton;
     [SerializeField] private Button searchButton;
     [SerializeField] private Button closeCompendiumButton;
     [SerializeField] private Button discordLinkButton;
+    [SerializeField] private Button creditsButton;
+    [SerializeField] private Button closeCreditsButton;
     [SerializeField] private AudioClip mainMenuMusic;
     
     private bool isFilterSidebarOpen = false;
@@ -30,6 +33,8 @@ public class MainMenuController : MonoBehaviour
         settingsButton.onClick.AddListener(() => {if (SettingsManager.Instance != null){SettingsManager.Instance.OpenSettings();}});
         filterButton.onClick.AddListener(() => ToggleFilterSideBar());
         discordLinkButton.onClick.AddListener(() => Application.OpenURL("https://discord.gg/jean7D3rY"));
+        creditsButton.onClick.AddListener(() => { creditsPanel.SetActive(true); });
+        closeCreditsButton.onClick.AddListener(() => { creditsPanel.SetActive(false); });
         quitButton.onClick.AddListener(() => QuitGame());
         RunHUDManager.Instance?.Hide();
     }

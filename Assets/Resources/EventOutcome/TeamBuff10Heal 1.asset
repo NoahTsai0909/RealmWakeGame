@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90341cda5ef33e4458f4d8f7ca3d4992, type: 3}
   m_Name: TeamBuff10Heal 1
   m_EditorClassIdentifier: Assembly-CSharp::GainTeamBuffOutcomeSO
-  buffAmount: 0
-  buffType: 0
+  buffAmount: 10
+  buffType: 2

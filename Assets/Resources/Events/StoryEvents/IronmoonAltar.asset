@@ -44,7 +44,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: ad75b575183a9ed4bb757e61399955a1, type: 2}
       - {fileID: 11400000, guid: 38dfb952901f1c94bb6e94de1ed7f0b0, type: 2}
       condition: {fileID: 0}
-    - buttonText: Pay 30 gold to get a random mythic.
+    - buttonText: Pay 30 [GOLD] to get a random [c_mythic]mythic[/c] unit.
       previewUnit: {fileID: 0}
       rollRandomRarity: 0
       previewRarity: 2

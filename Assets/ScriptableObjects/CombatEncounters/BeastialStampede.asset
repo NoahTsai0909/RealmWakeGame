@@ -109,8 +109,4 @@ MonoBehaviour:
       definition: {fileID: 11400000, guid: e4a50db2aab163748991c8a8f23c5e9d, type: 2}
       rarity: 2
     orderIndex: 0
-  - tacticData:
-      definition: {fileID: 11400000, guid: ba6230142645a5c46ad71d4fc127463d, type: 2}
-      rarity: 2
-    orderIndex: 1
   randomMutationCount: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
 using static CombatEventBus;
@@ -26,7 +27,7 @@ public class MasterOrb : UnitInstance
                 target.TemporaryStatModify(ModifiableStats.MaxEnergy, -energyBuff);
             }
         }
-        base.RemoveAuras(); // Clears the list
+        base.RemoveAuras();
     }
 
     public override void ApplyAuras()
@@ -34,16 +35,13 @@ public class MasterOrb : UnitInstance
 
         if (myGrid == null) return;
 
-        auraTargets = FindAdjacentAllies();
+        auraTargets = FindAllAllies()?.Where(target => target != null && target.isEnergy).ToList();
 
         if (auraTargets == null) return;
 
         foreach (UnitInstance target in auraTargets)
         {
-            if (target != null)
-            {
-                target.TemporaryStatModify(ModifiableStats.MaxEnergy, energyBuff);
-            }
+            target.TemporaryStatModify(ModifiableStats.MaxEnergy, energyBuff);
         }
     }
 

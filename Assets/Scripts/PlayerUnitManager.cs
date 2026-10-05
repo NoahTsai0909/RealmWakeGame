@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 public enum TransformRule { Same, Any, Higher, Lower, Different }
 
@@ -86,18 +87,25 @@ public class PlayerUnitManager : MonoBehaviour
     void MergeInto(RunManager.UnitPlacement placement, MutationPrefixSO incomingPrefix, MutationSuffixSO incomingSuffix)
     {
         placement.unitData.rarity += 1;
-
-        // If the purchased unit has a mutation, overwrite
-        // If the purchased unit has NO mutation, it bypasses this and keeps the original
         if (incomingPrefix != null)
         {
             placement.unitData.prefix = incomingPrefix;
             placement.unitData.suffix = incomingSuffix;
         }
+        if (TutorialManager.Instance != null)
+        {
+            List<TutorialStep> combatSequence = new List<TutorialStep>
+                            {
+                                new TutorialStep {
+                                    key = "UnitMerge",
+                                    title = "Merging Units",
+                                    description = "When you acquire a second copy of the same unit at the same rarity, the two automatically merge into one unit of the next rarity.\n\nCollect matching copies to strengthen your squad!",
+                                    highlightTarget = null
+                                }
+                            };
+            TutorialManager.Instance.StartTutorialSequence(combatSequence);
+        }
 
-        Debug.Log(
-            $"Merged into {placement.unitData.definition.unitName}, new tier {placement.unitData.rarity}"
-        );
     }
 
 

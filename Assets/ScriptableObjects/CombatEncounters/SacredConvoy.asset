@@ -62,26 +62,6 @@ MonoBehaviour:
       valueModifier: 0
       prefix: {fileID: 0}
       suffix: {fileID: 0}
-    row: 0
-    col: 1
-  - unitData:
-      definition: {fileID: 11400000, guid: 8f005606f4a1e4847a4aa1978ce45a79, type: 2}
-      rarity: 1
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 2
-    col: 1
-  - unitData:
-      definition: {fileID: 11400000, guid: 8f005606f4a1e4847a4aa1978ce45a79, type: 2}
-      rarity: 1
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
     row: 1
     col: 0
   enemyTactics:

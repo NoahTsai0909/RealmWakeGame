@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: Ruinous Heart
   maxHP: 500
   mainStat: 1
-  attack: 150
+  attack: 50
   heal: 0
   shield: 0
   burn: 0

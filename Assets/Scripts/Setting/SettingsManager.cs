@@ -36,7 +36,6 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Toggle vSyncToggle;
 
     [Header("Gameplay Settings")]
-    [SerializeField] private TMP_Dropdown combatSpeedDropdown;
     [SerializeField] private Toggle screenShakeToggle;
     [SerializeField] private Toggle damageNumbersToggle;
     [SerializeField] private Button resetTutorialButton;
@@ -131,28 +130,18 @@ public class SettingsManager : MonoBehaviour
                 resolutionDropdown.value = currentResIndex;
                 resolutionDropdown.RefreshShownValue();
 
-                // Add the listener AFTER setting the initial value so it doesn't trigger accidentally
                 resolutionDropdown.onValueChanged.AddListener(VideoManager.Instance.SetResolution);
             }
         }
 
         if (GameplayManager.Instance != null)
         {
-            // 1. Combat Speed
-            if (combatSpeedDropdown != null)
-            {
-                combatSpeedDropdown.value = PlayerPrefs.GetInt("CombatSpeedIndex", 0);
-                combatSpeedDropdown.onValueChanged.AddListener(GameplayManager.Instance.SetCombatSpeed);
-            }
-
-            // 2. Screen Shake
             if (screenShakeToggle != null)
             {
                 screenShakeToggle.isOn = PlayerPrefs.GetInt("ScreenShake", 1) == 1;
                 screenShakeToggle.onValueChanged.AddListener(GameplayManager.Instance.SetScreenShake);
             }
 
-            // 3. Damage Numbers
             if (damageNumbersToggle != null)
             {
                 damageNumbersToggle.isOn = PlayerPrefs.GetInt("DamageNumbers", 1) == 1;

@@ -43,26 +43,18 @@ public class BloodRush : TacticInstance
         if (action.source == null) return;
         if (action.source.isPlayer != this.isPlayer) return;
         if (allyGrid == null) return;
-        if (action.isCrit)
+        if (action.isCrit && !action.isAoEExtraHit)
         {
-            auraTargets = FindAllAllies();
 
-            if (auraTargets == null) return;
-
-            foreach (UnitInstance target in auraTargets)
+            CombatManager.Instance.ExecuteAction(new CombatAction
             {
-                if (target != null)
-                {
-                    CombatManager.Instance.ExecuteAction(new CombatAction
-                    {
-                        type = CombatActionType.Buff,
-                        source = null,
-                        target = target,
-                        buffStat = ModifiableStats.Attack,
-                        amount = buffValue
-                    });
-                }
-            }
+                type = CombatActionType.Buff,
+                source = null,
+                target = action.source,
+                buffStat = ModifiableStats.Attack,
+                amount = buffValue
+            });       
+            
         }
     }
 
@@ -70,7 +62,7 @@ public class BloodRush : TacticInstance
 
     public override string GetDescription()
     {
-        return $"When an ally [c_crit]crits[/c], all allies get [ATK]{buffValue}.";
+        return $"When an ally [c_crit]crits[/c], it gets [ATK]{buffValue}.";
     }
 }
 

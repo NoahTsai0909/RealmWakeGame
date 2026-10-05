@@ -92,16 +92,6 @@ MonoBehaviour:
       valueModifier: 0
       prefix: {fileID: 0}
       suffix: {fileID: 0}
-    row: 0
-    col: 2
-  - unitData:
-      definition: {fileID: 11400000, guid: 4e57f9188ee73e24786fc0f1a9d21260, type: 2}
-      rarity: 2
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
     row: 2
     col: 2
   enemyTactics:

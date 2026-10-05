@@ -15,16 +15,6 @@ MonoBehaviour:
   encounterName: 
   enemyUnits:
   - unitData:
-      definition: {fileID: 11400000, guid: eb600ffba2f1c5d40834f309bc3d5900, type: 2}
-      rarity: 1
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 1
-    col: 0
-  - unitData:
       definition: {fileID: 11400000, guid: 787b08ff76d034f46b327f548a995d15, type: 2}
       rarity: 1
       provisionCost: 0
@@ -73,16 +63,6 @@ MonoBehaviour:
       prefix: {fileID: 0}
       suffix: {fileID: 0}
     row: 0
-    col: 2
-  - unitData:
-      definition: {fileID: 11400000, guid: b50fd84334f7e58418512acd3d6decee, type: 2}
-      rarity: 1
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 2
     col: 2
   enemyTactics:
   - tacticData:

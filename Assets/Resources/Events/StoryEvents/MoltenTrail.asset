@@ -18,7 +18,7 @@ MonoBehaviour:
   eventBackgroundImage: {fileID: 21300000, guid: 9bf677eb2d018a84c9ff2577efc7bce9, type: 3}
   portalGlowColor: {r: 1, g: 0.7058824, b: 0.12941177, a: 1}
   minDayRequired: 1
-  maxDayRequired: 6
+  maxDayRequired: 4
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 5
@@ -55,4 +55,4 @@ MonoBehaviour:
       outcomes:
       - {fileID: 11400000, guid: f55e49cdda5c02c43a443ab2b5264be3, type: 2}
       condition: {fileID: 0}
-  eventIllustration: {fileID: 21300000, guid: 9bb45e847e876b446a7aab2417f500ee, type: 3}
+  eventIllustration: {fileID: 21300000, guid: 7afdb8abc5b5b9643bffb72e0748ecf5, type: 3}

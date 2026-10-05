@@ -17,6 +17,7 @@ public class Stoneward : UnitInstance
 
     protected override void HandleCombatAction(CombatAction action)
     {
+        if (action == null || action.source == null || action.target == null) return;
         if ((action.source.isPlayer != isPlayer) && (action.target == this))
         {
             CombatManager.Instance.ExecuteAction(new CombatAction

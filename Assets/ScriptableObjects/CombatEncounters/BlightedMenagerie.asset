@@ -54,15 +54,5 @@ MonoBehaviour:
       suffix: {fileID: 0}
     row: 2
     col: 2
-  - unitData:
-      definition: {fileID: 11400000, guid: 04008bd19c1794f438d65cb978421cf9, type: 2}
-      rarity: 0
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 1
-    col: 2
   enemyTactics: []
   randomMutationCount: 0

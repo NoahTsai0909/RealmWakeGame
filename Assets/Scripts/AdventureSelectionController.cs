@@ -36,12 +36,10 @@ public class AdventureSelectionController : MonoBehaviour
 
     void Start()
     {
-        //Hook up the Carousel Buttons
         leftArrowButton.onClick.AddListener(ScrollLeft);
         rightArrowButton.onClick.AddListener(ScrollRight);
         startRunButton.onClick.AddListener(StartRun);
 
-        //Hook up Region Buttons
         solmireButton.onClick.AddListener(() => SetRegion(Region.Solmire));
         nethervaleButton.onClick.AddListener(() => SetRegion(Region.Nethervale));
         everbornButton.onClick.AddListener(() => SetRegion(Region.Everborn));
@@ -53,14 +51,13 @@ public class AdventureSelectionController : MonoBehaviour
         rightArrowButton.transform.DOMoveY(rightArrowButton.transform.position.y + 10f, 1f)
             .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
 
-        // Initialize the visuals
         UpdateCarousel();
-        SetRegion(Region.Solmire); // Initialize default region text
+        SetRegion(Region.Solmire);
     }
 
     private void ScrollLeft()
     {
-        AnimateCarouselBump(Vector3.right); // Bump right to reveal the left card
+        AnimateCarouselBump(Vector3.right);
 
         currentIndex--;
         if (currentIndex < 0) currentIndex = availableAdventures.Count - 1;
@@ -69,7 +66,7 @@ public class AdventureSelectionController : MonoBehaviour
 
     private void ScrollRight()
     {
-        AnimateCarouselBump(Vector3.left); // Bump left to reveal the right card
+        AnimateCarouselBump(Vector3.left);
 
         currentIndex = (currentIndex + 1) % availableAdventures.Count;
         UpdateCarousel();
@@ -77,12 +74,10 @@ public class AdventureSelectionController : MonoBehaviour
 
     private void AnimateCarouselBump(Vector3 punchDirection)
     {
-        //Kill any active tweens so spam-clicking doesn't break the positions
         centerCard.transform.DOKill(true);
         leftCard.transform.DOKill(true);
         rightCard.transform.DOKill(true);
 
-        //Punch the position for a snappy, tactile visual feedback
         float punchStrength = 40f;
         centerCard.transform.DOPunchPosition(punchDirection * punchStrength, 0.3f, 0, 1);
         leftCard.transform.DOPunchPosition(punchDirection * punchStrength, 0.3f, 0, 1);
@@ -110,6 +105,11 @@ public class AdventureSelectionController : MonoBehaviour
 
     private void SetRegion(Region region)
     {
+        if (region != Region.Solmire)
+        {
+            UniversalPopupManager.ShowPopup($"Region {region} is locked for the purposes of this demo! Please look forward to the future release!");
+            return;
+        }
         selectedRegion = region;
         if (selectedRegionText != null)
         {

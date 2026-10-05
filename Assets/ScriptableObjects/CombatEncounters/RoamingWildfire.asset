@@ -35,16 +35,6 @@ MonoBehaviour:
     row: 2
     col: 0
   - unitData:
-      definition: {fileID: 11400000, guid: 8ac64d76f0749ec468b22be8648e8e30, type: 2}
-      rarity: 1
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 0
-    col: 1
-  - unitData:
       definition: {fileID: 11400000, guid: 371402ff2d8030746855ef10f955b489, type: 2}
       rarity: 2
       provisionCost: 0

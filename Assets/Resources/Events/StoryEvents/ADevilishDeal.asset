@@ -119,7 +119,7 @@ MonoBehaviour:
       condition: {fileID: 0}
   - promptText: Claim your prize..
     choices:
-    - buttonText: Leave with winnings (1 experience + 12 gold + 3 random units).
+    - buttonText: Leave with winnings (1 [EXPERIENCE] + 12 [GOLD] + 3 random units).
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0

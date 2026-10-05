@@ -22,6 +22,7 @@ MonoBehaviour:
   selectionWeight: 1
   maxAppearancesPerRun: 0
   targetScene: 0
+  experienceReward: 1
   pages:
   - promptText: 
     choices:
@@ -30,8 +31,10 @@ MonoBehaviour:
       rollRandomRarity: 0
       previewRarity: 0
       generateRandomUnitPreview: 0
+      anyRegion: 0
       randomRegion: 0
       preferredTags: 0
+      excludePlayerRegion: 0
       previewTactic: {fileID: 0}
       generateRandomTacticPreview: 0
       outcomes:
@@ -42,8 +45,10 @@ MonoBehaviour:
       rollRandomRarity: 0
       previewRarity: 0
       generateRandomUnitPreview: 0
+      anyRegion: 0
       randomRegion: 0
       preferredTags: 0
+      excludePlayerRegion: 0
       previewTactic: {fileID: 0}
       generateRandomTacticPreview: 0
       outcomes:
@@ -55,13 +60,15 @@ MonoBehaviour:
       rollRandomRarity: 0
       previewRarity: 0
       generateRandomUnitPreview: 0
+      anyRegion: 0
       randomRegion: 0
       preferredTags: 0
+      excludePlayerRegion: 0
       previewTactic: {fileID: 0}
       generateRandomTacticPreview: 0
       outcomes:
       - {fileID: 11400000, guid: 0024d3ca326952e4392240a113055cdc, type: 2}
       - {fileID: 11400000, guid: ae940819882ab5d4396af39d116c9c2a, type: 2}
       condition: {fileID: 0}
-  eventIllustration: {fileID: 21300000, guid: e15c05d1ea92fd844a010314f01b9bba, type: 3}
+  eventIllustration: {fileID: 21300000, guid: 1909a9755a156144fb535aef0d209d51, type: 3}
   xpRequired: 10

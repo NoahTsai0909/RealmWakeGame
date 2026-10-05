@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DisasterManager : MonoBehaviour
 {
     [Header("Timing Settings")]
-    [SerializeField] private float disasterStartTime = 60f; // When disaster starts
-    [SerializeField] private float disasterTickInterval = 1f; // Damage every second
+    [SerializeField] private float disasterStartTime = 60f;
+    [SerializeField] private float disasterTickInterval = 1f;
     [SerializeField] private int disasterInitialDamage = 1;
 
     [Header("Visual Settings")]
-    [SerializeField] private Image screenOverlay; // Purple overlay image on Canvas
-    [SerializeField] private Color disasterColor = new Color(0.5f, 0f, 0.5f, 0.3f); // Purple with alpha
-    [SerializeField] private float fadeInDuration = 3f; // How long fade takes
+    [SerializeField] private Image screenOverlay;
+    [SerializeField] private Color disasterColor = new Color(0.5f, 0f, 0.5f, 0.3f);
+    [SerializeField] private float fadeInDuration = 3f;
+
+    [Header("UI Elements")]
+    [SerializeField] private GameObject timerContainer;
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private Image disasterIcon;   
 
     [Header("References")]
     [SerializeField] private gameManager combatManager;
@@ -23,18 +29,56 @@ public class DisasterManager : MonoBehaviour
     private int currentDisasterTick = 0;
     private Coroutine disasterCoroutine;
 
+    void Start()
+    {
+        // Setup initial UI state
+        if (timerText != null) timerText.gameObject.SetActive(true);
+        if (disasterIcon != null) disasterIcon.gameObject.SetActive(false);
+        if (timerContainer != null) timerContainer.SetActive(false); 
+    }
+
     void Update()
     {
-        if (combatManager == null) return;
+        if (combatManager == null || !combatManager.isCombatActive())
+        {
+            if (timerContainer != null && timerContainer.activeSelf)
+                timerContainer.SetActive(false);
+            return;
+        }
 
-        if (!combatManager.isCombatActive()) return;
+        if (timerContainer != null && !timerContainer.activeSelf)
+            timerContainer.SetActive(true);
 
         combatTimer += Time.deltaTime;
 
-        // Start disaster when time reached
-        if (!disasterActive && combatTimer >= disasterStartTime)
+        if (!disasterActive)
         {
-            StartDisaster();
+            float timeRemaining = Mathf.Max(0, disasterStartTime - combatTimer);
+            UpdateTimerUI(timeRemaining);
+
+            if (combatTimer >= disasterStartTime)
+            {
+                StartDisaster();
+            }
+        }
+    }
+
+    private void UpdateTimerUI(float timeRemaining)
+    {
+        if (timerText != null)
+        {
+            int minutes = Mathf.FloorToInt(timeRemaining / 60);
+            int seconds = Mathf.FloorToInt(timeRemaining % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            if (timeRemaining <= 10f)
+            {
+                timerText.color = Color.red;
+            }
+            else
+            {
+                timerText.color = Color.white;
+            }
         }
     }
 
@@ -43,10 +87,11 @@ public class DisasterManager : MonoBehaviour
         disasterActive = true;
         currentDisasterTick = 0;
 
-        // Start visual effects
-        StartCoroutine(FadeInOverlay());
+        // Swap UI from Text to Icon
+        if (timerText != null) timerText.gameObject.SetActive(false);
+        if (disasterIcon != null) disasterIcon.gameObject.SetActive(true);
 
-        // Start damage ticks
+        StartCoroutine(FadeInOverlay());
         disasterCoroutine = StartCoroutine(DisasterDamageRoutine());
 
         Debug.Log("DISASTER: The storm begins!");
@@ -62,27 +107,22 @@ public class DisasterManager : MonoBehaviour
             int damageThisTick = disasterInitialDamage + currentDisasterTick - 1;
 
             DealDisasterDamage(damageThisTick);
-
             Debug.Log($"DISASTER: Dealt {damageThisTick} damage to all units");
         }
     }
 
     private void DealDisasterDamage(int damage)
     {
-        // Damage all player units
         List<UnitInstance> playerUnits = combatManager.playerGrid.GetAllUnits();
         foreach (UnitInstance unit in playerUnits)
         {
-            if (unit != null)
-                unit.TakeDisasterDamage(damage);
+            if (unit != null) unit.TakeDisasterDamage(damage);
         }
 
-        // Damage all enemy units
         List<UnitInstance> enemyUnits = combatManager.enemyGrid.GetAllUnits();
         foreach (UnitInstance unit in enemyUnits)
         {
-            if (unit != null)
-                unit.TakeDisasterDamage(damage);
+            if (unit != null) unit.TakeDisasterDamage(damage);
         }
     }
 
@@ -113,13 +153,14 @@ public class DisasterManager : MonoBehaviour
             disasterCoroutine = null;
         }
 
-        // Fade out overlay if combat ends quickly
         if (screenOverlay != null && screenOverlay.gameObject.activeSelf)
         {
             StartCoroutine(FadeOutOverlay());
         }
 
         disasterActive = false;
+        combatTimer = 0f;
+        if (timerContainer != null) timerContainer.SetActive(false);
     }
 
     private IEnumerator FadeOutOverlay()
@@ -138,7 +179,6 @@ public class DisasterManager : MonoBehaviour
         screenOverlay.gameObject.SetActive(false);
     }
 
-    // Call this when combat ends to clean up
     private void OnCombatEnd()
     {
         StopDisaster();
@@ -158,13 +198,9 @@ public class DisasterManager : MonoBehaviour
     {
         if (type == CombatEventBus.CombatEventType.UnitDied)
         {
-            // Check if combat ended via gameManager
-            if (combatManager != null)
+            if (combatManager != null && !combatManager.isCombatActive())
             {
-                if (combatManager.isCombatActive() == false)
-                {
-                    OnCombatEnd();
-                }
+                OnCombatEnd();
             }
         }
     }

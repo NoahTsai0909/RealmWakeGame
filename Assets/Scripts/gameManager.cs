@@ -36,9 +36,14 @@ public class gameManager : MonoBehaviour
     private MutationPrefixSO pendingUnitRewardPrefix;
     private MutationSuffixSO pendingUnitRewardSuffix;
 
+
     [Header("Combat Settings")]
     [SerializeField] private float endCombatDelay = 1.0f;
     private int enemiesKilledThisCombat = 0;
+    [Header("Combat Speed UI")]
+    [SerializeField] private Button speed1xButton;
+    [SerializeField] private Button speed1_5xButton;
+    [SerializeField] private Button speed2xButton;
 
     [Header("Disaster System")]
     [SerializeField] private DisasterManager disasterManager;
@@ -67,6 +72,10 @@ public class gameManager : MonoBehaviour
                 StartActualCombat();
             });
         }
+        if (speed1xButton != null) speed1xButton.onClick.AddListener(() => SetCombatSpeed(0));
+        if (speed1_5xButton != null) speed1_5xButton.onClick.AddListener(() => SetCombatSpeed(1));
+        if (speed2xButton != null) speed2xButton.onClick.AddListener(() => SetCombatSpeed(2));
+        UpdateSpeedButtonVisuals(PlayerPrefs.GetInt("CombatSpeedIndex", 0));
 
         combatActive = false;
         TeamDefinition playerTeam = RunManager.Instance.GetTeamForCombat();
@@ -672,6 +681,27 @@ public class gameManager : MonoBehaviour
                 enemyTacticBarManager.AddTactic(tactic);
             }
         }
+    }
+
+    private void SetCombatSpeed(int index)
+    {
+        if (GameplayManager.Instance != null)
+        {
+            GameplayManager.Instance.SetCombatSpeed(index);
+            if (combatActive)
+            {
+                Time.timeScale = GameplayManager.Instance.CombatSpeedMultiplier;
+            }
+        }
+
+        UpdateSpeedButtonVisuals(index);
+    }
+
+    private void UpdateSpeedButtonVisuals(int activeIndex)
+    {
+        if (speed1xButton != null) speed1xButton.interactable = (activeIndex != 0);
+        if (speed1_5xButton != null) speed1_5xButton.interactable = (activeIndex != 1);
+        if (speed2xButton != null) speed2xButton.interactable = (activeIndex != 2);
     }
 
     private void TransferCombatStatsToRunManager()

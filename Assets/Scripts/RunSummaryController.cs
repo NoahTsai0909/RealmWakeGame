@@ -42,11 +42,11 @@ public class RunSummaryController : MonoBehaviour
 
     private void DisplayGeneralStats()
     {
-        // Pull from RunManager.Stats
         var stats = RunManager.Instance.Stats;
 
         generalStatsText.text = $"<b>Run Summary</b>\n" +
                                 $"Days Survived: {stats.CurrentDay}\n" +
+                                $"Player Level: {stats.PlayerLevel}\n" +
                                 $"Final Gold: {stats.CurrentGold}\n" +
                                 $"Events Completed: {RunManager.Instance.regularEventsCompleted}\n";
     }

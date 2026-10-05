@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e5a4c869cd3bd748993d6fd1842ade7, type: 2}
   - {fileID: 11400000, guid: e9814c2b35011eb4eb223d10f3353da0, type: 2}
   - {fileID: 11400000, guid: 2ae96be46b26f4f4994433b0df01962a, type: 2}
+  - {fileID: 11400000, guid: a75aef46e1055a74cad7b2515cd10584, type: 2}
   combatEvents:
   - {fileID: 11400000, guid: 27fb7631c517bea44ad42ded66ca89a2, type: 2}
   - {fileID: 11400000, guid: 3e06e63ece50a994f80134bf4df7fe52, type: 2}

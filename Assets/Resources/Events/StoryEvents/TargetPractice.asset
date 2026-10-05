@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: TargetPractice
   m_EditorClassIdentifier: Assembly-CSharp::StoryEventSO
   eventName: Target Practice
-  description: 'Give units permanent [CRIT] or [ENERGY]]. '
+  description: 'Give all units permanent [ATK], [CRIT], [BURN], or [POISON]. '
   eventIcon: {fileID: 21300000, guid: ef55c91682e07784b84d953429afcf3a, type: 3}
   eventBackgroundImage: {fileID: 21300000, guid: 9bf677eb2d018a84c9ff2577efc7bce9, type: 3}
   portalGlowColor: {r: 1, g: 1, b: 1, a: 1}
   minDayRequired: 6
   maxDayRequired: 12
-  selectionWeight: 1
+  selectionWeight: 0.5
   maxAppearancesPerRun: 0
   targetScene: 5
   experienceReward: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
   - promptText: Arrows fly and spells flare as your allies hone their aim against
       moving targets. This will prove to be useful in the coming challenges.
     choices:
-    - buttonText: Give all units +5 crit permanently.
+    - buttonText: Give all units +10 [ATK] permanently.
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0
@@ -39,9 +39,9 @@ MonoBehaviour:
       previewTactic: {fileID: 0}
       generateRandomTacticPreview: 0
       outcomes:
-      - {fileID: 11400000, guid: 1e166f448411acf48a9055b110cbe47a, type: 2}
+      - {fileID: 11400000, guid: 94bb49b5afedaed4786630f75c7cbd48, type: 2}
       condition: {fileID: 0}
-    - buttonText: Give all units +1 max energy permanently.
+    - buttonText: Give all units +5 [CRIT] permanently.
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0
@@ -53,7 +53,35 @@ MonoBehaviour:
       previewTactic: {fileID: 0}
       generateRandomTacticPreview: 0
       outcomes:
-      - {fileID: 11400000, guid: 2c3da84fd95c88442b8c2d0e8fb1c311, type: 2}
+      - {fileID: 11400000, guid: 1e166f448411acf48a9055b110cbe47a, type: 2}
+      condition: {fileID: 0}
+    - buttonText: Give all units +2 [BURN] permanently.
+      previewUnit: {fileID: 0}
+      rollRandomRarity: 1
+      previewRarity: 0
+      generateRandomUnitPreview: 0
+      anyRegion: 1
+      randomRegion: 0
+      preferredTags: 0
+      excludePlayerRegion: 0
+      previewTactic: {fileID: 0}
+      generateRandomTacticPreview: 0
+      outcomes:
+      - {fileID: 11400000, guid: ca76fff542cb95643bb4533c30ecb3db, type: 2}
+      condition: {fileID: 0}
+    - buttonText: Give all units +2 [POISON] permanently.
+      previewUnit: {fileID: 0}
+      rollRandomRarity: 1
+      previewRarity: 0
+      generateRandomUnitPreview: 0
+      anyRegion: 1
+      randomRegion: 0
+      preferredTags: 0
+      excludePlayerRegion: 0
+      previewTactic: {fileID: 0}
+      generateRandomTacticPreview: 0
+      outcomes:
+      - {fileID: 11400000, guid: 215e67894cc0b2c4183e65c811b8da46, type: 2}
       condition: {fileID: 0}
     - buttonText: Pay 5 gold to double the buffs.
       previewUnit: {fileID: 0}
@@ -72,7 +100,21 @@ MonoBehaviour:
   - promptText: Arrows fly and spells flare as your allies hone their aim against
       moving targets. This will prove to be useful in the coming challenges.
     choices:
-    - buttonText: Give all units +10 crit permanently.
+    - buttonText: Give all units +20 [ATK] permanently.
+      previewUnit: {fileID: 0}
+      rollRandomRarity: 1
+      previewRarity: 0
+      generateRandomUnitPreview: 0
+      anyRegion: 1
+      randomRegion: 0
+      preferredTags: 0
+      excludePlayerRegion: 0
+      previewTactic: {fileID: 0}
+      generateRandomTacticPreview: 0
+      outcomes:
+      - {fileID: 11400000, guid: 7fb282ab391324a47a85341f58e0abb2, type: 2}
+      condition: {fileID: 0}
+    - buttonText: Give all units +10 [CRIT] permanently.
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0
@@ -86,7 +128,7 @@ MonoBehaviour:
       outcomes:
       - {fileID: 11400000, guid: 8295cba3172bd8049a896777cfd2d928, type: 2}
       condition: {fileID: 0}
-    - buttonText: Give all units +2 max energy permanently.
+    - buttonText: Give all units +4 [BURN] permanently.
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0
@@ -98,6 +140,20 @@ MonoBehaviour:
       previewTactic: {fileID: 0}
       generateRandomTacticPreview: 0
       outcomes:
-      - {fileID: 11400000, guid: 897becafc616d0c4687ccdd879b251f5, type: 2}
+      - {fileID: 11400000, guid: 378a0373aa44b6246996fc4790a824f5, type: 2}
+      condition: {fileID: 0}
+    - buttonText: Give all units +4 [POISON] permanently.
+      previewUnit: {fileID: 0}
+      rollRandomRarity: 1
+      previewRarity: 0
+      generateRandomUnitPreview: 0
+      anyRegion: 1
+      randomRegion: 0
+      preferredTags: 0
+      excludePlayerRegion: 0
+      previewTactic: {fileID: 0}
+      generateRandomTacticPreview: 0
+      outcomes:
+      - {fileID: 11400000, guid: 4c637e5ca9a151c4984e3bff870952d4, type: 2}
       condition: {fileID: 0}
   eventIllustration: {fileID: 0}

@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a16e02b8c37b3f43ac55682dba29a26, type: 3}
   m_Name: ReinforcingCasterSO
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinition
-  unitName: 
-  maxHP: 0
-  mainStat: 1
+  unitName: Reinforcing Caster
+  maxHP: 75
+  mainStat: 5
   attack: 0
   heal: 0
-  shield: 0
+  shield: 10
   burn: 0
   poison: 0
   slow: 0
   haste: 0
   critChance: 0
-  cooldown: 0
+  cooldown: 8
   isPassive: 0
-  isEnergy: 0
-  maxEnergy: 0
+  isEnergy: 1
+  maxEnergy: 2
   multicast: 1
   overrideCooldownScaling: 0
   cooldownByRarity:
@@ -34,15 +34,15 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  unitSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: f98f3ba2bc136d345bd78e84b63135e0, type: 3}
   defaultProjectile: []
   cost: 0
   region: 0
   rarity: 0
-  startingRarity: 0
-  provisionCost: 0
+  startingRarity: 1
+  provisionCost: 1
   isMelee: 0
   isEventExclusive: 0
   unitPrefab: {fileID: 0}
   spawnDefinition: {fileID: 0}
-  tagFlags: 0
+  tagFlags: 772

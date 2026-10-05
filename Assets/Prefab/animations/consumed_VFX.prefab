@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9010987143783729997}
   - component: {fileID: 7487905975739983534}
   - component: {fileID: 4629275436861990575}
+  - component: {fileID: 130412129256508706}
   m_Layer: 0
   m_Name: consumed_VFX
   m_TagString: Untagged
@@ -114,3 +115,16 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &130412129256508706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836896629481172907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef9e651343e0004cbc06df2dffee71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXAutoDestroy
+  lifetime: 1.5

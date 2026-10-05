@@ -46,7 +46,7 @@ MonoBehaviour:
     col: 1
   - unitData:
       definition: {fileID: 11400000, guid: 6435ef4f87c06cd478998c73bcdf6d2b, type: 2}
-      rarity: 3
+      rarity: 2
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
     col: 0
   - unitData:
       definition: {fileID: 11400000, guid: 6435ef4f87c06cd478998c73bcdf6d2b, type: 2}
-      rarity: 3
+      rarity: 2
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -65,18 +65,8 @@ MonoBehaviour:
     row: 2
     col: 0
   - unitData:
-      definition: {fileID: 11400000, guid: fdacd95638806794eb68fb3b19794bd8, type: 2}
-      rarity: 3
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 1
-    col: 2
-  - unitData:
       definition: {fileID: 11400000, guid: d437a718a55dcf24f9849222b79bc7f7, type: 2}
-      rarity: 3
+      rarity: 2
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -86,7 +76,7 @@ MonoBehaviour:
     col: 2
   - unitData:
       definition: {fileID: 11400000, guid: d437a718a55dcf24f9849222b79bc7f7, type: 2}
-      rarity: 3
+      rarity: 2
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -110,11 +100,7 @@ MonoBehaviour:
       rarity: 3
     orderIndex: 0
   - tacticData:
-      definition: {fileID: 11400000, guid: 4d49c7e8a5b450948bb670b6d44d25e8, type: 2}
-      rarity: 2
-    orderIndex: 0
-  - tacticData:
       definition: {fileID: 11400000, guid: 35a2b1e7cfcc5bf4a8121e167d7b3522, type: 2}
       rarity: 3
-    orderIndex: 0
+    orderIndex: 1
   randomMutationCount: 0

@@ -46,7 +46,7 @@ MonoBehaviour:
     col: 1
   - unitData:
       definition: {fileID: 11400000, guid: 04008bd19c1794f438d65cb978421cf9, type: 2}
-      rarity: 2
+      rarity: 1
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
     col: 2
   - unitData:
       definition: {fileID: 11400000, guid: 04008bd19c1794f438d65cb978421cf9, type: 2}
-      rarity: 2
+      rarity: 1
       provisionCost: 0
       provisionModifier: 0
       valueModifier: 0
@@ -82,27 +82,7 @@ MonoBehaviour:
       valueModifier: 0
       prefix: {fileID: 0}
       suffix: {fileID: 0}
-    row: 0
-    col: 0
-  - unitData:
-      definition: {fileID: 11400000, guid: 6ccbd7b4a5afd1e4b9fa5804cfcfdf27, type: 2}
-      rarity: 2
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
     row: 1
-    col: 0
-  - unitData:
-      definition: {fileID: 11400000, guid: 6ccbd7b4a5afd1e4b9fa5804cfcfdf27, type: 2}
-      rarity: 2
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 2
     col: 0
   enemyTactics: []
   randomMutationCount: 0

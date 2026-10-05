@@ -27,7 +27,7 @@ MonoBehaviour:
   - promptText: Something within your units has fallen out of sync with reality.
       For a brief moment, what they are and what they could become overlap.
     choices:
-    - buttonText: Choose a unit to mutate.
+    - buttonText: Choose a unit to [c_mutation]mutate[/c].
       previewUnit: {fileID: 0}
       rollRandomRarity: 0
       previewRarity: 0

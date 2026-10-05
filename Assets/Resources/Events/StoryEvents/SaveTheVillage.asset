@@ -30,7 +30,7 @@ MonoBehaviour:
       to offer thanks.
     choices:
     - buttonText: Spreading my feats far and wide will suffice as thanks! (Gain 1
-        experience).
+        [EXPERIENCE]).
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: ec2bd3a307c5a0346a76e2ef83dbeea4, type: 2}
       condition: {fileID: 0}
     - buttonText: Oh, I wouldn't say freed. More like, under new management. (Lose
-        1 experience, gain 10 gold).
+        1 [EXPERIENCE], gain 10 [GOLD]).
       previewUnit: {fileID: 0}
       rollRandomRarity: 1
       previewRarity: 0
@@ -73,4 +73,4 @@ MonoBehaviour:
       outcomes:
       - {fileID: 11400000, guid: f55e49cdda5c02c43a443ab2b5264be3, type: 2}
       condition: {fileID: 0}
-  eventIllustration: {fileID: 0}
+  eventIllustration: {fileID: 21300000, guid: f86c307fcbdcecf47a4bfa1795928ceb, type: 3}

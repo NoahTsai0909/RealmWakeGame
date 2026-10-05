@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f75b31bb4b0824caa423ad9b1ff1b6, type: 3}
   m_Name: GetRandomConsumable
   m_EditorClassIdentifier: Assembly-CSharp::GainRandomUnitOutcomeSO
-  fallbackRegion: 0
+  fallbackRegion: 4
   fallbackTags: 2048
+  bypassExclusivity: 0

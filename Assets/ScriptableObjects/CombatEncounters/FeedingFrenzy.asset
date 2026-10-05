@@ -32,16 +32,6 @@ MonoBehaviour:
       valueModifier: 0
       prefix: {fileID: 0}
       suffix: {fileID: 0}
-    row: 1
-    col: 0
-  - unitData:
-      definition: {fileID: 11400000, guid: 7519339a0b1e6534195b74d878e27ea4, type: 2}
-      rarity: 1
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
     row: 2
     col: 0
   - unitData:
