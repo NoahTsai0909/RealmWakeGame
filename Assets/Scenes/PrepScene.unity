@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitHoverDetector
   hoverUIPrefab: {fileID: 456573496781848647, guid: 31c4386fd4d7e7b45ba93f68bd64177f, type: 3}
-  hoverDelay: 0.35
+  hoverDelay: 0.15
 --- !u!4 &579803937
 Transform:
   m_ObjectHideFlags: 0
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2864567fe3cbd94cacd79f14db87c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TacticHoverDetector
-  hoverDelay: 0.35
+  hoverDelay: 0.15
 --- !u!1 &941487139
 GameObject:
   m_ObjectHideFlags: 0

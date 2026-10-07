@@ -79,17 +79,15 @@ public class UnitHoverUI : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         mainCamera = Camera.main;
 
-        // Determine which camera to use for screen-to-canvas conversion
         if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
         {
-            canvasCamera = null; // Overlay canvases don't use a camera
+            canvasCamera = null; 
         }
         else
         {
             canvasCamera = canvas.worldCamera ?? mainCamera;
         }
 
-        //gameObject.SetActive(false);
         if (!isPermanentUI) gameObject.SetActive(false);
     }
 
@@ -119,7 +117,7 @@ public class UnitHoverUI : MonoBehaviour
                                 new TutorialStep {
                                     key = "UnitHoverUI",
                                     title = "Unit Information",
-                                    description = "Hover over a unit to view its stats and abilities.\n\nPress T to pin the panel, then hover over keywords to learn what they mean.",
+                                    description = "Hover over a unit to view its stats and abilities.\n\nPress right click to pin the panel, then hover over keywords to learn what they mean.",
                                     highlightTarget = null,
                                     instructionalGraphic = instructionalImage != null ? instructionalImage : null
                                 }
@@ -209,7 +207,6 @@ public class UnitHoverUI : MonoBehaviour
 
         UnitTagFlags unitTags = unit.Stats.Tags;
 
-        // 3. Loop through every possible tag defined in your UnitTagFlags enum
         foreach (UnitTagFlags flag in System.Enum.GetValues(typeof(UnitTagFlags)))
         {
             if (flag == UnitTagFlags.None) continue;
@@ -224,13 +221,10 @@ public class UnitHoverUI : MonoBehaviour
                 continue;
             }
 
-            // 4. Check if the unit actually has this specific flag
             if (unitTags.HasFlag(flag))
             {
-                // Spawn the dark background prefab into the container
                 GameObject newBadge = Instantiate(tagBadgePrefab, tagContainer);
 
-                // Find the TextMeshPro child inside the prefab and set the word
                 TextMeshProUGUI badgeText = newBadge.GetComponentInChildren<TextMeshProUGUI>();
                 if (badgeText != null)
                 {
@@ -254,7 +248,6 @@ public class UnitHoverUI : MonoBehaviour
         if (isCompendiumUI) return;
         if (canvas == null || currentUnit == null || mainCamera == null) return;
 
-        // --- NEW SMART POSITION TRACKING ---
         Vector2 unitScreenPos;
         float unitScreenExtentsX = 0f;
 
@@ -266,7 +259,6 @@ public class UnitHoverUI : MonoBehaviour
         }
         else
         {
-            // WE ARE HOVERING A 3D UNIT: Track the physics collider
             Vector3 unitWorldPos = currentUnit.transform.position;
             unitScreenPos = mainCamera.WorldToScreenPoint(unitWorldPos);
 
@@ -280,7 +272,6 @@ public class UnitHoverUI : MonoBehaviour
             unitScreenExtentsX = Mathf.Abs(unitEdgeRightScreen.x - unitScreenPos.x);
         }
 
-        // Apply useFixedPosition logic using our new smart unitScreenPos
         if (useFixedPosition)
         {
             float flipThreshold = Screen.width * 0.7f;
@@ -306,33 +297,27 @@ public class UnitHoverUI : MonoBehaviour
         float uiWidth = (rectTransform.rect.width + edgePadding.x) * canvas.scaleFactor;
         float uiHeight = (rectTransform.rect.height + edgePadding.y) * canvas.scaleFactor;
 
-        // Extra padding to push it away from the unit's body
         float extraScreenPadding = 20f * canvas.scaleFactor;
 
-        // 2. Check if we have enough room for TWO UIs (Main + Preview) on the right side
         float spaceNeededForTwoUIs = uiWidth * 2.1f;
         bool hasSpaceOnRight = unitScreenPos.x + unitScreenExtentsX + spaceNeededForTwoUIs < Screen.width;
 
         Vector2 targetScreenPos;
-        targetScreenPos.y = unitScreenPos.y; // Vertically align with unit
+        targetScreenPos.y = unitScreenPos.y; 
 
         if (hasSpaceOnRight)
         {
             placedOnRightSide = true;
-            // Push right by: Unit Edge + Half UI Width (to account for center pivot) + Padding
             targetScreenPos.x = unitScreenPos.x + unitScreenExtentsX + (uiWidth * 0.5f) + extraScreenPadding;
         }
         else
         {
             placedOnRightSide = false;
-            // Push left by the exact same math
             targetScreenPos.x = unitScreenPos.x - unitScreenExtentsX - (uiWidth * 0.5f) - extraScreenPadding;
         }
 
-        // 3. Clamp vertically so tall UIs simply slide up/down instead of going off-screen
         targetScreenPos.y = Mathf.Clamp(targetScreenPos.y, uiHeight * 0.5f, Screen.height - uiHeight * 0.5f);
 
-        // 4. Convert final screen position to Canvas space
         RectTransform canvasRect = canvas.GetComponent<RectTransform>();
         Vector2 anchoredPos;
 

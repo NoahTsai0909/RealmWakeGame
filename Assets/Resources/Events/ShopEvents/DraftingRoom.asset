@@ -19,7 +19,7 @@ MonoBehaviour:
   portalGlowColor: {r: 1, g: 1, b: 1, a: 1}
   minDayRequired: 1
   maxDayRequired: 12
-  selectionWeight: 1
+  selectionWeight: 10
   maxAppearancesPerRun: 0
   targetScene: 6
   experienceReward: 1

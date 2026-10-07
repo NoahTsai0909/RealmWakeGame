@@ -1194,27 +1194,7 @@ MonoBehaviour:
   playerTeamPlacements: []
   playerBenchPlacements: []
   playerTactics: []
-  defaultUnits:
-  - unitData:
-      definition: {fileID: 11400000, guid: eb600ffba2f1c5d40834f309bc3d5900, type: 2}
-      rarity: 0
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 0
-    col: 0
-  - unitData:
-      definition: {fileID: 11400000, guid: 29209e887de29c54386580dab652807f, type: 2}
-      rarity: 3
-      provisionCost: 0
-      provisionModifier: 0
-      valueModifier: 0
-      prefix: {fileID: 0}
-      suffix: {fileID: 0}
-    row: 1
-    col: 0
+  defaultUnits: []
   benchSize: 5
   regularEventsCompleted: 0
   isBattlePhase: 0
@@ -7781,7 +7761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitHoverDetector
   hoverUIPrefab: {fileID: 456573496781848647, guid: 31c4386fd4d7e7b45ba93f68bd64177f, type: 3}
-  hoverDelay: 0.35
+  hoverDelay: 0.15
 --- !u!4 &1207851085
 Transform:
   m_ObjectHideFlags: 0

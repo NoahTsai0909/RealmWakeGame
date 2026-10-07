@@ -1,0 +1,540 @@
+fileFormatVersion: 2
+guid: cf93cfda61fb9d340af72d05fded547e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9036898241889274949
+    second: attack_VFX_0
+  - first:
+      213: 8796495516325823408
+    second: attack_VFX_1
+  - first:
+      213: -2374731850596548646
+    second: attack_VFX_2
+  - first:
+      213: -2710611014139971922
+    second: attack_VFX_3
+  - first:
+      213: 8479216266590664022
+    second: attack_VFX_4
+  - first:
+      213: -743386648606907322
+    second: attack_VFX_5
+  - first:
+      213: 8733503733938818312
+    second: attack_VFX_6
+  - first:
+      213: -5632715302435230213
+    second: attack_VFX_7
+  - first:
+      213: 7643373123491307922
+    second: attack_VFX_8
+  - first:
+      213: -7091582142000686180
+    second: attack_VFX_9
+  - first:
+      213: 4546734056692989028
+    second: attack_VFX_10
+  - first:
+      213: -4821753405558010677
+    second: attack_VFX_11
+  - first:
+      213: -3866566285565663369
+    second: attack_VFX_12
+  - first:
+      213: 9040277197050667039
+    second: attack_VFX_13
+  - first:
+      213: 991119372374725446
+    second: attack_VFX_14
+  - first:
+      213: -8956265124006771299
+    second: attack_VFX_15
+  - first:
+      213: 5014643950152349664
+    second: attack_VFX_16
+  - first:
+      213: -5353945841088957567
+    second: attack_VFX_17
+  - first:
+      213: -2656349943929314884
+    second: attack_VFX_18
+  - first:
+      213: 1953622743331709749
+    second: attack_VFX_19
+  - first:
+      213: 3993287058591378935
+    second: attack_VFX_20
+  - first:
+      213: 4460749214997248753
+    second: attack_VFX_21
+  - first:
+      213: -978623976084252543
+    second: attack_VFX_22
+  - first:
+      213: -3959778641600409856
+    second: attack_VFX_23
+  - first:
+      213: -5707189599888323927
+    second: attack_VFX_24
+  - first:
+      213: -4447792825031877070
+    second: attack_VFX_25
+  - first:
+      213: 1129599960204081891
+    second: attack_VFX_26
+  - first:
+      213: -4602173116934904687
+    second: attack_VFX_27
+  - first:
+      213: -6420341600759049462
+    second: attack_VFX_28
+  - first:
+      213: -8961227759991996511
+    second: attack_VFX_29
+  - first:
+      213: 859092820357187959
+    second: attack_VFX_30
+  - first:
+      213: -5653043290057049260
+    second: attack_VFX_31
+  - first:
+      213: 1066985041417455543
+    second: attack_VFX_32
+  - first:
+      213: 2495625921232236352
+    second: attack_VFX_33
+  - first:
+      213: 3861087535925730336
+    second: attack_VFX_34
+  - first:
+      213: 3412367378063539406
+    second: attack_VFX_35
+  - first:
+      213: -6705344086334299491
+    second: attack_VFX_36
+  - first:
+      213: 379348322927936888
+    second: attack_VFX_37
+  - first:
+      213: -123797840302038894
+    second: attack_VFX_38
+  - first:
+      213: 8963666193419681600
+    second: attack_VFX_39
+  - first:
+      213: 2820453896952316968
+    second: attack_VFX_40
+  - first:
+      213: -5534133176226474371
+    second: attack_VFX_41
+  - first:
+      213: -6623311827232117787
+    second: attack_VFX_42
+  - first:
+      213: 7582509971877030611
+    second: attack_VFX_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: attack_VFX_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54c892b4213896d70800000000000000
+      internalID: 9036898241889274949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b3cae6f01e631a70800000000000000
+      internalID: 8796495516325823408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adff268b6f14b0fd0800000000000000
+      internalID: -2374731850596548646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea6fce1e4a9f16ad0800000000000000
+      internalID: -2710611014139971922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655b9d7054a3ca570800000000000000
+      internalID: 8479216266590664022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644640f18c5fea5f0800000000000000
+      internalID: -743386648606907322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80d88f9bf53a33970800000000000000
+      internalID: 8733503733938818312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfde07d964394d1b0800000000000000
+      internalID: -5632715302435230213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291a7770c57b21a60800000000000000
+      internalID: 7643373123491307922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b9b8a5d93a59d90800000000000000
+      internalID: -7091582142000686180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c3b51f88e391f30800000000000000
+      internalID: 4546734056692989028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_VFX_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcc4f2b03d0b51db0800000000000000
+      internalID: -4821753405558010677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b87c14b4f4936be48b27a00899456467
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":12.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      attack_VFX_0: 9036898241889274949
+      attack_VFX_1: 8796495516325823408
+      attack_VFX_10: 4546734056692989028
+      attack_VFX_11: -4821753405558010677
+      attack_VFX_2: -2374731850596548646
+      attack_VFX_3: -2710611014139971922
+      attack_VFX_4: 8479216266590664022
+      attack_VFX_5: -743386648606907322
+      attack_VFX_6: 8733503733938818312
+      attack_VFX_7: -5632715302435230213
+      attack_VFX_8: 7643373123491307922
+      attack_VFX_9: -7091582142000686180
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

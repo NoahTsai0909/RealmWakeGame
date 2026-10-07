@@ -81,11 +81,11 @@ public class UnitHoverDetector : MonoBehaviour
 
         if (isPinned)
         {
-            bool clickAttempt = mouse.leftButton.wasPressedThisFrame || mouse.rightButton.wasPressedThisFrame;
+            bool leftClickOutside = mouse.leftButton.wasPressedThisFrame && !IsPointerOverUnitHoverUI();
 
-            if (Keyboard.current.tKey.wasPressedThisFrame ||
+            if (mouse.rightButton.wasPressedThisFrame ||
                 Keyboard.current.escapeKey.wasPressedThisFrame ||
-                (clickAttempt && !IsPointerOverUnitHoverUI()))
+                leftClickOutside)
             {
                 isPinned = false;
                 if (hoverUICanvasGroup != null) hoverUICanvasGroup.blocksRaycasts = false;
@@ -93,8 +93,7 @@ public class UnitHoverDetector : MonoBehaviour
             }
             return;
         }
-
-        if (currentHoveredUnit != null && Keyboard.current.tKey.wasPressedThisFrame)
+        if (currentHoveredUnit != null && mouse.rightButton.wasPressedThisFrame)
         {
             isPinned = true;
             if (hoverUICanvasGroup != null) hoverUICanvasGroup.blocksRaycasts = true;

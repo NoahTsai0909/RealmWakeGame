@@ -75,7 +75,6 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
         if (assignedTactic != null && unitPortrait != null)
         {
-            // Pull the sprite from the dummy's definition
             unitPortrait.sprite = assignedTactic.Definition.tacticSprite;
             unitPortrait.color = Color.white;
 
@@ -110,23 +109,17 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             if (TacticHoverDetector.Instance != null)
             {
-                // 1. Get the absolute 4 corners of the UI Card's physical rectangle
                 Vector3[] corners = new Vector3[4];
                 GetComponent<RectTransform>().GetWorldCorners(corners);
 
-                // corners[0] is bottom-left, corners[1] is top-left. 
-                // We average them to find the exact middle of the left edge!
                 Vector3 leftCenterWorld = (corners[0] + corners[1]) / 2f;
 
-                // 2. Safely grab the correct Camera based on your Canvas settings
                 Canvas canvas = GetComponentInParent<Canvas>();
                 Camera cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay) ? canvas.worldCamera : null;
                 if (cam == null) cam = Camera.main;
 
-                // 3. Convert that exact left edge into screen pixels
                 Vector2 leftCenterScreen = RectTransformUtility.WorldToScreenPoint(cam, leftCenterWorld);
 
-                // 4. Shift it just slightly left (e.g., 20 pixels) so it doesn't overlap the card border
                 Vector2 fixedTooltipPos = new Vector2(leftCenterScreen.x - 20f, leftCenterScreen.y);
 
                 TacticHoverDetector.Instance.ShowTooltipFromUI(
@@ -164,6 +157,8 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+
         if (wasDragged) return;
 
         if (!isPurchased) onBuyClicked?.Invoke();
@@ -181,7 +176,8 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Safe check for both units AND tactics
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+
         if (isPurchased || (assignedUnit == null && assignedTactic == null)) return;
 
         if (RunManager.Instance.Stats.CurrentGold < myPrice) return;

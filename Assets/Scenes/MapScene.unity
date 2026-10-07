@@ -299,6 +299,22 @@ PrefabInstance:
       propertyPath: runHUDCanvasGroup
       value: 
       objectReference: {fileID: 58248546}
+    - target: {fileID: 2645658598112403655, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645658598112403655, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645658598112403655, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645658598112403655, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2724723111299762594, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -316,6 +332,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2724723111299762594, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496276500007054464, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496276500007054464, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496276500007054464, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496276500007054464, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -468,6 +500,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8939723760070641484, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146499855198398140, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146499855198398140, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146499855198398140, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146499855198398140, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146499855198398140, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146499855198398140, guid: 06de7af3a5ce2e048a3363f01987cc76, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -1898,7 +1954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitHoverDetector
   hoverUIPrefab: {fileID: 456573496781848647, guid: 31c4386fd4d7e7b45ba93f68bd64177f, type: 3}
-  hoverDelay: 0.35
+  hoverDelay: 0.15
 --- !u!4 &1462305865
 Transform:
   m_ObjectHideFlags: 0
@@ -1926,7 +1982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2864567fe3cbd94cacd79f14db87c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TacticHoverDetector
-  hoverDelay: 0.35
+  hoverDelay: 0.15
 --- !u!1001 &1554166070
 PrefabInstance:
   m_ObjectHideFlags: 0
