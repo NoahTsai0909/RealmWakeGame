@@ -85,4 +85,4 @@ MonoBehaviour:
     row: 1
     col: 0
   enemyTactics: []
-  randomMutationCount: 0
+  randomMutationCount: 1

@@ -18,6 +18,7 @@ public class CombatVFXManager : MonoBehaviour
     [SerializeField] private GameObject defaultPoisonProjectilePrefab;
     [SerializeField] private GameObject defaultSlowProjectilePrefab;
     [SerializeField] private GameObject defaultHasteProjectilePrefab;
+    [SerializeField] private GameObject defaultMeleeProjectilePrefab;
 
     [Header("VFX Prefabs")]
     [SerializeField] private GameObject healImpactPrefab;
@@ -25,7 +26,6 @@ public class CombatVFXManager : MonoBehaviour
     [SerializeField] private GameObject shieldImpactPrefab;
     [SerializeField] private GameObject burnImpactPrefab;
     [SerializeField] private GameObject poisonImpactPrefab;
-    [SerializeField] private GameObject meleeSlashPrefab;
     [SerializeField] private GameObject slowImpactPrefab;
     [SerializeField] private GameObject hasteImpactPrefab;
     [SerializeField] private GameObject exitDustPrefab;
@@ -63,6 +63,7 @@ public class CombatVFXManager : MonoBehaviour
             onImpact?.Invoke();
             return;
         }
+
         if (action.source == null)
         {
             PlayInstantEffect(action);
@@ -72,14 +73,7 @@ public class CombatVFXManager : MonoBehaviour
 
         if (RequiresProjectile(action) && action.source != action.target)
         {
-            if (action.source.Definition != null && action.source.Definition.isMelee && action.type == CombatActionType.Damage)
-            {
-                PlayMeleeEffect(action, onImpact);
-            }
-            else
-            {
-                PlayProjectile(action, onImpact);
-            }
+            PlayProjectile(action, onImpact);
         }
         else
         {
@@ -165,30 +159,48 @@ public class CombatVFXManager : MonoBehaviour
                 onImpact?.Invoke();
         };
 
+        bool isMeleeSlash = action.type == CombatActionType.Damage &&
+                    action.source != null &&
+                    action.source.Definition != null &&
+                    action.source.Definition.isMelee;
+
         StartCoroutine(
             TravelProjectile(
                 proj.transform,
                 action.target.transform,
                 projectileTravelTime,
-                wrappedOnImpact 
+                wrappedOnImpact,
+                isMeleeSlash
             )
         );
     }
 
     private GameObject GetProjectileForAction(CombatAction action)
     {
-        // 1. Use action-specific override if provided (Ensure CombatAction.projectileOverride is now a GameObject!)
         if (action.projectileOverride != null)
         {
             return action.projectileOverride;
         }
+        if (action.type == CombatActionType.Damage &&
+            action.source != null &&
+            action.source.Definition != null &&
+            action.source.Definition.isMelee)
+        {
+            return defaultMeleeProjectilePrefab != null
+                ? defaultMeleeProjectilePrefab
+                : defaultDamageProjectilePrefab;
+        }
 
-        // 3. Fall back to default based on action type
         return GetFallbackProjectile(action.type);
     }
 
 
-    private IEnumerator TravelProjectile(Transform projectile, Transform target, float duration, Action onImpact)
+    private IEnumerator TravelProjectile(
+    Transform projectile,
+    Transform target,
+    float duration,
+    Action onImpact,
+    bool straightLine = false)
     {
         float elapsed = 0f;
         Vector3 startPos = projectile.position;
@@ -204,30 +216,28 @@ public class CombatVFXManager : MonoBehaviour
 
             elapsed += Time.deltaTime;
 
-            // 1. Calculate linear time (0.0 to 1.0)
-            float linearT = elapsed / duration;
+            float linearT = Mathf.Clamp01(elapsed / duration);
 
-            // 2. Feed it through your curve for easing (speed changes)
-            float easedT = projectileSpeedCurve.Evaluate(linearT);
+            float t = straightLine
+                ? linearT
+                : projectileSpeedCurve.Evaluate(linearT);
 
-            // 3. Get the base straight-line position using the eased time
             Vector3 currentTargetPos = target.position;
-            Vector3 currentPos = Vector3.Lerp(startPos, currentTargetPos, easedT);
+            Vector3 currentPos = Vector3.Lerp(startPos, currentTargetPos, t);
 
-            // 4. Add the Arc! 
-            // Mathf.Sin of PI * linearT gives a perfect curve that starts at 0, peaks at 0.5, and ends at 0.
-            float arc = projectileArcCurve.Evaluate(linearT) * maxArcHeight;
-            currentPos.y += arc; // Push it upward along the Y axis
-
-            // 5. Calculate rotation before moving so the projectile points exactly where it's arcing
+            if (!straightLine)
+            {
+                float arc = projectileArcCurve.Evaluate(linearT) * maxArcHeight;
+                currentPos.y += arc;
+            }
             Vector3 moveDirection = currentPos - projectile.position;
-            if (moveDirection != Vector3.zero)
+
+            if (moveDirection.sqrMagnitude > 0.0001f)
             {
                 float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
                 projectile.rotation = Quaternion.Euler(0, 0, angle);
             }
 
-            // 6. Finally, update the position
             projectile.position = currentPos;
 
             yield return null;
@@ -297,41 +307,6 @@ public class CombatVFXManager : MonoBehaviour
             CombatActionType.ApplyPoison => defaultPoisonProjectilePrefab, 
             _ => defaultDamageProjectilePrefab 
         };
-    }
-
-    private void PlayMeleeEffect(CombatAction action, Action onImpact)
-    {
-        StartCoroutine(MeleeRoutine(action, onImpact));
-    }
-
-    private IEnumerator MeleeRoutine(CombatAction action, Action onImpact)
-    {
-        if (action.source != null && meleeSlashPrefab != null)
-        {
-            GameObject slashVFX = Instantiate(meleeSlashPrefab, action.source.transform.position, Quaternion.identity);
-
-            // Check if it's an enemy (isPlayer == false)
-            if (!action.source.isPlayer)
-            {
-                // Invert the X scale to flip the entire prefab horizontally
-                Vector3 scale = slashVFX.transform.localScale;
-                scale.x *= -1;
-                slashVFX.transform.localScale = scale;
-            }
-        }
-
-        yield return new WaitForSeconds(0.2f);
-        if (CombatSFXManager.Instance != null)
-        {
-            CombatSFXManager.Instance.PlayActionSFX(action);
-        }
-
-        if (action.target != null && attackImpactPrefab != null)
-        {
-            Instantiate(attackImpactPrefab, action.target.transform.position, Quaternion.identity);
-        }
-
-        onImpact?.Invoke();
     }
 
     private Color GetColorForAction(CombatAction action)

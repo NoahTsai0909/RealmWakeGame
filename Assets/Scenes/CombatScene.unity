@@ -866,12 +866,12 @@ MonoBehaviour:
   defaultPoisonProjectilePrefab: {fileID: 4564892777239986246, guid: 5ad4dc53cc3d8db4b9bad652be1c3231, type: 3}
   defaultSlowProjectilePrefab: {fileID: 4564892777239986246, guid: 5ad4dc53cc3d8db4b9bad652be1c3231, type: 3}
   defaultHasteProjectilePrefab: {fileID: 4564892777239986246, guid: 5ad4dc53cc3d8db4b9bad652be1c3231, type: 3}
+  defaultMeleeProjectilePrefab: {fileID: 8957887435201408911, guid: f034d047661015d4cb579b314267832a, type: 3}
   healImpactPrefab: {fileID: 6575969720952597355, guid: 8819d5fb2abce8d4598fee66d98d1e59, type: 3}
   attackImpactPrefab: {fileID: 5915805118745668908, guid: 0456b27261cbb284a98dfebaa302543f, type: 3}
   shieldImpactPrefab: {fileID: 5704024670665266947, guid: d8ab3a0599d9850469f8ed9c0dfdc1de, type: 3}
   burnImpactPrefab: {fileID: 8778281742901235260, guid: d26da328717e433479d5fad936291c17, type: 3}
   poisonImpactPrefab: {fileID: 7161510909246422744, guid: b15dfc9d1ee268942aa06a5d8fadb2b0, type: 3}
-  meleeSlashPrefab: {fileID: 6767337181534009556, guid: f7f90c68a75180b4f8e1fe08de22f7aa, type: 3}
   slowImpactPrefab: {fileID: 8371208024007339633, guid: d4c637286001fc547a0476d8eb510072, type: 3}
   hasteImpactPrefab: {fileID: 6328882538875790131, guid: 4af30b7836a21464d924f16684e30858, type: 3}
   exitDustPrefab: {fileID: 9221908851226632053, guid: de88eb363efe2aa48abf97118fd0cfaf, type: 3}

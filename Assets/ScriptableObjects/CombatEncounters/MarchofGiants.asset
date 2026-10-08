@@ -109,4 +109,4 @@ MonoBehaviour:
       definition: {fileID: 11400000, guid: b71b3b84a9f676648bdaaa75ba937b70, type: 2}
       rarity: 2
     orderIndex: 1
-  randomMutationCount: 0
+  randomMutationCount: 2
