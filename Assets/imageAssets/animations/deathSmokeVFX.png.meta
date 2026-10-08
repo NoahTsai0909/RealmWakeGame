@@ -1,61 +1,85 @@
 fileFormatVersion: 2
-guid: 7a086ed34ca1a714293ebb67514c761a
+guid: e3a52fc324b6dcf449c177ae5307992c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3938067102993155475
-    second: Dust_01_0
+      213: 7027737164312859975
+    second: deathSmokeVFX_0
   - first:
-      213: -2814413885907626888
-    second: Dust_01_1
+      213: -7312436909641038763
+    second: deathSmokeVFX_1
   - first:
-      213: 511644010118226858
-    second: Dust_01_2
+      213: -8112656353323842493
+    second: deathSmokeVFX_2
   - first:
-      213: 5573429324852406649
-    second: Dust_01_3
+      213: 613337051538190431
+    second: deathSmokeVFX_3
   - first:
-      213: -437083963760578091
-    second: Dust_01_4
+      213: -6598591244522298223
+    second: deathSmokeVFX_4
   - first:
-      213: 5397500908387719711
-    second: Dust_01_5
+      213: 5481334960563421195
+    second: deathSmokeVFX_5
   - first:
-      213: -7625881852923091777
-    second: Dust_01_6
+      213: 5901883934575151376
+    second: deathSmokeVFX_6
   - first:
-      213: -1636112882996861530
-    second: Dust_01_7
+      213: -2659847832663420897
+    second: deathSmokeVFX_7
   - first:
-      213: 8646307795552120656
-    second: Dust_01_8
+      213: 3150454008518478767
+    second: deathSmokeVFX_8
   - first:
-      213: 4530638602353412588
-    second: Dust_01_9
+      213: 4940873145225547151
+    second: deathSmokeVFX_9
   - first:
-      213: -622702830143218699
-    second: Dust_01_10
+      213: -5713676941177074240
+    second: deathSmokeVFX_10
   - first:
-      213: -1919923005362503506
-    second: Dust_01_11
+      213: 5626472023091659790
+    second: deathSmokeVFX_11
   - first:
-      213: -1011340185929379641
-    second: Dust_01_12
+      213: -8470554813019280999
+    second: deathSmokeVFX_12
   - first:
-      213: 513597892209643044
-    second: Dust_01_13
+      213: -852574475005228028
+    second: deathSmokeVFX_13
   - first:
-      213: -8087746674037851077
-    second: Dust_01_14
+      213: 1303623935342268314
+    second: deathSmokeVFX_14
   - first:
-      213: -4668552306571604789
-    second: Dust_01_15
+      213: 6759116599122176517
+    second: deathSmokeVFX_15
   - first:
-      213: 2578763368512071614
-    second: Dust_01_16
+      213: 7908951967761958206
+    second: deathSmokeVFX_16
   - first:
-      213: 672487377873690096
-    second: Dust_01_17
+      213: 6212709787312732644
+    second: deathSmokeVFX_17
+  - first:
+      213: -7069758032587606922
+    second: deathSmokeVFX_18
+  - first:
+      213: -4737811325024363038
+    second: deathSmokeVFX_19
+  - first:
+      213: 8805201837151848888
+    second: deathSmokeVFX_20
+  - first:
+      213: 3932467156381138174
+    second: deathSmokeVFX_21
+  - first:
+      213: 7209866320422368717
+    second: deathSmokeVFX_22
+  - first:
+      213: 2158345057889128391
+    second: deathSmokeVFX_23
+  - first:
+      213: 1665272328812890471
+    second: deathSmokeVFX_24
+  - first:
+      213: -6256381941309305583
+    second: deathSmokeVFX_25
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -88,7 +112,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -102,7 +126,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 12
+  spritePixelsToUnits: 120
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -147,181 +171,194 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: exitDust_0
+      name: deathSmokeVFX_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6ccc3787f89606647adeee0fb2de5650
-      internalID: 67734409
+      spriteID: 745dda567b9878160800000000000000
+      internalID: 7027737164312859975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exitDust_1
+      name: deathSmokeVFX_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 640
         y: 0
-        width: 64
-        height: 64
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0378c96e61d820f44865cc41ae194c27
-      internalID: -1958042040
+      spriteID: 5540466af51058a90800000000000000
+      internalID: -7312436909641038763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exitDust_2
+      name: deathSmokeVFX_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 1280
         y: 0
-        width: 64
-        height: 64
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 20fbddaad9ff519498b959d8cb23ed08
-      internalID: 1023216662
+      spriteID: 3440153870e0a6f80800000000000000
+      internalID: -8112656353323842493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exitDust_3
+      name: deathSmokeVFX_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 1920
         y: 0
-        width: 64
-        height: 64
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: eba8cb6fa11fa8d47bd5211632045bfa
-      internalID: 991235164
+      spriteID: f50f48c7cc2038800800000000000000
+      internalID: 613337051538190431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exitDust_4
+      name: deathSmokeVFX_4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 2560
         y: 0
-        width: 64
-        height: 64
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 44ce9b5e7ea13684ea141f411c433260
-      internalID: 1929216452
+      spriteID: 194ee3459381d64a0800000000000000
+      internalID: -6598591244522298223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exitDust_5
+      name: deathSmokeVFX_5
       rect:
         serializedVersion: 2
-        x: 320
+        x: 3200
         y: 0
-        width: 64
-        height: 64
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4d61c0d6215dfbd43812549732e93020
-      internalID: 1843816730
+      spriteID: b000053fa1d911c40800000000000000
+      internalID: 5481334960563421195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exitDust_6
+      name: deathSmokeVFX_6
       rect:
         serializedVersion: 2
-        x: 384
+        x: 3840
         y: 0
-        width: 64
-        height: 64
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: df118c0348996d34b96914d5cd9de4bf
-      internalID: 1309213030
+      spriteID: 019cfe14b24b7e150800000000000000
+      internalID: 5901883934575151376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exitDust_7
+      name: deathSmokeVFX_7
       rect:
         serializedVersion: 2
-        x: 448
+        x: 4480
         y: 0
-        width: 64
-        height: 64
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a54c39a46668c4241a9833b9e4a230dc
-      internalID: -688691761
+      spriteID: f1011891d72561bd0800000000000000
+      internalID: -2659847832663420897
       vertices: []
       indices: 
       edges: []
@@ -330,7 +367,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 4a34b01dc1f62da46a08d3fdf25d9481
     internalID: 0
     vertices: []
     indices: 
@@ -340,16 +377,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      exitDust_0: 67734409
-      exitDust_1: -1958042040
-      exitDust_2: 1023216662
-      exitDust_3: 991235164
-      exitDust_4: 1929216452
-      exitDust_5: 1843816730
-      exitDust_6: 1309213030
-      exitDust_7: -688691761
+      deathSmokeVFX_0: 7027737164312859975
+      deathSmokeVFX_1: -7312436909641038763
+      deathSmokeVFX_2: -8112656353323842493
+      deathSmokeVFX_3: 613337051538190431
+      deathSmokeVFX_4: -6598591244522298223
+      deathSmokeVFX_5: 5481334960563421195
+      deathSmokeVFX_6: 5901883934575151376
+      deathSmokeVFX_7: -2659847832663420897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

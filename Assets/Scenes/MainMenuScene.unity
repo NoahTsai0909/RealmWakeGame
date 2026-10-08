@@ -4556,10 +4556,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Third-Party Assets</b>\n\n<b>Smoke Effects</b>\nTiny Swords \u2014
-    Pixel Frog\n<link=\"https://pixelfrog-assets.itch.io/tiny-swords\"><color=#E3C28D><u>Asset
-    page</u></color></link>\n\n<b>Pixel Visual Effects</b>\n750 Effect and FX Pixel
-    All \u2014 BDragon1727\n<link=\"https://bdragon1727.itch.io/750-effect-and-fx-pixel-all\"><color=#E3C28D><u>Asset
+  m_text: "<b>Third-Party Assets</b>\n\n<b>Pixel Visual Effects</b>\n750 Effect and
+    FX Pixel All \u2014 BDragon1727\n<link=\"https://bdragon1727.itch.io/750-effect-and-fx-pixel-all\"><color=#E3C28D><u>Asset
     page</u></color></link>\n\n<b>Sound Effects</b>\nPixel Combat SFX\nPack credits:
     Helton Yan and Beto Bezerra\n<link=\"https://heltonyan.itch.io/pixelcombat\"><color=#E3C28D><u>Asset
     page</u></color></link>\nLicensed under\n<link=\"https://creativecommons.org/licenses/by/4.0/\"><color=#E3C28D><u>Creative
@@ -4590,7 +4588,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.7
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

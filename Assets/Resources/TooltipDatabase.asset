@@ -124,3 +124,7 @@ MonoBehaviour:
     title: Disaster
     description: When the countdown reaches 0, the Realmwake ravages the battlefield.
       All units take damage every second, and this damage increases each second!
+  - id: mythic
+    title: Mythic
+    description: The exclusive rarity that stands above all other rarities. Cannot
+      be upgraded.

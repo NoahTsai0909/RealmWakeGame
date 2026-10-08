@@ -24,14 +24,14 @@ MonoBehaviour:
   - difficultyLevel: 1
     description: 
     activeModifiers: 
-    unitRewards:
-    - {fileID: 11400000, guid: 92c243644a9270740b28cf52a8c1ce34, type: 2}
+    unitRewards: []
     adventureRewards: []
     regionRewards: 
   - difficultyLevel: 2
     description: 'Enemy encounters have "Combat Start: All enemies gain +20% [MAXHEALTH]"'
     activeModifiers: 00000000
-    unitRewards: []
+    unitRewards:
+    - {fileID: 11400000, guid: 92c243644a9270740b28cf52a8c1ce34, type: 2}
     adventureRewards: []
     regionRewards: 
   - difficultyLevel: 3

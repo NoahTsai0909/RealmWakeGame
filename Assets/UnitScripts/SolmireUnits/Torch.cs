@@ -39,7 +39,7 @@ public class Torch : UnitInstance
                 target.TemporaryStatModify(ModifiableStats.Burn, -burnBuff);
             }
         }
-        base.RemoveAuras(); // Clears the list
+        base.RemoveAuras(); 
     }
 
     public override void ApplyAuras()

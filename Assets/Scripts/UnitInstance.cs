@@ -435,6 +435,11 @@ public class UnitInstance : MonoBehaviour
         // Override in derived classes for death effects
     }
 
+    public virtual void OnDayStart(UnitSaveData mySaveData)
+    {
+        // Override in specific units (like Army Promoter) for daily meta-effects
+    }
+
     private void FreezeUnit()
     {
         combatFrozen = true;

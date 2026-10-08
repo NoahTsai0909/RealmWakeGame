@@ -155,8 +155,8 @@ public class CombatManager : MonoBehaviour
                 break;
         }
 
-        combatLog.Add(action);//record the action in the combat log
-        CombatEventBus.PublishActionResolved(action); //publish the action resolved event
+        combatLog.Add(action);
+        CombatEventBus.PublishActionResolved(action);
     }
 
     public void RecordStatAction(CombatAction action)

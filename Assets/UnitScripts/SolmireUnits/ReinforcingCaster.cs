@@ -53,7 +53,7 @@ public class ReinforcingCaster : UnitInstance
 
     public override string GetPassiveDescription()
     {
-        return ($"This has [MULTICAST] equal to current [ENERGY].");
+        return ($"This has +[MULTICAST] equal to current [ENERGY].");
     }
 
     public override void RemoveAuras()

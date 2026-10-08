@@ -37,7 +37,7 @@ public class UnitDefinition : ScriptableObject, IStatSource
 
     [Header("Meta")]
     public int cost;
-    public Region region;   // Aurelia / Nethervale / Everborn / Axiom
+    public Region region; 
     public Rarity rarity;
     public Rarity startingRarity;
     public int provisionCost;

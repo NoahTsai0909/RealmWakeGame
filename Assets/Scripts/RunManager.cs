@@ -280,7 +280,18 @@ public class RunManager : MonoBehaviour
         currentEventPhase = 0;
         allDayEvents.Clear();
         currentDailyEvents.Clear();
-
+        var allOwnedUnits = playerTeamPlacements.Concat(playerBenchPlacements);
+        foreach (var placement in allOwnedUnits)
+        {
+            if (placement != null && placement.unitData != null && placement.unitData.definition != null)
+            {
+                UnitInstance prefabScript = placement.unitData.definition.unitPrefab;
+                if (prefabScript != null)
+                {
+                    prefabScript.OnDayStart(placement.unitData);
+                }
+            }
+        }
         GenerateDailyEvents();
     }
 

@@ -233,6 +233,20 @@ public class gameManager : MonoBehaviour
             {
                 RunManager.Instance.Stats.CurrentGold += (combatEvent.goldReward - goldFromKills);
                 RunManager.Instance.Stats.Experience += combatEvent.experienceReward;
+                if (TutorialManager.Instance != null)
+                {
+                    Transform hudCanvas = RunHUDManager.Instance.transform;
+                    List<TutorialStep> combatSequence = new List<TutorialStep>
+                    {
+                        new TutorialStep {
+                            key = "RunHUDStatsButton",
+                            title = "Combat Statistics",
+                            description = "Click here to track each unit’s damage, mitigation, and utility. These statistics update live as the battle unfolds!",
+                            highlightTarget = hudCanvas.Find("TopBar/rightSideButtons/inspectStatsButton")
+                        }
+                    };
+                    TutorialManager.Instance.StartTutorialSequence(combatSequence);
+                }
             }
             else
             {
