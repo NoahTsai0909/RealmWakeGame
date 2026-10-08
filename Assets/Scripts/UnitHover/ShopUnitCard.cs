@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
 {
     [Header("UI References")]
-    [Tooltip("The native UI Image that will display the unit's sprite")]
     [SerializeField] private Image unitPortrait;
     [SerializeField] private TextMeshProUGUI priceText;
 
@@ -39,7 +38,6 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         myRect = GetComponent<RectTransform>();
         assignedUnit = dummyUnit;
 
-        // Restore the breathing and rarity outline animations
         if (assignedUnit != null && unitPortrait != null)
         {
             UIUnitVisualController visualController = unitPortrait.GetComponent<UIUnitVisualController>();
@@ -47,23 +45,18 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             {
                 visualController.InitializeVisuals(assignedUnit.Definition, assignedUnit.CurrentRarity);
                 if (assignedUnit.currentPrefix != null)
-                {
                     visualController.ApplyMutationVisuals(assignedUnit.currentPrefix);
-                }
             }
         }
 
         priceText.text = $"{TextIconUtility.FormatGold(price)}";
         this.onBuyClicked = onBuyClicked;
-
-        if (hoverGlowGroup != null)
-        {
-            hoverGlowGroup.alpha = 0f;
-        }
+        if (hoverGlowGroup != null) hoverGlowGroup.alpha = 0f;
     }
 
     public void InitializeTactic(TacticInstance dummyTactic, int price, UnityAction onBuyClicked)
     {
+        myRect = GetComponent<RectTransform>();
         assignedTactic = dummyTactic;
         assignedUnit = null;
         isTactic = true;
@@ -77,7 +70,6 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             unitPortrait.sprite = assignedTactic.Definition.tacticSprite;
             unitPortrait.color = Color.white;
-
             UIUnitVisualController visualController = unitPortrait.GetComponent<UIUnitVisualController>();
             if (visualController != null) visualController.enabled = false;
         }
@@ -98,41 +90,26 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (isPurchased || dragPhantom != null) return;
+        if (isHovered) return;
 
         isHovered = true;
-        if (hoverGlowGroup != null)
-        {
-            hoverGlowGroup.gameObject.SetActive(true);
-        }
+        if (hoverGlowGroup != null) hoverGlowGroup.gameObject.SetActive(true);
 
         if (isTactic && assignedTactic != null)
         {
-            if (TacticHoverDetector.Instance != null)
+            if (UnitHoverDetector.Instance != null)
             {
-                Vector3[] corners = new Vector3[4];
-                GetComponent<RectTransform>().GetWorldCorners(corners);
-
-                Vector3 leftCenterWorld = (corners[0] + corners[1]) / 2f;
-
-                Canvas canvas = GetComponentInParent<Canvas>();
-                Camera cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay) ? canvas.worldCamera : null;
-                if (cam == null) cam = Camera.main;
-
-                Vector2 leftCenterScreen = RectTransformUtility.WorldToScreenPoint(cam, leftCenterWorld);
-
-                Vector2 fixedTooltipPos = new Vector2(leftCenterScreen.x - 20f, leftCenterScreen.y);
-
-                TacticHoverDetector.Instance.ShowTooltipFromUI(
-                    assignedTactic.Definition.tacticName,
-                    assignedTactic.GetDescription(),
-                    assignedTactic.GetCooldown(),
-                    fixedTooltipPos
-                );
+                UnitHoverDetector.Instance.HideTooltipFromUI();
+                UnitHoverDetector.Instance.ShowTacticTooltipFromUI(assignedTactic, myRect);
             }
         }
         else if (!isTactic && myDummyUnit != null)
         {
-            if (UnitHoverDetector.Instance != null) UnitHoverDetector.Instance.ShowTooltipFromUI(myDummyUnit, myRect);
+            if (UnitHoverDetector.Instance != null)
+            {
+                UnitHoverDetector.Instance.HideTooltipFromUI();
+                UnitHoverDetector.Instance.ShowTooltipFromUI(myDummyUnit, myRect);
+            }
         }
     }
 
@@ -145,27 +122,24 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             hoverGlowGroup.gameObject.SetActive(false);
         }
 
-        if (isTactic)
-        {
-            if (TacticHoverDetector.Instance != null) TacticHoverDetector.Instance.HideTooltipFromUI();
-        }
-        else
-        {
-            if (UnitHoverDetector.Instance != null) UnitHoverDetector.Instance.HideTooltipFromUI();
-        }
+        if (UnitHoverDetector.Instance != null) UnitHoverDetector.Instance.HideTooltipFromUI();
+    }
+
+    private void OnDisable()
+    {
+        if (isHovered) OnPointerExit(null);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left) return;
-
         if (wasDragged) return;
-
         if (!isPurchased) onBuyClicked?.Invoke();
     }
 
     public void MarkAsPurchased()
     {
+        OnPointerExit(null);
         CanvasGroup cg = GetComponent<CanvasGroup>();
         if (cg == null) cg = gameObject.AddComponent<CanvasGroup>();
 
@@ -177,21 +151,11 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left) return;
-
         if (isPurchased || (assignedUnit == null && assignedTactic == null)) return;
-
         if (RunManager.Instance.Stats.CurrentGold < myPrice) return;
 
         wasDragged = true;
-
-        if (isTactic)
-        {
-            if (TacticHoverDetector.Instance != null) TacticHoverDetector.Instance.HideTooltipFromUI();
-        }
-        else
-        {
-            if (UnitHoverDetector.Instance != null) UnitHoverDetector.Instance.HideTooltipFromUI();
-        }
+        OnPointerExit(null);
 
         Canvas currentCanvas = GetComponentInParent<Canvas>();
         if (currentCanvas == null) return;
@@ -221,11 +185,7 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             if (currentCanvas != null)
             {
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    (RectTransform)currentCanvas.transform,
-                    eventData.position,
-                    eventData.pressEventCamera,
-                    out Vector2 localPoint
-                );
+                    (RectTransform)currentCanvas.transform, eventData.position, eventData.pressEventCamera, out Vector2 localPoint);
                 dragPhantom.transform.localPosition = localPoint;
             }
         }
@@ -233,19 +193,12 @@ public class ShopUnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (unitPortrait != null)
-        {
-            unitPortrait.color = Color.white;
-        }
+        if (unitPortrait != null) unitPortrait.color = Color.white;
 
         if (dragPhantom != null)
         {
             Destroy(dragPhantom);
-
-            if (eventData.position.x < Screen.width * 0.6f)
-            {
-                onBuyClicked?.Invoke();
-            }
+            if (eventData.position.x < Screen.width * 0.6f) onBuyClicked?.Invoke();
         }
     }
 

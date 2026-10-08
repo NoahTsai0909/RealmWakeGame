@@ -83,6 +83,7 @@ public class TacticBarManager : MonoBehaviour
             {
                 tactic.SetupTargeting(isPlayerBar);
                 tactic.EnterCombat();
+                tactic.CombatStartEffect();
             }
         }
     }

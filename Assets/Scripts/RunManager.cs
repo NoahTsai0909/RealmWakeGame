@@ -72,6 +72,7 @@ public class RunManager : MonoBehaviour
     public int TOTAL_DAYS { get; set; } = 12;
     public bool hasUsedLastChance = false;
     public ShopState shopState;
+    public int currentDifficulty = 1;
 
 
     private Dictionary<Guid, PermanentStats> permanentStatsMap = new();
@@ -88,7 +89,7 @@ public class RunManager : MonoBehaviour
     [Header("Adventure Tracking")]
     public string activeAdventureName;
     [Tooltip("Drag all your AdventureDefinitionSO assets into this list!")]
-    [SerializeField] private List<AdventureDefinitionSO> allAdventures = new List<AdventureDefinitionSO>();
+    [SerializeField] public List<AdventureDefinitionSO> allAdventures = new List<AdventureDefinitionSO>();
     [Header("Mutation Pool")]
     public List<MutationPrefixSO> allAvailablePrefixes = new List<MutationPrefixSO>();
 
@@ -117,11 +118,12 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    public void SetupNewAdventure(AdventureDefinitionSO adventure, Region selectedRegion)
+    public void SetupNewAdventure(AdventureDefinitionSO adventure, Region selectedRegion, int difficulty)
     {
         TOTAL_DAYS = adventure.totalDays;
         activeAdventureName = adventure.adventureName;
         playerRegion = selectedRegion;
+        currentDifficulty = difficulty;
         AssignRegionTree();
 
         masterUnitStats.Clear();
@@ -311,6 +313,7 @@ public class RunManager : MonoBehaviour
         if (Stats.CurrentDay >= TOTAL_DAYS)
         {
             MetaManager.Instance.RegisterWinningTeam(playerTeamPlacements);
+            MetaManager.Instance.UnlockNextDifficulty(activeAdventureName, currentDifficulty);
             SaveLoadManager.DeleteSave();
             SceneLoader.Instance.LoadScene(GameScene.RunSummaryScene);
             return;
@@ -516,6 +519,22 @@ public class RunManager : MonoBehaviour
         {
             Debug.LogWarning($"Adventure '{activeAdventureName}' does not have an assigned music clip.");
         }
+    }
+
+    public bool HasDifficultyModifier(DifficultyModifier modifier)
+    {
+        if (currentDifficulty <= 1) return false;
+
+        AdventureDefinitionSO currentAdventure = allAdventures.FirstOrDefault(a => a.adventureName == activeAdventureName);
+        if (currentAdventure == null || currentAdventure.difficultyTiers == null) return false;
+        foreach (var tier in currentAdventure.difficultyTiers)
+        {
+            if (tier.difficultyLevel <= currentDifficulty && tier.activeModifiers.Contains(modifier))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void ResetRun()

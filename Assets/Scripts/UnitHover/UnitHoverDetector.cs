@@ -14,6 +14,7 @@ public class UnitHoverDetector : MonoBehaviour
 
     private UnitInstance currentHoveredUnit;
     private UnitInstance pendingHoverUnit;
+    private TacticInstance currentHoveredTactic;
     private Coroutine hoverRoutine;
 
     private UnitHoverUI hoverUIInstance;
@@ -93,7 +94,7 @@ public class UnitHoverDetector : MonoBehaviour
             }
             return;
         }
-        if (currentHoveredUnit != null && mouse.rightButton.wasPressedThisFrame)
+        if ((currentHoveredUnit != null || currentHoveredTactic != null) && mouse.rightButton.wasPressedThisFrame)
         {
             isPinned = true;
             if (hoverUICanvasGroup != null) hoverUICanvasGroup.blocksRaycasts = true;
@@ -151,10 +152,11 @@ public class UnitHoverDetector : MonoBehaviour
         hoverRoutine = null;
         pendingHoverUnit = null;
 
-        if (currentHoveredUnit != null)
+        if (currentHoveredUnit != null || currentHoveredTactic != null)
         {
             hoverUIInstance.Hide();
             currentHoveredUnit = null;
+            currentHoveredTactic = null;
         }
     }
 
@@ -200,5 +202,16 @@ public class UnitHoverDetector : MonoBehaviour
             currentHoveredUnit = hitUnit;
             hoverUIInstance.Show(hitUnit);
         }
+    }
+
+    public void ShowTacticTooltipFromUI(TacticInstance tactic, RectTransform uiAnchor = null)
+    {
+        if (isPinned) return;
+        CancelHover();
+        currentHoveredTactic = tactic;
+        isUIHoverDriven = true;
+        if (hoverUICanvasGroup != null) hoverUICanvasGroup.blocksRaycasts = false;
+
+        hoverUIInstance.ShowTactic(tactic, uiAnchor);
     }
 }

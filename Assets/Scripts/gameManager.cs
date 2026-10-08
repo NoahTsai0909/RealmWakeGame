@@ -356,12 +356,19 @@ public class gameManager : MonoBehaviour
 
         List<UnitInstance> enemyUnits = enemyGrid.GetAllUnits();
         List<TacticInstance> allEnemyTactics = enemyTacticBarManager != null ? enemyTacticBarManager.GetAllTactics() : new List<TacticInstance>();
-        //Filter the Tactic Spoils Pool
         List<TacticInstance> validEnemyTactics = new List<TacticInstance>();
+
+        AdventureDefinitionSO currentAdventure = RunManager.Instance.allAdventures.FirstOrDefault(a => a.adventureName == RunManager.Instance.activeAdventureName);
+        List<TacticDefinition> phantomDefsToIgnore = new List<TacticDefinition>();
+        if (currentAdventure != null && currentAdventure.modifierPhantomTactics != null)
+        {
+            phantomDefsToIgnore = currentAdventure.modifierPhantomTactics.Select(m => m.phantomTactic).ToList();
+        }
 
         foreach (var tactic in allEnemyTactics)
         {
             if (tactic == null || tactic.Definition == null) continue;
+            if (phantomDefsToIgnore.Contains(tactic.Definition)) continue;
             var ownedCopy = RunManager.Instance.playerTactics.FirstOrDefault(p =>
                 p.tacticData != null &&
                 p.tacticData.definition == tactic.Definition);
@@ -666,20 +673,45 @@ public class gameManager : MonoBehaviour
         if (enemyTacticBarManager == null || encounter == null) return;
 
         enemyTacticBarManager.ClearAllTactics();
-
+        List<RunManager.TacticPlacement> tacticsToSpawn = new List<RunManager.TacticPlacement>();
         if (encounter.enemyTactics != null)
         {
-            foreach (var placement in encounter.enemyTactics)
+            tacticsToSpawn.AddRange(encounter.enemyTactics);
+        }
+
+        AdventureDefinitionSO currentAdventure = RunManager.Instance.allAdventures.FirstOrDefault(a => a.adventureName == RunManager.Instance.activeAdventureName);
+        if (currentAdventure != null && currentAdventure.modifierPhantomTactics != null)
+        {
+            int nextOrderIndex = tacticsToSpawn.Count;
+
+            foreach (var map in currentAdventure.modifierPhantomTactics)
             {
-                if (placement.tacticData == null || placement.tacticData.definition == null) continue;
-
-                TacticInstance tactic = Instantiate(placement.tacticData.definition.tacticPrefab);
-
-                tactic.InitializeFromSaveData(placement.tacticData);
-                tactic.myPlacement = placement;
-
-                enemyTacticBarManager.AddTactic(tactic);
+                if (RunManager.Instance.HasDifficultyModifier(map.modifier))
+                {
+                    RunManager.TacticPlacement phantomPlacement = new RunManager.TacticPlacement
+                    {
+                        orderIndex = nextOrderIndex,
+                        tacticData = new RunManager.TacticSaveData
+                        {
+                            definition = map.phantomTactic,
+                            rarity = Rarity.Common,
+                            id = Guid.NewGuid()
+                        }
+                    };
+                    tacticsToSpawn.Add(phantomPlacement);
+                    nextOrderIndex++;
+                }
             }
+        }
+
+        foreach (var placement in tacticsToSpawn)
+        {
+            if (placement.tacticData == null || placement.tacticData.definition == null) continue;
+
+            TacticInstance tactic = Instantiate(placement.tacticData.definition.tacticPrefab);
+            tactic.InitializeFromSaveData(placement.tacticData);
+            tactic.myPlacement = placement;
+            enemyTacticBarManager.AddTactic(tactic);
         }
     }
 

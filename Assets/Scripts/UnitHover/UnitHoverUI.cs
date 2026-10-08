@@ -55,6 +55,14 @@ public class UnitHoverUI : MonoBehaviour
     [SerializeField] private Vector2 edgePadding = new Vector2(50f, 150f);
     private RectTransform uiAnchorOverride;
 
+    [Header("Dividers")]
+    [SerializeField] private GameObject statsDivider;
+    [SerializeField] private GameObject activeDivider;
+    [SerializeField] private GameObject passiveDivider;
+    [SerializeField] private GameObject healthDivider;
+    [SerializeField] private GameObject provisionDivider;
+    [SerializeField] private GameObject tagDivider;
+
     [Header("Preview State")]
     public bool isPreviewMode = false;
     private UnitHoverUI activePreviewUI;
@@ -70,6 +78,7 @@ public class UnitHoverUI : MonoBehaviour
     private Canvas canvas;
     private RectTransform rectTransform;
     private UnitInstance currentUnit;
+    private TacticInstance currentTactic;
     private Camera mainCamera;
     private Camera canvasCamera;
 
@@ -95,7 +104,7 @@ public class UnitHoverUI : MonoBehaviour
     {
         if (isPreviewMode) return;
 
-        if (currentUnit == null)
+        if (currentUnit == null && currentTactic == null)
         {
             Hide();
             return;
@@ -113,15 +122,15 @@ public class UnitHoverUI : MonoBehaviour
         if (TutorialManager.Instance != null)
         {
             List<TutorialStep> combatSequence = new List<TutorialStep>
-                            {
-                                new TutorialStep {
-                                    key = "UnitHoverUI",
-                                    title = "Unit Information",
-                                    description = "Hover over a unit to view its stats and abilities.\n\nPress right click to pin the panel, then hover over keywords to learn what they mean.",
-                                    highlightTarget = null,
-                                    instructionalGraphic = instructionalImage != null ? instructionalImage : null
-                                }
-                            };
+            {
+                new TutorialStep {
+                    key = "UnitHoverUI",
+                    title = "Unit Information",
+                    description = "Hover over a unit to view its stats and abilities.\n\nPress right click to pin the panel, then hover over keywords to learn what they mean.",
+                    highlightTarget = null,
+                    instructionalGraphic = instructionalImage != null ? instructionalImage : null
+                }
+            };
             TutorialManager.Instance.StartTutorialSequence(combatSequence);
         }
         uiAnchorOverride = uiAnchor;
@@ -129,7 +138,11 @@ public class UnitHoverUI : MonoBehaviour
             return;
 
         currentUnit = unit;
+        currentTactic = null;
         unit.RecalculateStats();
+
+        if (healthDivider != null) healthDivider.SetActive(true);
+        if (provisionDivider != null) provisionDivider.SetActive(true);
 
         string finalName = unit.Definition.unitName;
         string mutationColorHex = null;
@@ -168,7 +181,10 @@ public class UnitHoverUI : MonoBehaviour
         if (unit.Stats.Tags.HasFlag(UnitTagFlags.Poison) && stats.Poison > 0) allStats += TextIconUtility.FormatPoison(stats.Poison) + "  ";
         if (unit.Stats.Tags.HasFlag(UnitTagFlags.Burn) && stats.Burn > 0) allStats += TextIconUtility.FormatBurn(stats.Burn) + "  ";
         if (unit.GetActiveDescription() != "" && stats.CritChance > 0) allStats += TextIconUtility.FormatCrit(stats.CritChance) + "  ";
+
         statText.SetText(allStats);
+        if (allStats == "" && statsDivider != null) statsDivider.SetActive(false);
+        else if (statsDivider != null) statsDivider.SetActive(true);
 
         if (unit.Definition.isPassive)
         {
@@ -189,6 +205,7 @@ public class UnitHoverUI : MonoBehaviour
         UpdateDynamicStats();
         UpdateDynamicValues();
         gameObject.SetActive(true);
+
         if (!useFixedPosition)
         {
             LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
@@ -198,7 +215,9 @@ public class UnitHoverUI : MonoBehaviour
         {
             LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
         }
+
         UpdateAbilityDescriptions();
+
         foreach (Transform child in tagContainer)
         {
             child.gameObject.SetActive(false);
@@ -232,6 +251,8 @@ public class UnitHoverUI : MonoBehaviour
                 }
             }
         }
+        if (tagContainer.childCount == 0 && tagDivider != null) tagDivider.SetActive(false);
+        else if (tagDivider != null) tagDivider.SetActive(true);
     }
 
     public void Hide()
@@ -240,24 +261,24 @@ public class UnitHoverUI : MonoBehaviour
 
         if (isPermanentUI) return;
         currentUnit = null;
+        currentTactic = null;
         gameObject.SetActive(false);
     }
 
     private void UpdatePosition()
     {
         if (isCompendiumUI) return;
-        if (canvas == null || currentUnit == null || mainCamera == null) return;
+        if (canvas == null || mainCamera == null) return;
 
-        Vector2 unitScreenPos;
+        Vector2 unitScreenPos = Vector2.zero;
         float unitScreenExtentsX = 0f;
 
         if (uiAnchorOverride != null)
         {
             unitScreenPos = RectTransformUtility.WorldToScreenPoint(mainCamera, uiAnchorOverride.position);
-
             unitScreenExtentsX = (uiAnchorOverride.rect.width / 2f) * (Screen.width / 1920f);
         }
-        else
+        else if (currentUnit != null)
         {
             Vector3 unitWorldPos = currentUnit.transform.position;
             unitScreenPos = mainCamera.WorldToScreenPoint(unitWorldPos);
@@ -271,6 +292,13 @@ public class UnitHoverUI : MonoBehaviour
             Vector2 unitEdgeRightScreen = mainCamera.WorldToScreenPoint(unitWorldPos + new Vector3(unitWorldExtentsX, 0, 0));
             unitScreenExtentsX = Mathf.Abs(unitEdgeRightScreen.x - unitScreenPos.x);
         }
+        else if (currentTactic != null)
+        {
+            Vector3 unitWorldPos = currentTactic.transform.position;
+            unitScreenPos = mainCamera.WorldToScreenPoint(unitWorldPos);
+            unitScreenExtentsX = 50f * (Screen.width / 1920f);
+        }
+        else return;
 
         if (useFixedPosition)
         {
@@ -291,19 +319,17 @@ public class UnitHoverUI : MonoBehaviour
                 rectTransform.pivot = new Vector2(0, 0.5f);
                 rectTransform.anchoredPosition = new Vector2(edgePadding.x, 0f);
             }
-            return; // Exit early 
+            return;
         }
 
         float uiWidth = (rectTransform.rect.width + edgePadding.x) * canvas.scaleFactor;
         float uiHeight = (rectTransform.rect.height + edgePadding.y) * canvas.scaleFactor;
-
         float extraScreenPadding = 20f * canvas.scaleFactor;
-
         float spaceNeededForTwoUIs = uiWidth * 2.1f;
         bool hasSpaceOnRight = unitScreenPos.x + unitScreenExtentsX + spaceNeededForTwoUIs < Screen.width;
 
         Vector2 targetScreenPos;
-        targetScreenPos.y = unitScreenPos.y; 
+        targetScreenPos.y = unitScreenPos.y;
 
         if (hasSpaceOnRight)
         {
@@ -360,6 +386,7 @@ public class UnitHoverUI : MonoBehaviour
 
     private void UpdateDynamicValues()
     {
+        if (currentUnit == null) return;
         if (currentUnit.inCombat)
         {
             healthBar.SetHoverUIValues(currentUnit.GetCurrentHP(), currentUnit.Stats.MaxHP, currentUnit.GetCurrentShield());
@@ -376,6 +403,7 @@ public class UnitHoverUI : MonoBehaviour
 
     private void UpdateDynamicStats()
     {
+        if (currentUnit == null) return;
         StatBlock stats = currentUnit.Stats;
         int currentEnergy = currentUnit.inCombat ? currentUnit.currentEnergy : stats.maxEnergy;
 
@@ -530,20 +558,24 @@ public class UnitHoverUI : MonoBehaviour
         {
             activeAbilityBox.SetActive(true);
             activeAbilityText.SetText(activeDesc);
+            if (activeDivider != null) activeDivider.SetActive(true);
         }
         else
         {
             activeAbilityBox.SetActive(false);
+            if (activeDivider != null) activeDivider.SetActive(false);
         }
 
         if (!string.IsNullOrEmpty(passiveDesc))
         {
             passiveAbilityBox.SetActive(true);
             passiveAbilityText.SetText(passiveDesc);
+            if (passiveDivider != null) passiveDivider.SetActive(true); 
         }
         else
         {
             passiveAbilityBox.SetActive(false);
+            if (passiveDivider != null) passiveDivider.SetActive(false);
         }
 
         string mutationScalingDesc = currentUnit.GetMutationScalingText();
@@ -560,6 +592,72 @@ public class UnitHoverUI : MonoBehaviour
             if (mutationDivider != null) mutationDivider.SetActive(false);
             if (mutationAbilityBox != null) mutationAbilityBox.SetActive(false);
         }
+    }
+
+    public void ShowTactic(TacticInstance tactic, RectTransform uiAnchor = null)
+    {
+        uiAnchorOverride = uiAnchor;
+        if (tactic == null || tactic.Definition == null) return;
+
+        currentTactic = tactic;
+        currentUnit = null;
+
+        nameText.text = tactic.Definition.tacticName;
+        SetRarityBackground(tactic.CurrentRarity);
+
+        statText.text = "";
+        provisionText.text = "";
+        valueText.text = "";
+        if (healthBar != null) healthBar.gameObject.SetActive(false);
+        if (multicastContainer != null) multicastContainer.SetActive(false);
+        if (tactic.isPassive)
+        {
+            if (cooldownBar != null) cooldownBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (cooldownBar != null)
+            {
+                cooldownBar.gameObject.SetActive(true);
+                cooldownBar.SetVisuals(tactic.CurrentRarity);
+
+                float maxCd = tactic.GetCooldown();
+                cooldownBar.SetValues(maxCd, maxCd);
+            }
+        }
+        foreach (Transform child in tagContainer)
+        {
+            child.gameObject.SetActive(false);
+            Destroy(child.gameObject);
+        }
+
+        string desc = TextIconUtility.ParseDescription(tactic.GetDescription());
+
+        if (tactic.isPassive)
+        {
+            if (activeAbilityBox != null) activeAbilityBox.SetActive(false);
+            if (activeDivider != null) activeDivider.SetActive(false);
+            if (passiveAbilityBox != null) passiveAbilityBox.SetActive(true);
+            if (passiveAbilityText != null) passiveAbilityText.SetText(desc);
+        }
+        else
+        {
+            if (activeAbilityBox != null) activeAbilityBox.SetActive(true);
+            if (activeAbilityText != null) activeAbilityText.SetText(desc);
+            if (passiveAbilityBox != null) passiveAbilityBox.SetActive(false);
+            if (passiveDivider != null) passiveDivider.SetActive(false);
+        }
+
+        if (mutationDivider != null) mutationDivider.SetActive(false);
+        if (mutationAbilityBox != null) mutationAbilityBox.SetActive(false);
+        if (statsDivider != null) statsDivider.SetActive(false);
+        if (healthDivider != null) healthDivider.SetActive(false);
+        if (provisionDivider != null) provisionDivider.SetActive(false);
+        if (tagDivider != null) tagDivider.SetActive(false);
+
+        gameObject.SetActive(true);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+        if (!useFixedPosition) UpdatePosition();
     }
 
 

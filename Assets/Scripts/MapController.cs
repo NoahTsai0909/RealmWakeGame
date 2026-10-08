@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -109,8 +110,7 @@ public class MapController : MonoBehaviour
 
         if (isPinned)
         {
-            if (Keyboard.current.tKey.wasPressedThisFrame ||
-                Keyboard.current.escapeKey.wasPressedThisFrame ||
+            if (Keyboard.current.escapeKey.wasPressedThisFrame ||
                 Mouse.current.leftButton.wasPressedThisFrame ||
                 Mouse.current.rightButton.wasPressedThisFrame)
             {
@@ -124,8 +124,7 @@ public class MapController : MonoBehaviour
             }
             return;
         }
-
-        if (eventInfoPanel.activeSelf && Keyboard.current.tKey.wasPressedThisFrame)
+        if (eventInfoPanel.activeSelf && Mouse.current.rightButton.wasPressedThisFrame)
         {
             isPinned = true;
 
@@ -168,7 +167,6 @@ public class MapController : MonoBehaviour
 
         if (RunManager.Instance != null)
         {
-            // === ANTI-SAVE-SCUM LOGIC ===
             if (RunManager.Instance.eventInProgress)
             {
                 BaseEventSO abandonedEvent = RunManager.Instance.selectedEvent;
@@ -177,50 +175,42 @@ public class MapController : MonoBehaviour
                 {
                     Debug.LogWarning("Player fled combat! Applying damage penalty.");
 
-                    // 1. Apply the exact same penalty as losing in gameManager
                     RunManager.Instance.Stats.PlayerHealth -= RunManager.Instance.Stats.CurrentDay;
 
-                    // 2. Did the penalty kill them?
                     if (RunManager.Instance.Stats.PlayerHealth <= 0)
                     {
                         if (!RunManager.Instance.hasUsedLastChance)
                         {
-                            // Trigger Last Chance
                             RunManager.Instance.hasUsedLastChance = true;
                             RunManager.Instance.Stats.PlayerHealth = 1;
                             RunManager.Instance.lastChanceEvent.OnSelected();
-                            return; // Stop right here, we are changing scenes!
+                            return; 
                         }
                         else
                         {
-                            // They are dead for good. Wipe save and go to summary.
                             SaveLoadManager.DeleteSave();
                             SceneLoader.Instance.LoadScene(GameScene.RunSummaryScene);
-                            return; // Stop right here!
+                            return; 
                         }
                     }
 
-                    // 3. They survived the penalty! Finish the battle phase and advance the day.
                     RunManager.Instance.CompleteBattleEvent();
                 }
                 else if (abandonedEvent is ShopEventSO shopEvent)
                 {
                     Debug.LogWarning("Player abandoned a shop.");
-                    RunManager.Instance.shopState = null; // Clean up the shop memory
+                    RunManager.Instance.shopState = null; 
                     RunManager.Instance.CompleteRegularEvent();
                 }
-                else // Story Event or anything else
+                else 
                 {
                     Debug.LogWarning("Player abandoned an event.");
                     RunManager.Instance.CompleteRegularEvent();
                 }
 
-                // Clear the flag so the punishment only happens once
                 RunManager.Instance.eventInProgress = false;
                 RunManager.Instance.selectedEvent = null;
             }
-
-            // Generate new events if none exist (e.g., we just advanced to a new day)
             if (RunManager.Instance.currentDailyEvents.Count == 0)
             {
                 RunManager.Instance.GenerateDailyEvents();
@@ -361,6 +351,7 @@ public class MapController : MonoBehaviour
             previewGrid.gameObject.SetActive(true);
         }
         previewGrid.ClearAllUnits();
+
         var runtimeEnemyList = encounter.GetRuntimeEnemyPlacements(RunManager.Instance.Stats.CurrentDay);
 
         foreach (var placement in runtimeEnemyList)
@@ -368,29 +359,56 @@ public class MapController : MonoBehaviour
             if (placement.unitData == null || placement.unitData.definition == null) continue;
             UnitInstance unit = Instantiate(placement.unitData.definition.unitPrefab);
             unit.InitializeEnemy(placement.unitData);
-            unit.myPlacement = placement; 
+            unit.myPlacement = placement;
             unit.EnterCombat(previewGrid, placement.row, placement.col, false, false);
         }
+
         if (enemyTacticBarManager != null)
         {
             enemyTacticBarManager.gameObject.SetActive(true);
             enemyTacticBarManager.ClearAllTactics();
 
+            List<RunManager.TacticPlacement> previewTactics = new List<RunManager.TacticPlacement>();
             if (encounter.enemyTactics != null)
             {
-                foreach (var placement in encounter.enemyTactics)
+                previewTactics.AddRange(encounter.enemyTactics);
+            }
+
+            AdventureDefinitionSO currentAdventure = RunManager.Instance.allAdventures.FirstOrDefault(a => a.adventureName == RunManager.Instance.activeAdventureName);
+            if (currentAdventure != null && currentAdventure.modifierPhantomTactics != null)
+            {
+                int nextOrderIndex = previewTactics.Count;
+                foreach (var map in currentAdventure.modifierPhantomTactics)
                 {
-                    if (placement.tacticData == null || placement.tacticData.definition == null) continue;
-
-                    TacticInstance tactic = Instantiate(placement.tacticData.definition.tacticPrefab);
-
-                    tactic.InitializeFromSaveData(placement.tacticData);
-                    tactic.myPlacement = placement;
-
-                    enemyTacticBarManager.AddTactic(tactic);
+                    if (RunManager.Instance.HasDifficultyModifier(map.modifier))
+                    {
+                        previewTactics.Add(new RunManager.TacticPlacement
+                        {
+                            orderIndex = nextOrderIndex,
+                            tacticData = new RunManager.TacticSaveData
+                            {
+                                definition = map.phantomTactic,
+                                rarity = Rarity.Common,
+                                id = System.Guid.NewGuid()
+                            }
+                        });
+                        nextOrderIndex++;
+                    }
                 }
             }
+
+            foreach (var placement in previewTactics)
+            {
+                if (placement.tacticData == null || placement.tacticData.definition == null || placement.tacticData.definition.tacticPrefab == null) continue;
+
+                TacticInstance tactic = Instantiate(placement.tacticData.definition.tacticPrefab);
+                tactic.InitializeFromSaveData(placement.tacticData);
+                tactic.myPlacement = placement;
+
+                enemyTacticBarManager.AddTactic(tactic);
+            }
         }
+
         if (previewGrid != null) previewGrid.RefreshAllAuras();
         if (enemyTacticBarManager != null) enemyTacticBarManager.RefreshAllTacticAuras();
     }

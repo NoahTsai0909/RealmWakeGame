@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 858dbca3692345345bceaaeb3a59ea8d
+guid: 44b8afead5431a14d88a1acabbe0698e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5743659357848195708
-    second: rightClickIcon_0
+      213: -4499322979507211648
+    second: TargetPractice_0
+  - first:
+      213: 6785855172256363456
+    second: TargetPractice_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 160
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rightClickIcon_0
+      name: TargetPractice_0
       rect:
         serializedVersion: 2
-        x: 183
-        y: 94
-        width: 299
-        height: 421
+        x: 40
+        y: 758
+        width: 85
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c72d36731c395bf40800000000000000
-      internalID: 5743659357848195708
+      spriteID: 08278bca6913f81c0800000000000000
+      internalID: -4499322979507211648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TargetPractice_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 135
+        width: 1230
+        height: 1657
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3769f73533c2e50800000000000000
+      internalID: 6785855172256363456
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rightClickIcon_0: 5743659357848195708
+      TargetPractice_0: -4499322979507211648
+      TargetPractice_1: 6785855172256363456
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -17,6 +17,7 @@ public class RunSaveData
     public bool hasUsedLastChance;
     public bool eventInProgress;
     public int runSeed;
+    public int currentDifficulty;
     public Dictionary<Guid, PermanentStats> permanentStatsMap = new Dictionary<Guid, PermanentStats>();
     public Dictionary<Guid, UnitLifetimeStats> masterUnitStats = new Dictionary<Guid, UnitLifetimeStats>();
 

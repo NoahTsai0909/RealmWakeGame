@@ -1205,6 +1205,7 @@ MonoBehaviour:
   currentEncounter: {fileID: 0}
   eventInProgress: 0
   hasUsedLastChance: 0
+  currentDifficulty: 1
   rarityDistributionTable: {fileID: 11400000, guid: 4761c31200eefbd48a888347da7c49bf, type: 2}
   playerRegion: 0
   currentRegionTree: {fileID: 11400000, guid: abee08e9888d73f4883aa2306824939c, type: 2}
@@ -1288,11 +1289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa79ffe7c8ee43e42a90a145f4f32451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MetaManager
-  metaData:
-    unlockedCompendiumUnits: []
-    crownedUnits: []
-    totalRunsCompleted: 0
-    totalEnemiesDefeated: 0
 --- !u!114 &221976170
 MonoBehaviour:
   m_ObjectHideFlags: 0

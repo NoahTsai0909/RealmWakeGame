@@ -35,7 +35,17 @@ public class EncounterDefinition : ScriptableObject
             runtimePlacements.Add(copy);
         }
 
-        if (randomMutationCount > 0)
+        int effectiveMutationCount = randomMutationCount;
+
+        if (effectiveMutationCount > 0 && RunManager.Instance != null)
+        {
+            if (!RunManager.Instance.HasDifficultyModifier(DifficultyModifier.LateGameEnemyMutations))
+            {
+                effectiveMutationCount = 0;
+            }
+        }
+
+        if (effectiveMutationCount > 0)
         {
             Random.State oldState = Random.state;
 
@@ -43,7 +53,7 @@ public class EncounterDefinition : ScriptableObject
 
             var unmutatedEnemies = runtimePlacements.Where(x => x.unitData.prefix == null && !x.unitData.definition.tagFlags.HasFlag(UnitTagFlags.Consumable)).ToList();
 
-            for (int i = 0; i < randomMutationCount && unmutatedEnemies.Count > 0; i++)
+            for (int i = 0; i < effectiveMutationCount && unmutatedEnemies.Count > 0; i++)
             {
                 int index = Random.Range(0, unmutatedEnemies.Count);
                 var target = unmutatedEnemies[index];

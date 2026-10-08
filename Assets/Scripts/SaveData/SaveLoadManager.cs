@@ -27,6 +27,7 @@ public static class SaveLoadManager
         data.hasUsedLastChance = rm.hasUsedLastChance;
         data.eventInProgress = rm.eventInProgress;
         data.runSeed = rm.runSeed;
+        data.currentDifficulty = rm.currentDifficulty;
         // Save Dictionaries
         data.permanentStatsMap = rm.GetPermanentStatsMap();
         data.masterUnitStats = rm.masterUnitStats;
@@ -70,6 +71,7 @@ public static class SaveLoadManager
             rm.hasUsedLastChance = data.hasUsedLastChance;
             rm.eventInProgress = data.eventInProgress;
             rm.runSeed = data.runSeed;
+            rm.currentDifficulty = data.currentDifficulty > 0 ? data.currentDifficulty : 1;
             rm.RestoreEventPoolFromSave();
             // SAFELY RESTORE DICTIONARIES
             if (data.permanentStatsMap != null)

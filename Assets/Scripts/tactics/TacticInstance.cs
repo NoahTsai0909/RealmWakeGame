@@ -146,15 +146,6 @@ public class TacticInstance : MonoBehaviour
     {
         // Override in specific tactics to recalculate variables if needed
     }
-
-    /* =========================
-     * COMBAT ACTIONS
-     * ========================= */
-
-    /// <summary>
-    /// Called manually by the timeline manager when this tactic reaches the front of the queue.
-    /// </summary>
-    /// 
     public bool TickCooldown(float dt)
     {
         cooldownTimer -= dt;
@@ -227,6 +218,11 @@ public class TacticInstance : MonoBehaviour
     {
 
         return "";
+    }
+
+    public virtual void CombatStartEffect()
+    {
+        // Override in specific tactics to apply one-time start-of-combat buffs
     }
 
     public void MarkAsSpent()

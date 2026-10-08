@@ -157,4 +157,4 @@ MonoBehaviour:
       outcomes:
       - {fileID: 11400000, guid: 0467234b8ad25064bb41cf2e91b6bf72, type: 2}
       condition: {fileID: 0}
-  eventIllustration: {fileID: 0}
+  eventIllustration: {fileID: 21300000, guid: ce7e9ec8ef265f248894da13f3859167, type: 3}
