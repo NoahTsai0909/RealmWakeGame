@@ -31,7 +31,10 @@ public class UnitDatabase : ScriptableObject
 
         // IMPORTANT: rarity eligibility rule
         pool = pool.Where(u => u.startingRarity <= rolledRarity);
-
+        if (MetaManager.Instance != null)
+        {
+            pool = pool.Where(u => !u.isLockedByDefault || MetaManager.Instance.IsRewardUnitUnlocked(u.name));
+        }
         if (!byPassExclusivity)
         {
             pool = pool.Where(u => u.isEventExclusive == false); // Exclude event-exclusive units

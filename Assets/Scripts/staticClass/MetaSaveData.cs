@@ -11,10 +11,12 @@ public class MetaSaveData
     // A list of string IDs representing units the player has seen
     public List<string> unlockedCompendiumUnits = new List<string>();
 
-    // A list of string IDs representing units the player has won the game with
     public List<string> crownedUnits = new List<string>();
 
     public int totalRunsCompleted = 0;
     public int totalEnemiesDefeated = 0;
     public List<AdventureDifficulty> difficultyUnlocks = new List<AdventureDifficulty>();
+    public List<string> unlockedRewardUnits = new List<string>();
+    public List<string> unlockedAdventures = new List<string>();
+    public List<Region> unlockedRegions = new List<Region>();
 }

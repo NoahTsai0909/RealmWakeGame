@@ -43,6 +43,7 @@ MonoBehaviour:
   provisionCost: 1
   isMelee: 0
   isEventExclusive: 0
-  unitPrefab: {fileID: 0}
+  isLockedByDefault: 1
+  unitPrefab: {fileID: 6159050240198824858, guid: 7e4d9aedc29f94047a2a26edf03226ac, type: 3}
   spawnDefinition: {fileID: 0}
   tagFlags: 772

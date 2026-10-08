@@ -20,6 +20,9 @@ public class DifficultyTier
     public int difficultyLevel;
     [TextArea] public string description; 
     public List<DifficultyModifier> activeModifiers;
+    public List<UnitDefinition> unitRewards;
+    public List<AdventureDefinitionSO> adventureRewards;
+    public List<Region> regionRewards;
 }
 
 [CreateAssetMenu(fileName = "New Adventure", menuName = "Adventure/Adventure Definition")]

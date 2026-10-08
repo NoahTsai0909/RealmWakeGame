@@ -45,6 +45,9 @@ public class UnitDefinition : ScriptableObject, IStatSource
     [Tooltip("If true, this item will NEVER be randomly generated in standard loot pools.")]
     public bool isEventExclusive = false;
 
+    [Tooltip("If true, this unit is completely removed from the game until unlocked as a Difficulty Reward.")]
+    public bool isLockedByDefault = false;
+
     [Header("Prefab Reference")]
     public UnitInstance unitPrefab;
     public UnitDefinition spawnDefinition;

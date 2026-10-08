@@ -114,4 +114,67 @@ public class MetaManager : MonoBehaviour
             SaveManager.Save("meta_save.json", metaData);
         }
     }
+
+    public bool IsRewardUnitUnlocked(string unitName)
+    {
+        if (metaData == null || metaData.unlockedRewardUnits == null) return false;
+        return metaData.unlockedRewardUnits.Contains(unitName);
+    }
+
+    public void UnlockRewardUnit(UnitDefinition def)
+    {
+        if (def == null || metaData == null) return;
+
+        if (metaData.unlockedRewardUnits == null)
+            metaData.unlockedRewardUnits = new List<string>();
+
+        if (!metaData.unlockedRewardUnits.Contains(def.name))
+        {
+            metaData.unlockedRewardUnits.Add(def.name);
+            SaveManager.Save("meta_save.json", metaData);
+            Debug.Log($"[Meta] Unlocked new unit for future runs: {def.name}!");
+            UniversalPopupManager.ShowPopup($"New unit unlocked for future runs: {def.unitName}!");
+        }
+    }
+
+    public bool IsAdventureUnlocked(string adventureName)
+    {
+        if (adventureName == "Ruins Below") return true;
+
+        if (metaData == null || metaData.unlockedAdventures == null) return false;
+        return metaData.unlockedAdventures.Contains(adventureName);
+    }
+
+    public void UnlockAdventure(AdventureDefinitionSO adv)
+    {
+        if (adv == null || metaData == null) return;
+        if (metaData.unlockedAdventures == null) metaData.unlockedAdventures = new List<string>();
+
+        if (!metaData.unlockedAdventures.Contains(adv.adventureName))
+        {
+            metaData.unlockedAdventures.Add(adv.adventureName);
+            SaveManager.Save("meta_save.json", metaData);
+            UniversalPopupManager.ShowPopup($"New Adventure Unlocked: {adv.adventureName}!");
+        }
+    }
+    public bool IsRegionUnlocked(Region region)
+    {
+        if (region == Region.Solmire) return true;
+
+        if (metaData == null || metaData.unlockedRegions == null) return false;
+        return metaData.unlockedRegions.Contains(region);
+    }
+
+    public void UnlockRegion(Region region)
+    {
+        if (metaData == null) return;
+        if (metaData.unlockedRegions == null) metaData.unlockedRegions = new List<Region>();
+
+        if (!metaData.unlockedRegions.Contains(region))
+        {
+            metaData.unlockedRegions.Add(region);
+            SaveManager.Save("meta_save.json", metaData);
+            UniversalPopupManager.ShowPopup($"New Playable Region Unlocked: {region}!");
+        }
+    }
 }

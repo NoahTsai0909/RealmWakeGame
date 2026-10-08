@@ -132,6 +132,8 @@ public class UnitInstance : MonoBehaviour
 
             if (isEnergy)
                 currentEnergy = Mathf.Max(currentEnergy - 1, 0);
+                CombatEventBus.Publish(CombatEventBus.CombatEventType.EnergyUsed, this, this, 1);
+
         }
     }
 

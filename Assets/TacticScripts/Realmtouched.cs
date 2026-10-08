@@ -26,6 +26,6 @@ public class Realmtouched : TacticInstance
 
     public override string GetDescription()
     {
-        return ($"Combat Start: The ally in front of this has [c_maxhealth]+{maxHealthBuffPercent}%[/c] [MAXHEALTH].");
+        return ($"Combat Start: All allies gain [c_maxhealth]+{maxHealthBuffPercent}%[/c] [MAXHEALTH].");
     }
 }

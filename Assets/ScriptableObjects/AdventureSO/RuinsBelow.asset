@@ -24,12 +24,22 @@ MonoBehaviour:
   - difficultyLevel: 1
     description: 
     activeModifiers: 
+    unitRewards:
+    - {fileID: 11400000, guid: 92c243644a9270740b28cf52a8c1ce34, type: 2}
+    adventureRewards: []
+    regionRewards: 
   - difficultyLevel: 2
     description: 'Enemy encounters have "Combat Start: All enemies gain +20% [MAXHEALTH]"'
     activeModifiers: 00000000
+    unitRewards: []
+    adventureRewards: []
+    regionRewards: 
   - difficultyLevel: 3
     description: Enemy encounters in later days have random mutations.
     activeModifiers: 01000000
+    unitRewards: []
+    adventureRewards: []
+    regionRewards: 
   modifierPhantomTactics:
   - modifier: 0
     phantomTactic: {fileID: 11400000, guid: c4eb198b97c3be34a96662843b0bbee5, type: 2}

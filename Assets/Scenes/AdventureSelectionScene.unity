@@ -3243,7 +3243,7 @@ MonoBehaviour:
   difficultyText: {fileID: 248608348}
   modifierDescriptionText: {fileID: 1974493589}
   maxPossibleDifficulty: 3
-  unlockAllDifficultiesForTesting: 1
+  unlockAllDifficultiesForTesting: 0
 --- !u!4 &1919786958
 Transform:
   m_ObjectHideFlags: 0

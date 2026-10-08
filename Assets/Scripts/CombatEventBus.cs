@@ -10,6 +10,7 @@ public static class CombatEventBus
         UnitDied,
         ShieldDamaged,
         UnitSpawned,
+        EnergyUsed
     }
 
     public static event Action<CombatAction> OnActionResolved;

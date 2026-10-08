@@ -313,6 +313,31 @@ public class RunManager : MonoBehaviour
         if (Stats.CurrentDay >= TOTAL_DAYS)
         {
             MetaManager.Instance.RegisterWinningTeam(playerTeamPlacements);
+            AdventureDefinitionSO currentAdv = allAdventures.FirstOrDefault(a => a.adventureName == activeAdventureName);
+            if (currentAdv != null && currentAdv.difficultyTiers != null)
+            {
+                foreach (var tier in currentAdv.difficultyTiers)
+                {
+                    if (tier.difficultyLevel <= currentDifficulty)
+                    {
+                        if (tier.unitRewards != null)
+                        {
+                            foreach (var rewardUnit in tier.unitRewards)
+                                MetaManager.Instance.UnlockRewardUnit(rewardUnit);
+                        }
+                        if (tier.adventureRewards != null)
+                        {
+                            foreach (var rewardAdv in tier.adventureRewards)
+                                MetaManager.Instance.UnlockAdventure(rewardAdv);
+                        }
+                        if (tier.regionRewards != null)
+                        {
+                            foreach (var rewardReg in tier.regionRewards)
+                                MetaManager.Instance.UnlockRegion(rewardReg);
+                        }
+                    }
+                }
+            }
             MetaManager.Instance.UnlockNextDifficulty(activeAdventureName, currentDifficulty);
             SaveLoadManager.DeleteSave();
             SceneLoader.Instance.LoadScene(GameScene.RunSummaryScene);

@@ -113,7 +113,29 @@ public class AdventureSelectionController : MonoBehaviour
         AdventureDefinitionSO selectedAdventure = availableAdventures[currentIndex];
         titleText.text = selectedAdventure.adventureName;
         descriptionText.text = selectedAdventure.description;
+        bool isAdvUnlocked = true;
+        if (MetaManager.Instance != null && !unlockAllDifficultiesForTesting)
+        {
+            isAdvUnlocked = MetaManager.Instance.IsAdventureUnlocked(selectedAdventure.adventureName);
+        }
 
+        if (!isAdvUnlocked)
+        {
+            startRunButton.interactable = false;
+            startRunButton.GetComponentInChildren<TextMeshProUGUI>().text = "LOCKED";
+
+            if (difficultyText != null) difficultyText.text = "Locked";
+            if (modifierDescriptionText != null) modifierDescriptionText.text = "<color=#ff4444>You must unlock this adventure first!</color>";
+            if (difficultyLeftButton != null) difficultyLeftButton.interactable = false;
+            if (difficultyRightButton != null) difficultyRightButton.interactable = false;
+
+            return;
+        }
+        else
+        {
+            startRunButton.interactable = true;
+            startRunButton.GetComponentInChildren<TextMeshProUGUI>().text = "START";
+        }
         if (unlockAllDifficultiesForTesting)
         {
             currentMaxUnlocked = maxPossibleDifficulty;
@@ -138,11 +160,18 @@ public class AdventureSelectionController : MonoBehaviour
 
     private void SetRegion(Region region)
     {
-        if (region != Region.Solmire)
+        bool isUnlocked = true;
+        if (MetaManager.Instance != null && !unlockAllDifficultiesForTesting)
         {
-            UniversalPopupManager.ShowPopup($"Region {region} is locked for the purposes of this demo! Please look forward to the future release!");
+            isUnlocked = MetaManager.Instance.IsRegionUnlocked(region);
+        }
+
+        if (!isUnlocked)
+        {
+            UniversalPopupManager.ShowPopup($"Region {region} is locked!");
             return;
         }
+
         selectedRegion = region;
         if (selectedRegionText != null)
         {
